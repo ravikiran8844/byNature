@@ -1,0 +1,77 @@
+<div class="spacer wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <div class="blog-top text-center">
+      <h3 class="blog-title f-size">{{blog.title}}</h3>
+        <p class="blog-top-cnt"></p>
+      </div>
+      <div class="pure-g">
+        {%include 'blog-filter' %} 
+        {%-paginate blog.articles by 12-%}
+        {%-for article in blog.articles-%}  
+        {%- if forloop.index == 1 -%}
+        <div class="pure-g df">
+          <div class="pu-md-6 pu-lg-4 pu-sm-12">
+            <div class="subarticleblog childarticleblog">
+              <a href="{{ article.url }}"><img src="{{ article.image.src | img_url: '700x' }}"></a>
+              <div class="blog-title-box"> 
+            <h6 class="articletitle text-left"><a href="{{ article.url }}">{{article.title }}</a></h6>
+                <a class="read" href="{{ article.url }}">Continue reading →</a>
+                </div>              
+            </div>
+          </div>
+          {%-else-%}
+          <div class="pu-md-6 pu-lg-4 pu-sm-12">
+            <div class="subarticleblog childarticleblog">
+              <a href="{{ article.url }}"><img src="{{ article.image.src | img_url: '700x' }}"></a>
+              <div class="blog-title-box"> 
+            <h6 class="articletitle text-left"><a href="{{ article.url }}">{{article.title }}</a></h6>
+                <a class="read" href="{{ article.url }}">Continue reading →</a>
+                </div>              
+            </div>
+          </div>
+          {%-endif-%}
+          {%-if forloop.index > 1 and forloop.last-%}
+        </div>
+        {%-endif-%}
+        {%-endfor-%} 
+      </div>
+    </div>
+    {%-include 'pagination'-%}
+    {%-endpaginate-%}
+  </div>
+
+</div>
+
+<style>
+.articletitle {
+    margin-bottom: 0;
+    font-family: 'GTFlexa-Medium';
+    font-size: 2rem;
+}
+.blog-title-box {
+    margin-bottom: 2rem;
+}
+.read {
+    text-transform: uppercase;
+    border-bottom: 3px solid #ff9d1b;
+}
+.advanced-filters {
+  display: flex;
+  list-style: none;
+}
+.advanced-filters .advanced-filter12 {
+  padding: 10px 20px;
+  margin-left: 20px;
+  border: 1px solid;
+  border-radius: 12px;
+}
+</style>
+
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

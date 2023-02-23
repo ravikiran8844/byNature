@@ -1,0 +1,87 @@
+{%-comment-%}
+<div class="card__inner color-background-2 ratio">
+  <div class="card__media">
+<img srcset="https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_165x.jpg?v=1637107770 165w, https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_330x.jpg?v=1637107770 330w,https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_535x.jpg?v=1637107770 535w,https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_750x.jpg?v=1637107770 750w,https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_1000x.jpg?v=1637107770 1000w,https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_1500x.jpg?v=1637107770 1500w,https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1.jpg?v=1637107770 1600w" src="https://cdn.shopify.com/s/files/1/0551/9242/0441/products/mlouye-small-naomi-gummy-n1_1500x.jpg?v=1637107770" sizes="
+              (min-width: 1200px) 366px,
+              (min-width: 750px) calc((100vw - 10rem) / 2),
+              calc(100vw - 3rem)" alt="Featured collection 2" loading="lazy" class="motion-reduce motion-blog" width="1600" height="1600">
+  </div>
+</div>
+{%-endcomment-%}
+<div class="card__inner color-background-2 ratio">
+  <div class="card__media">
+    <div class="media">
+    <img
+         srcset="{%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                 {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                 {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                 {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                 {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                 {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                 {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w"
+         src="{{ card_product.featured_media | img_url: "1500x" }}"
+sizes="
+              (min-width: 1200px) 366px,
+              (min-width: 750px) calc((100vw - 10rem) / 2),
+              calc(100vw - 3rem)"
+         alt="{{ card_product.featured_media.alt | escape }}"
+         class="motion-reduce motion-blog"
+         loading="lazy"
+         width="1600"
+         height="1600"
+         >
+    </div>
+  </div>
+</div>
+<style>
+  .card__inner {
+    width: 100%;
+  }
+  .ratio {
+    display: flex;
+    position: relative;
+    align-items: stretch;
+    --ratio-percent: 100%;
+    position: relative;
+    box-sizing: border-box;
+  }  
+  .ratio:before {
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 100%;
+  }
+  .card__media{  
+    overflow: hidden;
+    z-index: 0;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    --ratio-percent: 100%;
+  display: block;
+    margin:0.0rem;
+  }
+  .media{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    display: block;
+    overflow: hidden;
+    --ratio-percent: 100%;
+  }
+  .motion-blog{
+    display: block;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    --ratio-percent: 100%;
+  }
+</style>

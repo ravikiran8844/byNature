@@ -1,0 +1,84 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <h3 class="sec-ttl text-center">{{ section.settings.why_title }}</h3>
+      <div class="glide" id="glide_why">
+    <div class="glide__track" data-glide-el="track">
+      <div class="glide__slides">
+         {%- for block in section.blocks -%}
+        <div class="glide__slide">
+        <div class="ship-info-box">
+          <img src="{{ block.settings.icon_img | img_url:'master'}}">
+          <p class="ship-info-ttl">{{ block.settings.icon_ttl }}</p>
+          <p class="ship-info-cnt">{{ block.settings.icon_content }}</p>
+        </div>
+        </div>
+        {%- endfor -%} 
+        
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Why Bynature",
+    "class": "why_bynature",
+    "settings": [
+      {
+        "type":"text",
+        "id":"why_title",
+        "label":"Title",
+        "default":"Why Bynature"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Icon text",
+        "type":"icon",
+        "settings":[
+          {
+          "type": "image_picker",
+           "id": "icon_img",
+           "label": "Image"
+        },
+          {
+            "type":"text",
+            "id":"icon_ttl",
+            "label":"Icon Title",
+            "default":"Fast Shipping"
+          },
+          {
+            "type":"text",
+            "id":"icon_content",
+            "label":"Icon Content",
+            "default":"Buy the best quality China grass or veg gelatin powder & get it delivered to your doorstep."
+          }
+        ]
+        
+      }
+    ]
+  }
+{% endschema %}
+
+
+<script>
+  new Glide('#glide_why', {
+	type: 'carousel',
+	perView: 3,
+	breakpoints: {
+		560: {
+			perView: 2.5,
+          autoplay: 5000
+		},
+      460: {
+			perView: 1.5,
+          autoplay: 5000
+		},
+	}
+}).mount();
+</script>

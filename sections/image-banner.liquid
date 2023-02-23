@@ -1,0 +1,66 @@
+<ol class="hidden" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li></ol>
+<link href="{{-'index.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{-'glide.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<div class="pure-g">
+  <div class="pu-12">    
+  <div class="glide home_slider">
+        <div class="glide__arrows" data-glide-el="controls"><button class="glide__arrow glide__arrow--prev" data-glide-dir="<"><span class="visuallyhidden">Prev</span><i class="icon icon-arrow-left"></i></button><button class="glide__arrow glide__arrow--next" data-glide-dir=">"><span class="visuallyhidden">Next</span><i class="icon icon-arrow-right"></i></button></div>
+    {%-if section.blocks.size > 0-%}
+          <div class="glide__track" data-glide-el="track">
+            <div class="glide__slides">
+          {%-for sect in section.blocks-%}
+              <div class="glide__slide"><a href="{{sect.settings.image_action}}">
+          {%-liquid 
+          assign img_url = sect.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          capture logo_alt
+          echo sect.settings.image.alt | default: shop.name
+          endcapture
+          capture image_size
+          echo '1500x'
+          endcapture
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: sect.settings.image.aspect_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ sect.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ sect.settings.image | img_url: image_size }}" srcset="{{ sect.settings.image | img_url: image_size }} 1x, {{ sect.settings.image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" style="max-width:auto;"></noscript></a></div>
+          {%-endfor-%}
+            </div>
+          </div>
+          <div class="glide__bullets" data-glide-el="controls[nav]">{%-for sect in section.blocks-%}<button class="glide__bullet" data-glide-dir="={{ forloop.index|minus:1 }}"><span class="visuallyhidden">{{forloop.index}}</span></button>{%-endfor-%}</div>    
+          {%- else -%}
+          <div class="glide__track" data-glide-el="track"><div class="glide__slides"><div class="glide__slide">{{'lifestyle-1'|placeholder_svg_tag: 'placeholder-svg'}}</div><div class="glide__slide">{{'lifestyle-2'|placeholder_svg_tag: 'placeholder-svg'}}</div></div></div><div class="glide__bullets" data-glide-el="controls[nav]"><button class="glide__bullet" data-glide-dir="=0"><span class="visuallyhidden">1</span></button><button class="glide__bullet" data-glide-dir="=1"><span class="visuallyhidden">1</span></button></div>    
+        {%- endif -%}
+  </div>
+  </div>
+</div>
+<script src="{{-'glide.js'|asset_url-}}"></script>
+<script src="{{-'index.js'|asset_url-}}" defer></script>
+{%-schema-%}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+         {
+           "type": "url",
+           "id": "image_action",
+           "label": "Image Links"
+         }
+       ]
+     }
+  ]
+}
+{%-endschema-%}

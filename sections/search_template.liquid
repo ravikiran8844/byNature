@@ -1,0 +1,115 @@
+<link
+  href="{{-'collection.css'|asset_url-}}"
+  rel="stylesheet"
+  type="text/css"
+  media="all" />
+
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-6">
+      <nav aria-label="Breadcrumb">
+        <ul
+          class="breadcrumb no-bullets"
+          itemscope
+          itemtype="https://schema.org/BreadcrumbList">
+          <li
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="{{shop.url}}">
+              <span itemprop="name">Home<i class="icon icon-arrow-right"></i>
+              </span>
+            </a><meta itemprop="position" content="1" /></li>
+          <li
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="{{canonical_url}}">
+              <span itemprop="name">Search</span>
+            </a><meta itemprop="position" content="2" /></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="pure-g">
+    <div class="pu-6">
+      <form
+        action="/search"
+        method="get"
+        role="search">
+        <input
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}">
+        <button type="submit">search</button>
+      </form>
+    </div>
+    {% comment %}
+    <div class="pu-6 pu-rt"> {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
+
+    <select>
+    {%- for option in search.sort_options %}
+    <option
+    value="{{ option.value }}"
+    {%- if option.value == sort_by %}
+    selected="selected"
+    {%- endif %}
+    >
+    {{ option.name }}
+    </option>
+    {% endfor -%}
+    </select> </div>
+    {% endcomment %}</div>
+  {%- if search.performed -%}
+    {%- if search.results.size > 0 -%}
+
+      <div class="pure-g">
+        <h3>Search results for "{{ search.terms }}"</h3>
+      </div>
+      <div
+        class="pure-g"
+        itemscope
+        itemtype="https://schema.org/ItemList">
+        <link itemprop="url" href="{{canonical_url}}" />
+        <meta itemprop="name" content="{{search.terms | escape}}" />
+        <meta itemprop="numberOfItems" content="{{search.results_count}}" />
+        <meta itemprop="itemListOrder" content="Unordered" />
+        <meta itemprop="description" content="{{"search results perfomed automatically"}}" />
+        {%- paginate search.results by 12 -%}
+          {%- for item in search.results -%}
+            {% if item.object_type == 'product' and item.available == true %}
+              {%- render 'search_results', product: item, index: forloop.index -%}
+
+              {% comment %}
+              {%- case item.object_type -%} 
+              {%- when 'product' -%}  
+              {%- when 'article' -%}
+              <div class="pu-sm-6 pu-md-6 pu-lg-3 pu-xl-3 pu-xxl-3"> 
+              {{ item.title | truncate: 50 | escape }} 
+              </div> 
+              {%- when 'page' -%} 
+              <div class="pu-sm-6 pu-md-6 pu-lg-3 pu-xl-3 pu-xxl-3"> 
+              {{ item.title | truncate: 50 | escape }} 
+              </div> 
+              {%- endcase -%} 
+              {% endcomment %}
+            {% endif %}
+          {%- endfor -%}
+        {%- endpaginate -%}
+        <div class="pure-g">
+          <div class="pu-12">
+            <hr> {%- render 'default_pagination', paginate: paginate -%}
+          </div>
+        </div>
+      {%- else -%}
+        <div class="pure-g">
+          <div class="pu-12 pu-ct">
+            <div><img src="{{ 'no_results.png'|asset_url }}" /></div>
+            <p style="padding:10px 0;">No Results Found</p>
+            <a href="/" class="button">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>

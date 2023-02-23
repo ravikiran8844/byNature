@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "cart-template": {
+      "type": "cart_template",
+      "settings": {
+        "enable_subtotal": false,
+        "enable_vendor": false,
+        "enable_notes": true,
+        "featured_products": [
+
+        ]
+      }
+    }
+  },
+  "order": [
+    "cart-template"
+  ]
+}

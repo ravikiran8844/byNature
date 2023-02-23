@@ -1,0 +1,76 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-md-1 pu-sm-12"></div>
+    <div class="pu-md-10 pu-sm-12">
+      <div class="glide" id="glide_ship">
+    <div class="glide__track" data-glide-el="track">
+      <div class="glide__slides">
+        {%- for block in section.blocks -%}
+        <div class="glide__slide">
+        <div class="ship-info-box">
+          <img src="{{ block.settings.icon_img | img_url:'master'}}">
+          <p class="ship-info-ttl">{{ block.settings.icon_ttl }}</p>
+          <p class="ship-info-cnt">{{ block.settings.icon_content }}</p>
+        </div>
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+      </div>
+    </div>
+    <div class="pu-md-1 pu-sm-12"></div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product Log Info",
+    "class":"log_info",
+    "settings": [
+      
+    ],
+    "blocks": [
+      {
+        "name":"Icon text",
+        "type":"icon",
+        "settings":[
+          {
+          "type": "image_picker",
+           "id": "icon_img",
+           "label": "Image"
+        },
+          {
+            "type":"text",
+            "id":"icon_ttl",
+            "label":"Icon Title",
+            "default":"Fast Shipping"
+          },
+          {
+            "type":"text",
+            "id":"icon_content",
+            "label":"Icon Content",
+            "default":"Buy the best quality China grass or veg gelatin powder & get it delivered to your doorstep."
+          }
+        ]
+        
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+  new Glide('#glide_ship', {
+	type: 'carousel',
+	perView: 3,
+	breakpoints: {
+		560: {
+			perView: 2.5,
+          autoplay: 5000
+		},
+      460: {
+			perView: 1.5,
+          autoplay: 5000
+		},
+	}
+}).mount();
+</script>

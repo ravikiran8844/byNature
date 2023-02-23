@@ -1,0 +1,157 @@
+<link href="{{-'product.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <div class="acc-title">
+        <h3 class="acc-main-ttl">{{ section.settings.main-title-l1 }}</h3>
+        <div class="acc-sub-box">
+          <p>{{ section.settings.main-sub-title }}</p>
+          <h3 class="acc-main-ttl">{{ section.settings.main-title-l2 }}</h3>
+        </div>
+      </div>
+      {%- for assor in section.blocks -%}
+      <div class="question">
+      {{ assor.settings.acc-tab-ttl }}
+    </div>
+    <div class="answercont">
+      <div class="answer">
+        <div class="pure-g">
+          <div class="pu-md-5">
+            <p class="ass-image-ttl">{{ assor.settings.acc-tab-in-ttl }}</p>
+            <img class="acc-image" src="{{ assor.settings.acc-image | img_url:'master' }}">
+          </div>
+          <div class="pu-md-7">
+            <p class="acc-tab-cont-1">{{ assor.settings.acc-tab-cont-one }}</p>
+            <p class="ass-title-ins">{{ assor.settings.benefits-title }}</p>
+            <div class="pure-g">
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">{{ assor.settings.benefits-sub-title-one }}</p>
+                <p class="ass-title-ins-box-cnt">{{ assor.settings.benefits-content-one }}</p>
+              </div>
+            </div>
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">Improves Symptoms of the Common Cold</p>
+                <p class="ass-title-ins-box-cnt">Getting enough vitamin C may help reduce symptoms and shorten the duration of respiratory tract infections, such as the common cold 😷</p>
+              </div>
+            </div>
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">Improves Symptoms of the Common Cold</p>
+                <p class="ass-title-ins-box-cnt">Getting enough vitamin C may help reduce symptoms and shorten the duration of respiratory tract infections, such as the common cold 😷</p>
+              </div>
+            </div>
+              <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">Improves Symptoms of the Common Cold</p>
+                <p class="ass-title-ins-box-cnt">Getting enough vitamin C may help reduce symptoms and shorten the duration of respiratory tract infections, such as the common cold 😷</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      {%-endfor-%}
+  </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Priduct_section_One",
+    "class": "product_section_one",
+    "settings": [
+      {
+      "id":"main-title-l1",
+      "type":"text",
+      "label":"Main Title Line one"
+      },
+      {
+      "id":"main-sub-title",
+      "type":"text",
+      "label":"Main Sub Title"
+      },
+      {
+      "id":"main-title-l2",
+      "type":"text",
+      "label":"Main Title Line one"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Acc Tab",
+        "type":"text",
+        "settings":[
+          {
+            "id":"acc-tab-ttl",
+            "type":"text",
+            "label":"Tab Title"
+          },
+          {
+            "id":"acc-tab-in-ttl",
+            "type":"text",
+            "label":"Tab In Title"
+          },
+          {
+           "type": "image_picker",
+           "id": "acc-image",
+           "label": "Image"
+         },
+          {
+            "id":"acc-tab-cont-one",
+            "type":"text",
+            "label":"Tab Inside top Content"
+            
+          },
+          {
+            "id":"benefits-title",
+            "type":"text",
+            "label":"Benefits"
+          },
+          {
+            "id":"benefits-sub-title-one",
+            "type":"text",
+            "label":"Benefits Sub Title One"
+          },
+          {
+            "id":"benefits-content-one",
+            "type":"richtext",
+            "label":"Benefits Content One"
+          }
+        ]
+      }
+       
+    ],
+    "presets": [{
+        "name": "Product Benefits Section",
+        "category": "Benefits Section"
+    }]
+  }
+{% endschema %}
+
+
+
+{% javascript %}
+  let question = document.querySelectorAll(".question");
+
+question.forEach(question => {
+  question.addEventListener("click", event => {
+    const active = document.querySelector(".question.active");
+    if(active && active !== question ) {
+      active.classList.toggle("active");
+      active.nextElementSibling.style.maxHeight = 0;
+    }
+    question.classList.toggle("active");
+    const answer = question.nextElementSibling;
+    if(question.classList.contains("active")){
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = 0;
+    }
+  })
+})
+{% endjavascript %}

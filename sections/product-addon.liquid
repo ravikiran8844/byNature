@@ -1,0 +1,97 @@
+<div class="wrapper">
+  <div class="pure-g">  
+    <div class="pu-1-1">    
+      <h1 class="addons-title pu-lg-ct pu-xl-ct pu-xxl-ct">{{ section.settings.title }}</h1>
+    </div>
+  </div>
+  <div class="pure-g">  
+    {%-for sects in section.blocks -%}
+    <div class="pu-1-4">    
+      <label class="radio-img">
+        <input type="radio" name="properties[productaddon]" value="{{sects.settings.product_addon_title}}" />
+
+        <div class="addonwrapper">
+          {%-capture image_size-%}{{ 220 | escape }}x{%- endcapture -%}
+          {%-liquid 
+              assign img_url = sects.settings.product_addon_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+              capture logo_alt
+              echo sects.settings.product_addon_image.alt | default: shop.name
+              endcapture
+		    -%}
+          <div class="lazyload__image-wrapper no-js header-logo__image">
+            <div style="padding-top:{{ 1 | divided_by: sects.settings.product_addon_image.aspect_ratio | times: 100}}%;">
+              <img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ sects.settings.product_addon_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}">
+            </div>
+          </div>
+          <noscript><img src="{{ sects.settings.product_addon_image | img_url: image_size }}" srcset="{{ sects.settings.product_addon_image | img_url: image_size }} 1x, {{ sects.settings.product_addon_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" itemprop="logo" style="max-width:220px;"></noscript>
+          <p class="addon_subtitle">{{sects.settings.product_addon_title}}</p>
+          <button type="button" class="button-full">Select</button>
+        </div>
+      </label>
+    </div>
+    {%-endfor-%}
+  </div>    
+</div>
+<style>
+
+  .radio-img > input {
+    display: none;
+  }
+  .radio-img > .image {
+    cursor: pointer;
+    border: 2px solid black;
+  }
+  .radio-img > input:checked + .addonwrapper {
+    border: 2px solid var(--colorPrimary);
+      }
+
+  .product_addon{
+    padding:30px 0; 
+  }
+  .product_addon .addons-title{
+    font-size:1.6em;
+    font-weight:700;
+    padding:20px 0;
+  }
+  .product_addon .addon_subtitle{
+    font-size:0.9em;
+    padding:10px 0;
+    font-weight:900; 
+  }
+  .product_addon .addonwrapper {
+    background:#ffffff;
+    padding:20px;
+    margin:0 0 20px 0px;
+    display:block;
+    cursor: pointer;
+
+  }
+</style>
+{%-schema-%}
+{
+"class":"product_addon",
+"tag": "section",
+"max_blocks": 4,
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Select Addons",
+"default":"Select Addons Ons"
+}
+],
+"blocks": [{
+"name":"product_addon",
+"type":"productaddon",
+"settings":[{
+"type":"image_picker",
+"label":"Product Addon Image",
+"id":"product_addon_image"
+},{
+"type":"text",
+"label":"Product Addon Title",
+"id":"product_addon_title"
+}]
+}]
+}
+{%-endschema-%}

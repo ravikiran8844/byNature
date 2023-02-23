@@ -1,0 +1,63 @@
+<div class="collection-filter">
+  <div class="pure-g"><div class="pu-6"><h3>Filter</h3></div><div class="pu-6 pu-rt"><button class="button-default filter-close"><i class="icon icon-close"></i></button></div></div>    
+  <div class="pure-g"><div class="pu-6"><button class="button-default button-full btn_clearall">Clear All</button></div><div class="pu-6 pu-rt"><button class="filter-submit button-full">Submit</button></div></div>    
+  <form class="filter-form">
+    {%-assign filter_Values = collection.filters | reverse -%}
+    {%-for filter in filter_Values-%}
+    {%-case filter.label-%}  
+    {%-when 'Price'-%}
+    <!--Start Shop by Product Price -->  
+    <hr class="hr_ruler">
+    <ul class="no-bullets">
+      <div class="so-tab"><input id="so-tab-{{forloop.index}}-p" type="checkbox" name="tabs" checked/> <label class="catg" for="so-tab-{{forloop.index}}-p">{{filter.label}}</label>
+        <div class="so-tab-content">
+          <li><div class="grid--full grid--table" style="margin-top:10px;">
+            <div class="grid__item two-fifths">
+              <input style="opacity:unset;position: unset;width:100%" name="{{ filter.min_value.param_name }}" id="Filter-{{ filter.label }}-{{ forloop.index }}" {% if filter.min_value.value -%} value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}" {%- endif %} type="number" placeholder="0" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}" class="prc_validator">
+            </div>
+            <div class="grid__item one-fifth text-center">
+              <div style="padding:5px 0;">To</div>
+            </div>
+            <div class="grid__item two-fifths">
+              <input style="opacity:unset;position:unset;width:100%" name="{{ filter.max_value.param_name }}" id="Filter-{{ filter.label }}-{{ forloop.index }}" {% if filter.max_value.value -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}" {%- endif %} type="number" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" min="0" max="{{ filter.range_max | money_without_currency | replace: ',', '' }}" class="prc_validator">
+            </div>    
+            </div></li>  
+          <!--End Shop by Product Price -->   
+        </div>
+      </div>
+    </ul>
+    {%-when 'Availability'-%}
+    <!--Start Shop by Product Availability -->  
+    <hr class="hr_ruler">
+    <ul class="no-bullets">
+      <div class="so-tab"><input id="so-tab-{{forloop.index}}-a" type="checkbox" name="tabs" checked/> <label class="catg" for="so-tab-{{forloop.index}}-a">{{filter.label}}</label>
+        <div class="so-tab-content">
+          {%-for avilability in filter.values-%}
+          <li><label><input id="Filter-{{ avilability.label }}-{{ forloop.index }}" class="chkk sort_nfil" type="radio" name="{{ avilability.param_name }}" value="{{ avilability.value | handle }}"  {% if avilability.active-%}checked{%-endif-%}/><span></span>&nbsp;
+            {%-liquid 
+          if avilability.value contains 1
+          echo "In Stock" 
+          else 
+          echo 'Out Stock' 
+          endif-%}</label></li>
+          {%-endfor-%}
+        </div>
+      </div>
+    </ul>
+    <!--End Shop by Product Availability -->  
+  {% else %}
+    <hr class="hr_ruler">            
+    <ul class="no-bullets">
+      <div class="so-tab"><input id="so-tab-{{forloop.index}}-t" type="checkbox" name="tabs" checked/> <label class="catg" for="so-tab-{{forloop.index}}-t">{{filter.label}}</label>
+        <div class="so-tab-content">
+          {%-for brand in filter.values-%}
+          <li><label><input id="Filter-{{ brand.label }}-{{ forloop.index }}" class="chkk sort_nfil" type="radio" name="{{ brand.param_name }}" value="{{ brand.value }}" {% if brand.active -%}checked{%- endif-%}/><span></span>&nbsp;{{brand.value |capitalize}}&nbsp;&nbsp;({{brand.count}})</label></li>
+          {%-endfor-%}
+        </div>
+      </div>
+    </ul>
+    {%-endcase-%}
+    {%-endfor-%}     
+  </form>
+  <div class="pure-g"><div class="pu-12 pu-rt"><button class="filter-submit button-full">Submit</button></div></div>    
+</div>

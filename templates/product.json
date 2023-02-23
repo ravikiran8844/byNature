@@ -1,0 +1,856 @@
+{
+  "sections": {
+    "product-template": {
+      "type": "product_template_new",
+      "blocks": {
+        "6f356e2d-e2d6-4d1c-b59e-d4e364d55903": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/100_vegetarian.png",
+            "ben_ttl": "100% vegetarian"
+          }
+        },
+        "d5a2b134-e10d-4a8a-9569-2b441e17b42e": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/100_gluten_free.png",
+            "ben_ttl": "Gluten Free"
+          }
+        },
+        "c2695faf-10f3-4379-b414-74cef164749d": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Dairy_Free.png",
+            "ben_ttl": "Dairy Free"
+          }
+        },
+        "75ca1d20-298a-4637-9f40-aca8393b0954": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/High_in_fibre.png",
+            "ben_ttl": "High in Fibre"
+          }
+        },
+        "fad1c44f-833a-455c-b4d7-33845c246f63": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Protein_and_fibre_rich.png",
+            "ben_ttl": "Complete Protein"
+          }
+        },
+        "125bfce1-1b50-4219-b269-ae16313310af": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2981.png",
+            "ben_ttl": "Anti-inflammatory"
+          }
+        },
+        "9cca1b72-e103-4426-8ff3-10c9c3a7fab4": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Improves_digestion.png",
+            "ben_ttl": "Improves Digestion"
+          }
+        },
+        "82e9679b-2ffb-46bc-b434-b82eab9562aa": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2982.png",
+            "ben_ttl": "Boosts Metabolism"
+          }
+        },
+        "50a0ddc8-8ce6-4345-8d92-c8a5d36db21f": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Contains_Mother.png",
+            "ben_ttl": "Contains 'Mother'"
+          }
+        },
+        "457e9d66-f54b-4390-8cfc-4c7e549d81c1": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Stops_wrinkles_fine_lines.png",
+            "ben_ttl": "Anti-ageing"
+          }
+        },
+        "8eae2373-97b2-49af-873a-0bef653b8b07": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2983.png",
+            "ben_ttl": "High in Protein & Minerals"
+          }
+        },
+        "ae97ebf8-f2a2-4c03-987a-0c2f414d06cc": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2984.png",
+            "ben_ttl": "Improves Heart Health"
+          }
+        },
+        "f4522c7d-e438-441d-aaa6-90e1c549c542": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2985.png",
+            "ben_ttl": "Boosts Energy"
+          }
+        },
+        "8960d817-a162-4ce1-95d5-6ef6e97f0e0c": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2986.png",
+            "ben_ttl": "Feel Full for Longer"
+          }
+        },
+        "44ffb5c4-409f-449f-9822-180def46647d": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Low_in_carbs.png",
+            "ben_ttl": "Low in Carbs"
+          }
+        },
+        "97f117b1-1f3b-4ddb-a223-2a43654856cd": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Contains_healthy_fats.png",
+            "ben_ttl": "Contains Healthy Fats"
+          }
+        },
+        "d7958317-ed76-4b39-949a-219f72fa30ca": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2987.png",
+            "ben_ttl": "Minimally Processed"
+          }
+        },
+        "f4afa745-d6b9-44ff-a8e4-a0d77073ce2f": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Low_glycemic_index.png",
+            "ben_ttl": "Low Glycemic Index"
+          }
+        },
+        "ad15afd1-db11-4817-ac5c-6f521b26850a": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Source_of_Vitamin_A_and_C.png",
+            "ben_ttl": "Source of Vitamin A and C"
+          }
+        },
+        "f4a6bd27-ac7c-4c3b-85af-c1a1427c0544": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/No_added_preservatives.png",
+            "ben_ttl": "No Added Preservatives"
+          }
+        },
+        "d60fb407-e2c0-4fc4-8e80-b839381ed757": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2988.png",
+            "ben_ttl": "84 Different Minerals"
+          }
+        },
+        "9dd1c229-9f8f-4cdc-b4f7-d4c4417de24a": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Low_in_sodium.png",
+            "ben_ttl": "Low in Sodium"
+          }
+        },
+        "94b4b6d0-bc03-48b4-ae2f-f8879798209f": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2990.png",
+            "ben_ttl": "Balances Body's pH"
+          }
+        },
+        "10d47753-7e7a-41ab-b068-9f8384622c4f": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2993.png",
+            "ben_ttl": "Aids in Digestion"
+          }
+        },
+        "1b1257e3-a3e2-4eac-92cb-823f9f29d3f7": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Improves_immunity.png",
+            "ben_ttl": "Improves Immunity"
+          }
+        },
+        "f7911337-477c-4adf-8a02-d03c565692fc": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Reduces_cholesterol.png",
+            "ben_ttl": "Reduces Cholesterol"
+          }
+        },
+        "5fdfd8a9-fec7-45a9-9586-a883f9be84a4": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2995.png",
+            "ben_ttl": "Weight Management"
+          }
+        },
+        "9e898c72-b91f-4245-9e2a-489717c1e3eb": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Helps_post_workout_recovery.png",
+            "ben_ttl": "Post Workout Recovery"
+          }
+        },
+        "87ab3d8e-aa33-4e57-8dd5-b7172584d770": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Muscle_growth.png",
+            "ben_ttl": "Muscle Growth"
+          }
+        },
+        "26190edb-a360-4360-a336-5844bef8d1b9": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/High_protein_absorption.png",
+            "ben_ttl": "High Protein Absorption"
+          }
+        },
+        "184f720a-6c0b-4d6f-9b27-10f9d5481b2c": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Improves_skin_radiance.png",
+            "ben_ttl": "Improves Skin Radiance"
+          }
+        },
+        "936b8276-9c02-45c3-baaa-87e08f761608": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Restores_skin_elasticity.png",
+            "ben_ttl": "Restores Skin Elasticity"
+          }
+        },
+        "7a93999a-49a4-4c27-9842-7d7464d2b3de": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Stops_wrinkles_fine_lines_1.png",
+            "ben_ttl": "Reduces Wrinkles & Fine Lines"
+          }
+        },
+        "25c21efc-61eb-47a8-9f9f-b880f632a1f2": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Improves_skin_radiance.png",
+            "ben_ttl": "Glowing Skin"
+          }
+        },
+        "f55ca590-edf0-4327-87bf-91c36f0f9792": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Stronger_nails.png",
+            "ben_ttl": "Stronger Nails"
+          }
+        },
+        "828ce378-9d71-44df-b30f-b41f1caa395d": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Healthier_Hair.png",
+            "ben_ttl": "Healthier Hair"
+          }
+        },
+        "45a743af-bfb3-4327-baf3-cc83ddee3275": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Boosts_collagen_production.png",
+            "ben_ttl": "Boosts Collagen Production"
+          }
+        },
+        "5ff43393-b186-475f-bb9a-a47520a9580c": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Fights_acne_69f40658-c2db-4217-a7c5-78d145acee87.png",
+            "ben_ttl": "Fights Acne"
+          }
+        },
+        "6885d88a-c819-4c37-a8d2-5860912b133b": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2996.png",
+            "ben_ttl": "Nourishes Skin"
+          }
+        },
+        "7df5a506-134e-4f60-a078-a112dfd865a9": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2998.png",
+            "ben_ttl": "Reduces Hair Fall"
+          }
+        },
+        "dccfab58-d3d6-46bf-b877-db2283f3d6ce": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Promotes_hair_growth.png",
+            "ben_ttl": "Promotes Hair Growth"
+          }
+        },
+        "08e00db8-ec2d-4edd-a4b8-e3a402b61cd4": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Group_2999.png",
+            "ben_ttl": "Promotes Hair Growth"
+          }
+        },
+        "05ab5377-4cad-4124-9d39-38a87d9ed43d": {
+          "type": "image",
+          "settings": {
+            "ben_img": "shopify:\/\/shop_images\/Repairs_skin.png",
+            "ben_ttl": "Repairs Skin"
+          }
+        }
+      },
+      "block_order": [
+        "6f356e2d-e2d6-4d1c-b59e-d4e364d55903",
+        "d5a2b134-e10d-4a8a-9569-2b441e17b42e",
+        "c2695faf-10f3-4379-b414-74cef164749d",
+        "75ca1d20-298a-4637-9f40-aca8393b0954",
+        "fad1c44f-833a-455c-b4d7-33845c246f63",
+        "125bfce1-1b50-4219-b269-ae16313310af",
+        "9cca1b72-e103-4426-8ff3-10c9c3a7fab4",
+        "82e9679b-2ffb-46bc-b434-b82eab9562aa",
+        "50a0ddc8-8ce6-4345-8d92-c8a5d36db21f",
+        "457e9d66-f54b-4390-8cfc-4c7e549d81c1",
+        "8eae2373-97b2-49af-873a-0bef653b8b07",
+        "ae97ebf8-f2a2-4c03-987a-0c2f414d06cc",
+        "f4522c7d-e438-441d-aaa6-90e1c549c542",
+        "8960d817-a162-4ce1-95d5-6ef6e97f0e0c",
+        "44ffb5c4-409f-449f-9822-180def46647d",
+        "97f117b1-1f3b-4ddb-a223-2a43654856cd",
+        "d7958317-ed76-4b39-949a-219f72fa30ca",
+        "f4afa745-d6b9-44ff-a8e4-a0d77073ce2f",
+        "ad15afd1-db11-4817-ac5c-6f521b26850a",
+        "f4a6bd27-ac7c-4c3b-85af-c1a1427c0544",
+        "d60fb407-e2c0-4fc4-8e80-b839381ed757",
+        "9dd1c229-9f8f-4cdc-b4f7-d4c4417de24a",
+        "94b4b6d0-bc03-48b4-ae2f-f8879798209f",
+        "10d47753-7e7a-41ab-b068-9f8384622c4f",
+        "1b1257e3-a3e2-4eac-92cb-823f9f29d3f7",
+        "f7911337-477c-4adf-8a02-d03c565692fc",
+        "5fdfd8a9-fec7-45a9-9586-a883f9be84a4",
+        "9e898c72-b91f-4245-9e2a-489717c1e3eb",
+        "87ab3d8e-aa33-4e57-8dd5-b7172584d770",
+        "26190edb-a360-4360-a336-5844bef8d1b9",
+        "184f720a-6c0b-4d6f-9b27-10f9d5481b2c",
+        "936b8276-9c02-45c3-baaa-87e08f761608",
+        "7a93999a-49a4-4c27-9842-7d7464d2b3de",
+        "25c21efc-61eb-47a8-9f9f-b880f632a1f2",
+        "f55ca590-edf0-4327-87bf-91c36f0f9792",
+        "828ce378-9d71-44df-b30f-b41f1caa395d",
+        "45a743af-bfb3-4327-baf3-cc83ddee3275",
+        "5ff43393-b186-475f-bb9a-a47520a9580c",
+        "6885d88a-c819-4c37-a8d2-5860912b133b",
+        "7df5a506-134e-4f60-a078-a112dfd865a9",
+        "dccfab58-d3d6-46bf-b877-db2283f3d6ce",
+        "08e00db8-ec2d-4edd-a4b8-e3a402b61cd4",
+        "05ab5377-4cad-4124-9d39-38a87d9ed43d"
+      ],
+      "settings": {
+      }
+    },
+    "made_width_care": {
+      "type": "made_with_care",
+      "blocks": {
+        "1c578e39-79cd-4be5-b756-99feae7fd68c": {
+          "type": "image",
+          "settings": {
+            "sec_img": "shopify:\/\/shop_images\/Energy_For_More.jpg",
+            "img_ttl": "ENERGY FOR MORE",
+            "img_content": "A nutritious start to the day can keep you going longer to be the best version of you.",
+            "background_color": "#f4bfbf"
+          }
+        },
+        "dd84179b-1b45-4b28-b33c-d75a7fad13ef": {
+          "type": "image",
+          "settings": {
+            "sec_img": "shopify:\/\/shop_images\/Best_Of_Nature_and_Science.jpg",
+            "img_ttl": "BEST OF NATURE & SCIENCE",
+            "img_content": "Our products are created from responsibly sourced & clinically proven ingredients.",
+            "background_color": "#f4bfbf"
+          }
+        },
+        "2f944a76-002e-47d7-8be3-2159212247f8": {
+          "type": "image",
+          "settings": {
+            "sec_img": "shopify:\/\/shop_images\/Lead_Healthier_Lives.jpg",
+            "img_ttl": "LEAD HEALTHIER LIVES",
+            "img_content": "Everyday nutrition can keep lifestyle diseases and issues under control.",
+            "background_color": "#f4bfbf"
+          }
+        }
+      },
+      "block_order": [
+        "1c578e39-79cd-4be5-b756-99feae7fd68c",
+        "dd84179b-1b45-4b28-b33c-d75a7fad13ef",
+        "2f944a76-002e-47d7-8be3-2159212247f8"
+      ],
+      "settings": {
+      }
+    },
+    "bynature_promise": {
+      "type": "bynature_promise",
+      "blocks": {
+        "8c62235f-db7e-445b-808a-2fa56c1df363": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Scientifically_Formulated_4b70d9c0-ac79-47f7-90da-20cb05cab19e.png",
+            "icon_ttl": "Scientifically <br> Formulated"
+          }
+        },
+        "e4fc36c2-3b45-49f4-9578-0b93785f500a": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Plant_Based_836bdb6c-5f77-4022-b9a9-3861f2861572.png",
+            "icon_ttl": "Plant <br>Based"
+          }
+        },
+        "d10ee6f1-996d-4fe5-8e06-346c7e71b18e": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/No_Artificial_Flavours.png",
+            "icon_ttl": "No Artificial  <br>Flavours"
+          }
+        },
+        "c95bdbfd-663a-4735-8912-ba2d9dcd8c44": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Clean_Nutrition.png",
+            "icon_ttl": "Clean <br>Nutrition"
+          }
+        },
+        "90a24586-7a12-4767-bd2a-c7077e176320": {
+          "type": "icon",
+          "disabled": true,
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/by-pro-ic-5.png",
+            "icon_ttl": "Fights<br>Wrinkles & Fine Lines"
+          }
+        },
+        "932f5bd8-f516-4f80-97e3-5e8b28b2a941": {
+          "type": "icon",
+          "disabled": true,
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/by-pro-ic-6.png",
+            "icon_ttl": "Stronger<br> Nail Growth"
+          }
+        }
+      },
+      "block_order": [
+        "8c62235f-db7e-445b-808a-2fa56c1df363",
+        "e4fc36c2-3b45-49f4-9578-0b93785f500a",
+        "d10ee6f1-996d-4fe5-8e06-346c7e71b18e",
+        "c95bdbfd-663a-4735-8912-ba2d9dcd8c44",
+        "90a24586-7a12-4767-bd2a-c7077e176320",
+        "932f5bd8-f516-4f80-97e3-5e8b28b2a941"
+      ],
+      "settings": {
+        "promise_title": "The Bynature Promise",
+        "promise_sub_title": "You are at the core of what we do and all our products are just to make you happy!"
+      }
+    },
+    "ingredients": {
+      "type": "ingredients",
+      "blocks": {
+        "ea6854cc-059f-496b-937e-12012be2442c": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Vitamin_C.png",
+            "img_cnt": "",
+            "img_ttl": "Vitamin C"
+          }
+        },
+        "53fe182f-39c4-443f-be15-778caa02d770": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/vitamin-a.png",
+            "img_cnt": "",
+            "img_ttl": "Vitamin A"
+          }
+        },
+        "3239022f-c6c7-42f6-a2c8-b60ab5f92f35": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Group_3100.png",
+            "img_cnt": "",
+            "img_ttl": "Vitamin B"
+          }
+        },
+        "1c72538b-2644-4773-8f60-6e3d73342d90": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Peas_a5856687-78a0-4b7a-bcd6-5daf1dec5833.png",
+            "img_cnt": "",
+            "img_ttl": "Peas"
+          }
+        },
+        "2dfd00e4-4afb-4f92-b02a-cfc3d2ce3d2d": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Brown_Rice_55bfdd62-02a3-4779-b932-403f088981c4.png",
+            "img_cnt": "",
+            "img_ttl": "Brown Rice"
+          }
+        },
+        "15295fed-5f0a-460b-9bd8-2fbfc3ec5b69": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Mung_Bean.png",
+            "img_cnt": "",
+            "img_ttl": "Mung Bean"
+          }
+        },
+        "995dd34f-5366-4047-a6af-5a2afd4b918e": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Papain.png",
+            "img_cnt": "",
+            "img_ttl": "Papain"
+          }
+        },
+        "9ae02e0e-b11b-4fe9-b46f-1cbe0e9d399a": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Lemon_Powder.png",
+            "img_cnt": "",
+            "img_ttl": "Lemon Powder"
+          }
+        },
+        "b5ff1fd4-6dac-4a71-be61-3d7adcb00d98": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Green_Mango_Powder.png",
+            "img_cnt": "",
+            "img_ttl": "Green Mango Powder"
+          }
+        },
+        "49d4e7ed-1051-4774-b61f-f4fa1dce5210": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Pomegranate_Powder.png",
+            "img_cnt": "",
+            "img_ttl": "Pomegranate Powder"
+          }
+        },
+        "45b15fd7-823f-4419-bde1-b6ad436e0959": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Bamboo_Shoot_Extract.png",
+            "img_cnt": "",
+            "img_ttl": "Bamboo Shoot Extract"
+          }
+        },
+        "dda3fdae-5b7d-4703-883b-229795611f2d": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Spearmint_Extract.png",
+            "img_cnt": "",
+            "img_ttl": "Spearmint Extract"
+          }
+        },
+        "741eac0e-450f-46a3-8520-21a018cf7eb0": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Aronia_Extract.png",
+            "img_cnt": "",
+            "img_ttl": "Aronia Extract"
+          }
+        },
+        "0f7129d5-d8f0-470c-b3c2-8dd0c71e1283": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Group_2922.png",
+            "img_cnt": "",
+            "img_ttl": "Dandelion Root Extract"
+          }
+        },
+        "0cdce95f-204d-46f1-8b8e-bf3fcbd7d0a8": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Group_2975.png",
+            "img_cnt": "",
+            "img_ttl": "L-Glucose"
+          }
+        },
+        "958c4de3-9026-4584-8963-be0159d06242": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Hyaluronic_Acid_840d2a25-e33b-4790-aa92-0dbf9732de99.png",
+            "img_cnt": "",
+            "img_ttl": "Hyaluronic Acid"
+          }
+        },
+        "ed5b4128-7e4e-4141-b7b5-e17964db6a20": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Organic_Sea_Buckthorn_Juice_Powde.png",
+            "img_cnt": "",
+            "img_ttl": "Organic Sea Buckthorn Juice Powder"
+          }
+        },
+        "3f79c328-ea6e-41e7-987f-db14f3052074": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Veg_Collagen_Peptides_6b9aa761-a2e1-4723-93c7-945eacc3606a.png",
+            "img_cnt": "",
+            "img_ttl": "Veg Collagen Peptides"
+          }
+        },
+        "a3dc5d1e-5e47-4053-8b40-892d4a9895cc": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Protein_66e9a281-d126-4e8d-b318-2f8f7235c02e.png",
+            "img_cnt": "",
+            "img_ttl": "Protein"
+          }
+        },
+        "a54170e0-d844-448d-a729-be0eb470420f": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Shatavari_new.png",
+            "img_cnt": "",
+            "img_ttl": "Shatavari"
+          }
+        },
+        "9f9677d7-43cf-4199-bd71-749fe8e7981d": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Hibiscus_new.png",
+            "img_cnt": "",
+            "img_ttl": "Hibiscus"
+          }
+        },
+        "fc8b1968-d9ef-4df9-9626-12feb373da0c": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Folic_Acid.png",
+            "img_cnt": "",
+            "img_ttl": "Folic Acid"
+          }
+        },
+        "7b86de1a-d050-4648-85dc-96952bf3c9bb": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Group_2977_c07436e4-4e41-4b96-831b-af7aa322ce2c.png",
+            "img_cnt": "",
+            "img_ttl": "Biotin"
+          }
+        },
+        "39d65262-320f-4cfb-8771-9a0f619b49a8": {
+          "type": "image",
+          "settings": {
+            "ing_img": "shopify:\/\/shop_images\/Bhringraj.png",
+            "img_cnt": "",
+            "img_ttl": "Bhringraj"
+          }
+        }
+      },
+      "block_order": [
+        "ea6854cc-059f-496b-937e-12012be2442c",
+        "53fe182f-39c4-443f-be15-778caa02d770",
+        "3239022f-c6c7-42f6-a2c8-b60ab5f92f35",
+        "1c72538b-2644-4773-8f60-6e3d73342d90",
+        "2dfd00e4-4afb-4f92-b02a-cfc3d2ce3d2d",
+        "15295fed-5f0a-460b-9bd8-2fbfc3ec5b69",
+        "995dd34f-5366-4047-a6af-5a2afd4b918e",
+        "9ae02e0e-b11b-4fe9-b46f-1cbe0e9d399a",
+        "b5ff1fd4-6dac-4a71-be61-3d7adcb00d98",
+        "49d4e7ed-1051-4774-b61f-f4fa1dce5210",
+        "45b15fd7-823f-4419-bde1-b6ad436e0959",
+        "dda3fdae-5b7d-4703-883b-229795611f2d",
+        "741eac0e-450f-46a3-8520-21a018cf7eb0",
+        "0f7129d5-d8f0-470c-b3c2-8dd0c71e1283",
+        "0cdce95f-204d-46f1-8b8e-bf3fcbd7d0a8",
+        "958c4de3-9026-4584-8963-be0159d06242",
+        "ed5b4128-7e4e-4141-b7b5-e17964db6a20",
+        "3f79c328-ea6e-41e7-987f-db14f3052074",
+        "a3dc5d1e-5e47-4053-8b40-892d4a9895cc",
+        "a54170e0-d844-448d-a729-be0eb470420f",
+        "9f9677d7-43cf-4199-bd71-749fe8e7981d",
+        "fc8b1968-d9ef-4df9-9626-12feb373da0c",
+        "7b86de1a-d050-4648-85dc-96952bf3c9bb",
+        "39d65262-320f-4cfb-8771-9a0f619b49a8"
+      ],
+      "settings": {
+        "ingredient_sec_title": "Ingredients that show results"
+      }
+    },
+    "product_shipping_info": {
+      "type": "product_shipping_info",
+      "disabled": true,
+      "blocks": {
+        "aa67213f-6661-416b-9411-dac59028628d": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Fast-Shipping.png",
+            "icon_ttl": "Fast Shipping",
+            "icon_content": "Buy the best quality China grass or veg gelatin powder & get it delivered to your doorstep."
+          }
+        },
+        "211db200-faa4-4f29-a81e-5ca440561c88": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/cash-on-delivery_1.png",
+            "icon_ttl": "Fast Shipping",
+            "icon_content": "Buy the best quality China grass or veg gelatin powder & get it delivered to your doorstep."
+          }
+        },
+        "89e1bfd8-ab55-453b-b33d-0cb9ded071a2": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Money-back.png",
+            "icon_ttl": "Fast Shipping",
+            "icon_content": "Buy the best quality China grass or veg gelatin powder & get it delivered to your doorstep."
+          }
+        }
+      },
+      "block_order": [
+        "aa67213f-6661-416b-9411-dac59028628d",
+        "211db200-faa4-4f29-a81e-5ca440561c88",
+        "89e1bfd8-ab55-453b-b33d-0cb9ded071a2"
+      ],
+      "settings": {
+      }
+    },
+    "why_bynature": {
+      "type": "why_bynature",
+      "blocks": {
+        "ae324944-7f23-4475-9694-baab6038233b": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/fast_1_1.png",
+            "icon_ttl": "Free Shipping",
+            "icon_content": "On orders above 499\/-"
+          }
+        },
+        "44de6cca-0f2b-43d4-8919-a2ad3bcfa691": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/cash-on-delivery_1.png",
+            "icon_ttl": "COD Available",
+            "icon_content": "All across India"
+          }
+        },
+        "6659a4b8-5028-4000-b1df-83d43c4cf236": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/refund_1.png",
+            "icon_ttl": "Easy Returns",
+            "icon_content": "With our 10 day return policy"
+          }
+        }
+      },
+      "block_order": [
+        "ae324944-7f23-4475-9694-baab6038233b",
+        "44de6cca-0f2b-43d4-8919-a2ad3bcfa691",
+        "6659a4b8-5028-4000-b1df-83d43c4cf236"
+      ],
+      "settings": {
+        "why_title": "Why Bynature"
+      }
+    },
+    "backed_by_science": {
+      "type": "backed_by_science",
+      "blocks": {
+        "2a9c0fc7-92ff-4e81-8bb5-e82c4b8b9881": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/1_665b2e23-cbec-430b-a722-8b20e1be5a5c.png",
+            "cli_name": "Mrinalini C",
+            "cli_content": "I ordered 3 months pack and really happy with the results, want to continue consumption."
+          }
+        },
+        "5e50dc56-5271-4db7-b40c-77cc2a37fcda": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/2_80e0e867-d787-44d0-94a3-a6c8fb8f0994.png",
+            "cli_name": "Ankur G.",
+            "cli_content": "The best salt I have used. No more bloating problem now. and I feel that my food tastes better."
+          }
+        },
+        "4c1be17d-5d83-4549-9e4d-e1e9de9d8e59": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/3_35caa0b6-9c4c-424f-91e2-23bae1d4d45c.png",
+            "cli_name": "Imran K.",
+            "cli_content": "Good oats. The flakes are full. They are not broken and there is no powder. With these by nature rolled oats, oats are now tastier."
+          }
+        },
+        "6740e934-223a-4877-ba3b-128f7b724f6d": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/4_2f366fc4-1d3a-48da-b231-05e0160a7fc9.png",
+            "cli_name": "Krishnakanta S.",
+            "cli_content": "Very nice and healthy product."
+          }
+        },
+        "c34fc674-e825-44a9-b15f-357309c7592e": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/Group_2713.png",
+            "cli_name": "Samson D.",
+            "cli_content": "Very pure. These are the best Chia seeds, I had. Great and convenient packaging also."
+          }
+        }
+      },
+      "block_order": [
+        "2a9c0fc7-92ff-4e81-8bb5-e82c4b8b9881",
+        "5e50dc56-5271-4db7-b40c-77cc2a37fcda",
+        "4c1be17d-5d83-4549-9e4d-e1e9de9d8e59",
+        "6740e934-223a-4877-ba3b-128f7b724f6d",
+        "c34fc674-e825-44a9-b15f-357309c7592e"
+      ],
+      "settings": {
+        "section_title": "Loved by Many!"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "products_to_show": 4
+      }
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "disabled": true,
+      "blocks": {
+        "loox-product-reviews": {
+          "type": "shopify:\/\/apps\/loox-product-reviews-photos\/blocks\/loox-dynamic-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "aggregated": false,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "loox-product-reviews"
+      ],
+      "settings": {
+      }
+    },
+    "product_review_section": {
+      "type": "product_review_section",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "product-template",
+    "made_width_care",
+    "bynature_promise",
+    "ingredients",
+    "product_shipping_info",
+    "why_bynature",
+    "backed_by_science",
+    "product-recommendations",
+    "loox-product-reviews-app-section",
+    "product_review_section"
+  ]
+}

@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <p class="sub-ttl">OUR BUILDING BLOCKS</p>
+      <h3 class="ing-ttl">Ingredints</h3>
+      <div class="glide" id="glide3">
+    <div class="glide__track" data-glide-el="track">
+      <div class="glide__slides no-bullets abt-icon-list">
+        <div class="glide__slide">
+          {% for tag in product.tags %}
+            {% if tag == 'Sesbania-Agati' %}
+             <div class="ingre-box">
+             <p class="inger-name">Orange</p>
+             <img src="{{ 'ing.png'|asset_url }}">
+        </div>
+           {% endif %}
+         {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+     
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Ingredints Two",
+    "class": "ingredints_two",
+    "settings": []
+  }
+{% endschema %}
+
+<style>
+.ingre-box {
+    text-align: center;
+    padding: 16px 0;
+    position: relative;
+    background: linear-gradient(180deg, #dbe7d3 68%, #00ffff00 32%);
+}
+
+.inger-name {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 18px 0;
+}
+  .ingre-box img{
+    padding: 0 10px;
+  }
+</style>
+<script>
+   new Glide('#glide3', {
+	type: 'carousel',
+	perView: 6,
+    autoplay:5000,
+	breakpoints: {
+		560: {
+			perView: 2
+		},
+      460: {
+			perView: 2
+		},
+	}
+}).mount();
+</script>

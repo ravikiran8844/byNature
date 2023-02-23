@@ -1,0 +1,78 @@
+  <div class="wrapper">
+    <div class="pure-g">
+      <div class="pu-12">
+        <h3>{{ section.settings.title_main }}</h3>
+        <table> 
+             <tr>
+                <th style="width:35%; border-top-left-radius: 16px;"></th>   
+                <th><img src="https://cdn.shopify.com/s/files/1/0564/3157/5138/files/bynature-logo.png?v=1662535535"></th>
+                <th>{{ section.settings.table_title_one }}</th>  
+                <th style="border-top-right-radius: 16px;">{{ section.settings.table_title_two }} </th>  
+             </tr>   
+          {%- for block in section.blocks -%}
+            <tr>  
+                <td>{{ block.settings.spec }}</td> 
+                <td><img src="{{ block.settings.bynature | img_url:'master' }}"></td>    
+                <td><img src="{{ block.settings.other_brand_one | img_url:'master' }}"></td>   
+                <td><img src="{{ block.settings.other_brand_two | img_url:'master' }}"></td>                 
+            </tr>  
+            {%- endfor -%}
+         </table>
+      </div>
+    </div>
+  </div>
+{% schema %}
+  {
+    "name": "Product Comparison Table",
+    "class":"product_comparison_table",
+    "settings": [
+      {
+        "type":"text",
+        "id":"title_main",
+        "label":"Title"
+      },
+      {
+        "type":"text",
+        "id":"table_title_one",
+        "label":"Table Title One"
+      },
+      {
+        "type":"text",
+        "id":"table_title_two",
+        "label":"Table Title Two"
+      }
+    ],
+    "blocks":[
+      {
+      "name":"Tab Content",
+        "type":"text",
+      "settings":[
+          {
+            "id":"spec",
+            "type":"text",
+            "label":"Spec Title"
+          },
+      {
+        "id":"bynature",
+        "type":"image_picker",
+        "label":"Bynature"
+      },
+      {
+        "id":"other_brand_one",
+        "type":"image_picker",
+        "label":"Other Brand One"
+      },
+      {
+        "id":"other_brand_two",
+        "type":"image_picker",
+        "label":"Other Brand Two"
+      }
+    ]
+      }
+    ],
+    "presets": [{
+        "name": "Product comparison Section",
+        "category": "Comparison Section"
+    }]
+  }
+{% endschema %}

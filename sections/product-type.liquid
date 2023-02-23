@@ -1,0 +1,129 @@
+<div class="wrapper">
+  <div class="pure-g">  
+    <div class="pu-1-1">    
+      <h1 class="addons-title pu-lg-ct pu-xl-ct pu-xxl-ct">{{ section.settings.title }}</h1>
+    </div>
+  </div>
+  <div class="pure-g">  
+    {%-for sects in section.blocks -%}
+    <div class="pu-1-6">
+        <label class="radio-img">
+          <input type="radio" name="properties[producttype]" value="{{sects.settings.product_type_title}}" />
+          <div class="addonwrapper">
+            <div class="icon_wrapper pu-sm-ct pu-md-ct pu-lg-ct pu-xxl-ct"><i class="icon {{sects.settings.select_cat}}"></i></div>
+            <div class="maintitle">{{sects.settings.product_type_title}}</div>
+            <div class="subtitle">{{sects.settings.product_typesub_title}}</div>
+          </div>
+        </label>                
+    </div>
+    {%-endfor-%}
+  </div>
+</div>
+<style>
+  
+  .radio-img > input {
+    display: none;
+  }
+  .radio-img > .image {
+    cursor: pointer;
+    border: 2px solid black;
+  }
+  .radio-img > input:checked + .addonwrapper {
+    border: 2px solid var(--colorPrimary);
+  }
+  
+  .product_type{
+   padding:30px 0; 
+  }
+  .product_type .addons-title{
+    font-size:1.6em;
+    font-weight:700;
+    padding:20px 0;
+  }
+  .product_type .icon:before{
+   font-size:120px; 
+  }
+  .product_type .addonwrapper {
+    background:#ffffff;
+    padding:20px;
+    margin:0 0 20px 0px;
+    display:inline-block;
+    cursor: pointer;
+  }
+  .product_type .maintitle{
+    font-size:1.2em;
+    font-weight:700;
+    padding-bottom: 5px;
+    line-height: 0.8em;   
+  }
+  .product_type .subtitle{
+    font-size:0.9em;
+    font-weight:700;
+    padding-top:10px;    
+  }
+</style>
+{%-schema-%}
+{
+  "class": "product_type",
+  "tag": "section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Select Type",
+	  "default":"Select Type"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "product_type",
+      "type": "productype",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Product Type Title",
+          "id": "product_type_title"
+        },
+        {
+          "type": "text",
+          "label": "Product Type Sub Title",
+          "id": "product_typesub_title"
+        },
+        {
+          "type": "select",
+          "id": "select_cat",
+          "label": "Select image",
+          "options": [
+            {
+              "value": "icon-gr1",
+              "label": "Icon Grind1"
+            },
+            {
+              "value": "icon-gr2",
+              "label": "Icon Grind2"
+            },
+            {
+              "value": "icon-gr3",
+              "label": "Icon Grind3"
+            },
+            {
+              "value": "icon-gr4",
+              "label": "Icon Grind4"
+            },
+            {
+              "value": "icon-gr5",
+              "label": "Icon Grind5"
+            },
+            {
+              "value": "icon-gr6",
+              "label": "Icon Grind6"
+            }
+          ],
+          "default": "icon-gr5"
+        }
+      ]
+    }
+  ]
+}
+{%-endschema-%}

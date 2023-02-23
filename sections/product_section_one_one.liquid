@@ -1,0 +1,177 @@
+<link href="{{-'product.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12"> 
+      <div class="acc-title">
+        <h3 class="acc-main-ttl">WHAT’S</h3>
+        <div class="acc-sub-box">
+          <p>Peep the <br>ingredients</p>
+          <h3 class="acc-main-ttl">INSIDE?</h3>
+        </div>
+      </div>
+      <div class="question active">
+      {{ product.metafields.custom.what_inside_two_tab_title }}
+    </div>
+    <div class="answercont" style="max-height: 535px;">
+      <div class="answer">
+        <div class="pure-g">
+          <div class="pu-md-5">
+            <p class="ass-image-ttl">{{ product.metafields.custom.what_inside_two_main_title }}</p>
+            <img class="acc-image" src="{{ product.metafields.custom.what_inside_two_image | img_url:'master' }}">
+          </div>
+          <div class="pu-md-7">
+            <p class="acc-tab-cont-1">{{ product.metafields.custom.what_inside_section_two_main_content }}</p>
+            <p class="ass-title-ins">BENEFITS</p>
+            <div class="pure-g">
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">{{ product.metafields.custom.what_inside_section_two_content_one_title }}</p>
+                <p class="ass-title-ins-box-cnt">{{ product.metafields.custom.what_inside_section_two_content_one }}</p>
+              </div>
+            </div>
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">{{ product.metafields.custom.what_inside_section_two_content_tow_title }}</p>
+                <p class="ass-title-ins-box-cnt">{{ product.metafields.custom.what_inside_section_two_content_two }}</p>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="question">
+      {{ product.metafields.custom.what_inside_three_tab_title }}
+    </div>
+    <div class="answercont">
+      <div class="answer">
+        <div class="pure-g">
+          <div class="pu-md-5">
+            <p class="ass-image-ttl">{{ product.metafields.custom.what_inside_three_main_title }}</p>
+            <img class="acc-image" src="{{ product.metafields.custom.what_inside_three_image | img_url:'master' }}">
+          </div>
+          <div class="pu-md-7">
+            <p class="acc-tab-cont-1">{{ product.metafields.custom.what_inside_section_three_main_content }}</p>
+            <p class="ass-title-ins">BENEFITS</p>
+            <div class="pure-g">
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">{{ product.metafields.custom.what_inside_section_three_content_one_title }}</p>
+                <p class="ass-title-ins-box-cnt">{{ product.metafields.custom.what_inside_section_three_content_one }}</p>
+              </div>
+            </div>
+            <div class="pu-md-6">
+              <div class="ass-title-ins-box">
+                <p class="ass-title-ins-box-ttl">{{ product.metafields.custom.what_inside_section_three_content_tow_title }}</p>
+                <p class="ass-title-ins-box-cnt">{{ product.metafields.custom.what_inside_section_three_content_two }}</p>
+              </div>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Priduct_section_One",
+    "class": "product_section_one",
+    "settings": [
+      {
+      "id":"main-title-l1",
+      "type":"text",
+      "label":"Main Title Line one",
+      "default": "WHAT’S"
+      },
+      {
+      "id":"main-sub-title",
+      "type":"text",
+      "label":"Main Sub Title",
+        "default": "Peep the <br>ingredients"
+      },
+      {
+      "id":"main-title-l2",
+      "type":"text",
+      "label":"Main Title Line one",
+        "default": "INSIDE?"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Acc Tab",
+        "type":"text",
+        "settings":[
+          {
+            "id":"acc-tab-ttl",
+            "type":"text",
+            "label":"Tab Title"
+          },
+          {
+            "id":"acc-tab-in-ttl",
+            "type":"text",
+            "label":"Tab In Title"
+          },
+          {
+           "type": "image_picker",
+           "id": "acc-image",
+           "label": "Image"
+         },
+          {
+            "id":"acc-tab-cont-one",
+            "type":"text",
+            "label":"Tab Inside top Content"
+            
+          },
+          {
+            "id":"benefits-title",
+            "type":"text",
+            "label":"Benefits"
+          },
+          {
+            "id":"benefits-sub-title-one",
+            "type":"text",
+            "label":"Benefits Sub Title One"
+          },
+          {
+            "id":"benefits-content-one",
+            "type":"richtext",
+            "label":"Benefits Content One"
+          }
+        ]
+      }
+       
+    ],
+    "presets": [{
+        "name": "Product Benefits Section",
+        "category": "Benefits Section"
+    }]
+  }
+{% endschema %}
+
+
+
+{% javascript %}
+  let question = document.querySelectorAll(".question");
+
+question.forEach(question => {
+  question.addEventListener("click", event => {
+    const active = document.querySelector(".question.active");
+    if(active && active !== question ) {
+      active.classList.toggle("active");
+      active.nextElementSibling.style.maxHeight = 0;
+    }
+    question.classList.toggle("active");
+    const answer = question.nextElementSibling;
+    if(question.classList.contains("active")){
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = 0;
+    }
+  })
+})
+{% endjavascript %}

@@ -1,0 +1,67 @@
+<div class="pure-g">
+<div class="pu-12">
+<hr>
+{%-if section.settings.video_url != blank-%}
+<div class="home_video" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+<meta itemprop="name" content="{{section.settings.title}}"/><meta itemprop="duration" content="{{section.settings.duration}}"/><meta itemprop="uploadDate" content="{{section.settings.date}}"/><meta itemprop="thumbnailURL" content="{{section.settings.thumb_url}}"/><meta itemprop="interactionCount" content="{{section.settings.icount}}"/><meta itemprop="embedURL" content="{{section.settings.video_url}}"/><meta itemprop="description" content="{{section.settings.description}}"/>
+<div>{{'lifestyle-2'|placeholder_svg_tag: 'placeholder-svg'}}</div>
+<div class="video_icon pu-ct"><svg width="56" height="56" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g style="opacity:1;fill:none;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"><path d="M45 0C20.147 0 0 20.147 0 45s20.147 45 45 45 45-20.147 45-45S69.853 0 45 0Zm17.251 46.633L37.789 60.756c-1.258.726-2.829-.181-2.829-1.633V30.877c0-1.452 1.572-2.36 2.829-1.634L62.25 43.366c1.258.726 1.258 2.541.001 3.267z" style="opacity:1;fill:#000;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none" transform="matrix(.45374 0 0 .45374 7.582 7.582)"/></g></svg></div>
+</div>
+{%-else-%}
+<div class="home_video">
+<div>{{'lifestyle-2'|placeholder_svg_tag: 'placeholder-svg'}}</div>
+<div class="video_icon pu-ct">
+<svg width="56" height="56" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g style="opacity:1;fill:none;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"><path d="M45 0C20.147 0 0 20.147 0 45s20.147 45 45 45 45-20.147 45-45S69.853 0 45 0Zm17.251 46.633L37.789 60.756c-1.258.726-2.829-.181-2.829-1.633V30.877c0-1.452 1.572-2.36 2.829-1.634L62.25 43.366c1.258.726 1.258 2.541.001 3.267z" style="opacity:1;fill:#000;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none" transform="matrix(.45374 0 0 .45374 7.582 7.582)"/></g></svg>
+</div>
+</div>
+{%-endif-%}
+</div>
+</div>
+<style>
+.home_video{
+position:relative;
+}
+.video_icon{
+  position: absolute;
+  top:50%;
+  left:0;
+  right:0;
+  transform: translateY(-50%);
+}
+</style>
+{%-schema-%}
+  {
+    "name": "Video",
+    "settings": [{
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },{
+          "type": "text",
+          "id": "description",
+          "label": "Description"
+        },{
+          "type": "text",
+          "id": "duration",
+          "label": "Duration"
+        },{
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        },{
+          "type": "text",
+          "id": "icount",
+          "label": "Count"
+        },{
+          "type": "image_picker",
+          "id": "thumb_url",
+          "label": "Thumb URL"
+        },{
+          "type": "video_url",
+          "accept": ["vimeo", "youtube"],
+          "id": "video_url",
+          "label": "Video URL",
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
+        }]
+  }
+{%-endschema-%}

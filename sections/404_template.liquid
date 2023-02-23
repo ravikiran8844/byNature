@@ -1,0 +1,51 @@
+<div class="pure-g">
+    <div class="pu-6">
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ canonical_url }}"><span itemprop="name">{{ '404' | escape }}</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="pu-6 pu-lg-rt pu-xl-rt pu-xxl-rt">
+        <h1 class="collection-title">{{ '404'| escape }}</h1>
+    </div>
+</div>
+<div class="pure-g">
+  <div class="pu-12 pu-ct">
+    <div class="not_foundtemp">
+      {%-if section.settings.emp-banner != blank-%}
+      <img src="{{ section.settings.emp-banner|img_url:"400x" }}"/>
+      {%-else-%}
+      <img src="{{ 'not-found.png'|asset_url }}"/>
+      {%-endif-%} 
+      <p style="padding:10px 0;">{{ 'general.404.subtext_html' | t }}</p>    
+      <a href="{{section.settings.targe_action}}" class="button">Continue Shopping</a>        
+    </div>
+  </div>
+</div>
+<style>
+.not_foundtemp{
+  padding:30px 0; 
+}
+</style>
+{%-schema-%}
+  {
+    "name": "404 Template",
+    "settings": [
+    {
+      "type":"image_picker",
+      "id":"emp-banner",
+      "label":"Update Page Banner"
+    },{
+     "type": "url",
+     "id": "targe_action",
+     "label": "Target Link"
+    }
+  ]
+}
+{%-endschema-%}

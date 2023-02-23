@@ -1,0 +1,91 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <h3 class="by-pro-ttl clr text-center">{{ section.settings.promise_title }}</h3>
+      <p class="by-pro-subttl text-center">{{ section.settings.promise_sub_title }}</p>
+    </div>
+  </div>
+  <div class="pure-g">
+    <div class="pu-sm-12 pu-md-2">
+    </div>
+    <div class="pu-sm-12 pu-md-8">
+  <div class="glide" id="glide_promise">
+    <div class="glide__track" data-glide-el="track">
+      <div class="glide__slides">
+        {%- for block in section.blocks -%}
+        <div class="glide__slide">
+      <div class="icon-sec text-center">
+        <div class="icon-image">
+        <img src="{{ block.settings.icon_img | img_url:'master'}}" alt="icon">
+        </div>
+        <p class="icon-ttl">{{ block.settings.icon_ttl }}</p>
+      </div>
+      </div>
+        {%- endfor -%}
+    </div>
+    </div>
+  </div>
+    </div>
+    <div class="pu-sm-12 pu-md-2">
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "The Bynature Promise",
+    "class": "bynature_promise",
+    "settings":[
+      {
+        "type":"text",
+        "id":"promise_title",
+        "label":"Title",
+        "default":"The Bynature Promise"
+      },
+      {
+        "type":"text",
+        "id":"promise_sub_title",
+        "label":"Sub Title",
+        "default":"You are at the core of what we do and all our products are just to make you happy!"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Icon text",
+        "type":"icon",
+        "settings":[
+          {             
+          "type": "image_picker",
+           "id": "icon_img",
+           "label": "Image"
+        },
+          {
+            "type":"text",
+            "id":"icon_ttl",
+            "label":"Icon Text"
+          }
+        ]
+        
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+  new Glide('#glide_promise', {
+	type: 'carousel',
+	perView: 4,
+    
+	breakpoints: {
+		560: {
+			perView: 2,
+          autoplay:5000,
+		},
+      460: {
+			perView: 2,
+        autoplay:5000,
+		},
+	}
+}).mount();
+</script>

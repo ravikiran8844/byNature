@@ -1,0 +1,6 @@
+{%-if predictive_search.performed-%}
+<ul class="no-bullets search-results" data_s="{{predictive_search.resources.size}}">
+    {%-if predictive_search.resources.products.size > 0-%}<li class="secl pu-lt"><label>Products</label></li>{%-else-%}<li class="secl pu-lt"><label>No Products Found.</label></li>{%-endif-%}
+    {%-for product in predictive_search.resources.products-%}<li class="secl"><a href="{{ product.url }}"><span class="thumbnail"><img src="{{ product.featured_media | img_url: '50x' }}"/></span><span class="title">{{product.title }}</span></a></li>{%-endfor-%}
+</ul>
+{%-else-%}<ul class="search-results"><li class="secl pu-lt"><label>No Products Found.</label></li></ul>{%-endif-%}  	

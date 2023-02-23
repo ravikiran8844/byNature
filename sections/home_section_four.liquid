@@ -1,0 +1,173 @@
+  <div class="wrapper">                                      
+      <div class="pure-g">                    
+          <div class="pu-md-5 pu-sm-12">           
+             <div class="head-para-box mobile-view-only"> 
+                <div class="sub-heading">01</div>
+                  <div class="main-heading">  
+                    {{ section.settings.titel_one }}
+                   
+                  </div>                                
+                  <div class="para1">  
+                    {{ section.settings.desc_one }}
+                    
+                  </div>           
+              </div>
+              <div class="left-img">   
+                  <img src="{{ section.settings.hsf_image_one | img_url:'master' }}">
+              </div>   
+              <div class="head-para-box desktop-view-only">
+                 <div class="sub-heading">02</div>
+                  <div class="main-heading">
+                    {{ section.settings.titel_two }}
+                  </div>                 
+                  <div class="para">  
+                    {{ section.settings.desc_two }}
+                    
+                  </div>                          
+              </div> 
+            <div class="head-para-box mobile-view-only">
+                 <div class="sub-heading">02</div>
+                  <div class="main-heading">
+                    {{ section.settings.titel_two }}
+                  </div>                 
+                  <div class="para">  
+                    {{ section.settings.desc_two }}
+                    
+                  </div>                          
+              </div> 
+            <div class="mobile-view-only">
+            <div class="img-sec">                     
+                  <img src="{{ section.settings.hsf_image_two | img_url:'master' }}">
+                </div>
+            </div>
+          </div>                        
+          <div class="pu-md-7 pu-sm-12">       
+              <div class="head-para-box desktop-view-only"> 
+                 <div class="sub-heading">01</div>
+                  <div class="main-heading">  
+                    {{ section.settings.titel_one }}
+                  </div>
+                  <div class="para">   
+                    {{ section.settings.desc_one }}
+                    
+                  </div>
+                <div class="right-img-sec">                     
+                  <img src="{{ section.settings.hsf_image_two | img_url:'master' }}">
+                </div>                                 
+              </div>                                                                    
+          </div>           
+          <div class="pu-md-4 desktop-view-only">        
+              
+          </div>
+          <div class="pu-md-4 pu-sm-12">
+            <div class="head-para-box mobile-view-only"> 
+                 <div class="sub-heading">03</div>
+                  <div class="main-heading"> 
+                    {{section.settings.titel_three}}
+                  </div>      
+                  <div class="para1">  
+                    {{ section.settings.desc_three }}
+                  </div>  
+            </div>                         
+            <div class="center-img">       
+              <img src="{{ section.settings.hsf_image_three | img_url:'master' }}">
+            </div>      
+          </div>       
+          <div class="pu-md-4 pu-sm-12 bottom-txt">         
+             <div class="head-para-box desktop-view-only">  
+                <div class="sub-heading">03</div>
+                  <div class="main-heading"> 
+                    {{ section.settings.titel_three }}
+                  </div>    
+                  <div class="para1">  
+                    {{ section.settings.desc_three }}
+                  </div>             
+              </div>                
+          </div> 
+        <div class="pu-md-4 pu-sm-12">           
+              <div class="left-img">   
+                  <img src="{{ section.settings.hsf_image_four | img_url:'master' }}">
+              </div>   
+          </div>
+        <div class="pu-md-4 pu-sm-12 center-txt">         
+             <div class="head-para-box">  
+                <div class="sub-heading">04</div>
+                  <div class="main-heading"> 
+                    {{ section.settings.titel_four }}
+                  </div>    
+                  <div class="para1"> 
+                    {{ section.settings.desc_four }}
+                  </div>             
+              </div>                
+          </div>
+      </div>        
+  </div> 
+
+{% schema %}
+  {
+    "name": "Home_Section_Four",
+    "class": "home_section_four",
+    "settings": [
+      {
+        "type" : "image_picker",
+        "id": "hsf_image_one",
+        "label":"Image One"
+      },
+      {
+      "type":"text",
+      "id": "titel_one",
+      "label": "Titel One"
+      },
+      {
+       "type":"text",
+      "id": "desc_one",
+      "label": "Descriptioin One" 
+      },
+      {
+        "type" : "image_picker",
+        "id": "hsf_image_two",
+        "label":"Image Two"
+      },
+      {
+      "type":"text",
+      "id": "titel_two",
+      "label": "Titel two"
+      },
+      {
+       "type":"text",
+      "id": "desc_two",
+      "label": "Descriptioin two" 
+      },
+      {
+        "type" : "image_picker",
+        "id": "hsf_image_three",
+        "label":"Image Three"
+      },
+      {
+      "type":"text",
+      "id": "titel_three",
+      "label": "Titel three"
+      },
+      {
+       "type":"text",
+      "id": "desc_three",
+      "label": "Descriptioin three" 
+      },
+      {
+        "type" : "image_picker",
+        "id": "hsf_image_four",
+        "label":"Image Four"
+      },
+      {
+      "type":"text",
+      "id": "titel_four",
+      "label": "Titel Four"
+      },
+      {
+       "type":"text",
+      "id": "desc_four",
+      "label": "Descriptioin Four" 
+      }
+    ]
+  }
+{% endschema %}

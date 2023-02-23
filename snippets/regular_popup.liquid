@@ -1,0 +1,131 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<div id="popup1" class="modal-box">
+  <div class="modal-body">
+    <a href="JavaScript:void(0);" class="js-modal-close"><i class="icon icon-close popup-close"></i></a>
+    <div class="popup_wrp">
+      {%-assign product = all_products["it-s-a-gift"]-%}  
+      <div class="pure-g">
+        <div class="pu-1-1">
+          {%-assign current_variant = product.selected_or_first_available_variant-%}
+          {%-assign featured_image = current_variant.featured_image | default: product.featured_image-%}
+          <img src="{{ featured_image | img_url: 'small' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+        </div>
+        <div class="pu-1-1">
+          <h1>{{ product.title }}</h1>
+          <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+            <select name="id" id="productSelect">
+              {% for variant in product.variants %}
+              {% if variant.available %}
+              <option value="{{ variant.id }}">
+                {{ variant.title }} - {{ variant.price | money_with_currency }}
+              </option>
+              {% else %}
+              <option disabled="disabled">
+                {{ variant.title }} - sold out
+              </option>
+              {% endif %}
+              {% endfor %}
+            </select>
+            <div>{{ current_variant.price | money }}</div>
+            <label for="Quantity">quantity</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1">
+            <div><button type="submit" name="add" id="AddToCart">Add to cart</button></div>
+          </form>
+          <div>{{ product.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .js-modal-close{
+    float: right;margin-right: 5px;margin-top: 5px;background-repeat:no-repeat;
+  }
+  .popup-close:before {
+    padding: 10px;
+    color: #fff;
+  }
+  .save_txt{
+    font-size:40px;
+    text-align: center;
+    font-weight: 900;
+    padding: 15px 0px;
+  }
+  .coupen_wrapper{
+    margin:20px 0;
+  }
+  .coupen_code{
+    text-align: center;
+    border: 3px dashed #ffffff;
+    padding:5px;
+  }
+  .popup_wrp{
+    padding-top: 35px;padding-bottom: 35px;
+  }
+  .modal-box {
+    display: none;
+    position: absolute;
+    z-index: 10001;
+    width: 98%;
+    background-clip: padding-box;
+    color:#ffffff;
+    background:#000000;
+    text-align:center;
+  }
+
+  .popup-overlay {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    background:#000000;
+  } 
+
+  @media (min-width: 32em) {
+    .modal-box { width: 35%; }
+  }
+  @media only screen and (min-width: 361px) and (max-width: 1080px) {
+    .modal-box { width: 85%;
+      height: auto; 
+    }
+  }
+  @media only screen and (min-width: 320px) and (max-width: 360px) {
+    .modal-box { width: 300px;
+      height:auto;
+    }
+  }
+</style>
+
+<script>
+  (function() { 
+    function data(){$("body").append("<div class='popup-overlay js-modal-close'></div>"),$(".popup-overlay").fadeTo(500,.7),$("#popup1").fadeIn($(this).data()).css("position","fixed")};
+    var model_windows= $(document).width();
+    $(".js-modal-close, .popup-overlay").click(function() {
+      $(".modal-box, .popup-overlay").fadeOut(500, function() {
+        $(".popup-overlay").remove();
+      });
+    });
+
+    $("#popup1").click(function(){$(".modal-box, .popup-overlay").fadeOut(500,function(){$(".modal-overlay").remove()}),setCookie("cookies_user","yes")});
+    if(model_windows<1080)
+    {
+      $(window).resize(function(){
+        $(".modal-box").css({top:($(window).height()-$(".modal-box").outerHeight())/7,left:($(window).width()-$(".modal-box").outerWidth())/2})
+      }),
+        $(window).resize();
+    }
+    if(model_windows>1080)
+    {
+      $(window).resize(function(){
+        $(".modal-box").css({top:($(window).height()-$(".modal-box").outerHeight())/2,left:($(window).width()-$(".modal-box").outerWidth())/2})
+      }),
+        $(window).resize();
+    }    
+
+    $("js-open-modal[data-modal-id='popup1']").click(data());
+
+  }).call(this);
+</script>

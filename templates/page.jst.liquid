@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <script id="ToClone" type="text/template">
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td><b>MMS_RepairLabel:</b>
+    </td>
+                        <td align="right"><span class="RepairId"></span>
+    </td>
+    </tr>
+                    <tr>
+                        <td><b>MMS_MWTLabel:</b>
+    </td>
+                        <td align="right"><span class="MWT"></span>
+    </td>
+    </tr>
+                    <tr>
+                        <td><b>MMS_MDTLabel:</b>
+    </td>
+                        <td align="right"><span class="MDT"></span>
+    </td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+  </script>
+  <div class="hdr"></div>
+  <script>
+    $clone = document.querySelector('#ToClone');
+    $clone = $clone.cloneNode(true);
+    console.log($clone);
+    //$datas =  document.querySelector('.RepairId', $clone).text("Hel");
+    //document.querySelector('.hdr', $clone).innerHTML = $datas;
+  </script>
+</div>

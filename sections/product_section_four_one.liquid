@@ -1,0 +1,74 @@
+  <div class="wrapper">
+    <div class="pure-g">
+      <div class="pu-12">
+        <h3>{{ section.settings.title_main }}</h3>
+      </div>
+      <div class="pu-md-3 pu-sm-12">
+      </div>
+      <div class="pu-md-6 pu-sm-12">
+        <picture>
+          <source media="(min-width:650px)" srcset="{{ product.metafields.custom.product_comparison_table | img_url:'master' }}">
+          <source media="(max-width:649px)" srcset="{{ product.metafields.custom.product_comparison_table_mobile | img_url:'master' }}">
+          <img src="{{ product.metafields.custom.product_comparison_table | img_url:'master' }}" alt="Flowers" style="width:100%;">
+        </picture>
+      </div>
+    <div class="pu-md-3 pu-sm-12">
+      </div>
+    </div>
+  </div>
+{% schema %}
+  {
+    "name": "Product Comparison Table",
+    "class":"product_comparison_table",
+    "settings": [
+      {
+        "type":"text",
+        "id":"title_main",
+        "label":"Title",
+        "default": "MAKING A SMARTER CHOICE"
+      },
+      {
+        "type":"text",
+        "id":"table_title_one",
+        "label":"Table Title One"
+      },
+      {
+        "type":"text",
+        "id":"table_title_two",
+        "label":"Table Title Two"
+      }
+    ],
+    "blocks":[
+      {
+      "name":"Tab Content",
+        "type":"text",
+      "settings":[
+          {
+            "id":"spec",
+            "type":"text",
+            "label":"Spec Title"
+          },
+      {
+        "id":"bynature",
+        "type":"image_picker",
+        "label":"Bynature"
+      },
+      {
+        "id":"other_brand_one",
+        "type":"image_picker",
+        "label":"Other Brand One"
+      },
+      {
+        "id":"other_brand_two",
+        "type":"image_picker",
+        "label":"Other Brand Two"
+      }
+    ]
+      }
+    ],
+    "presets": [{
+        "name": "Product comparison Section",
+        "category": "Comparison Section"
+    }]
+  }
+{% endschema %}

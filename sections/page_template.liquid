@@ -1,0 +1,21 @@
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt">
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ page.url }}"><span itemprop="name">{{page.title}}</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-rt pu-xl-rt pu-xxl-rt">
+        <h1 class="bpage-title"></h1>
+    </div>
+</div>  
+<div class="wrapper-ful">
+  <h1>{{ page.title }}</h1>
+  <div>{{ page.content }}</div>
+</div>

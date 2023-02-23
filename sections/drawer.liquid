@@ -1,0 +1,57 @@
+<em-drawer>
+  <form action="/cart" method="post">
+  <div class="cart-drawer cart-drawer-right minicart" itemsactive="false">
+    <div class="pure-g"><div class="pu-12"><div class="card_row"><div class="sitems">Shopping Cart</div><div class="sitems_close"><button class="close-btn"><span class="visuallyhidden">Close</span><i class="icon icon-close"></i></button></div></div><hr></div></div>
+    <div class="cartMerger">
+      <div class="cartlitems">
+        {%-for items in cart.items -%}
+        <div class="pure-g">
+          <div class="pu-3">
+            <img src="{{items.image|img_url:"small"}}"/>
+          </div>
+          <div class="pu-9">
+            <div class="pure-g">
+              <div class="pu-7">
+                <p>{{items.product.title}}</p>
+                <p>{{items.variant.title}}</p>                       
+              </div>
+              <div class="pu-5">
+                <div class="pu-rt"><button class="catimrem button-default" data_id="{{items.id}}"><span class="visuallyhidden">Close</span><i class="icon icon-close"></i></button></div>
+              </div>
+            </div>
+            <div class="pure-g">
+              <div class="pu-6">
+                <input type="text" class="cart_input" minlength="1" maxlength="100" value="{{items.quantity}}"/>
+              </div>
+              <div class="pu-6 pu-rt">{{item.price | money}}</div>          
+            </div>
+          </div>
+        </div>    
+        {%-endfor-%}  
+      </div>
+      <div class="pure-g">
+        <div class="pu-12">
+          <div class="subtotalrow">
+            <div class="card_row"><div class="sitems">Subtotal</div><div class="sitems sitems_stotal">{{ cart.original_total_price | money }}</div></div>
+            <div class="card_row"><div class="sitems">Shipping</div><div class="sitems sitems_srate">Calculated at next step</div></div>
+            <div class="card_row"><div class="sitems">Total</div><div class="sitems sitems_total">{{ cart.total_price | money }}</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pure-g"><div class="pu-1-1"><button type="submit" name="checkout" class="button-full">Checkout</button></div></div>
+  </div>
+  </form>
+</em-drawer>
+{%-schema-%}
+  {
+    "name": "Drawer",
+    "class":"site-drawer",
+    "tag": "section",
+      "settings": [{
+        "type": "checkbox",
+        "id": "site_drawer",
+        "label":"Site Drawer"
+      }]
+  }
+{%-endschema-%}

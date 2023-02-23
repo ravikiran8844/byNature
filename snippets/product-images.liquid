@@ -1,0 +1,93 @@
+{%-liquid 
+assign current_variant = product.selected_or_first_available_variant
+assign featured_image = current_variant.featured_image | default: product.featured_image
+assign img_url = product.featured_media.preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+assign logo_alt = product.featured_media.preview_image.alt | default: shop.name
+assign current_variant = product.selected_or_first_available_variant
+assign image_size = '250x'
+-%}
+<!--<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;">
+  <div style="padding-top:{{ 1 | divided_by: product.featured_media.preview_image.aspect_ratio | times: 100}}%;">
+    <img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_media.preview_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;">
+  </div>
+</div>
+<noscript>
+  <img src="{{ product.featured_media.preview_image | img_url: image_size }}" srcset="{{ product.featured_media.preview_image | img_url: image_size }} 1x, {{ product.featured_media.preview_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" itemprop="logo" style="max-width:auto;">
+</noscript>-->
+<div class="stky" style="margin-top:20px;">   
+
+
+<div class="example " data-component="example" data-active-class="example--active">
+  <div class="example__frame">
+    <div class="space space--medium">
+  
+    <div id="options-start-at" class="slider glide">
+  <div class="slider__track glide__track" data-glide-el="track">
+    <ul class="slider__slides glide__slides">
+      {%-for image in product.images-%}
+        <li class="slider__frame glide__slide text-center">
+        <a href="{{ image.src | img_url: 'master' }}">
+            <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+          </a>
+        </li>
+      {%-endfor-%}
+        
+      
+    </ul>
+  </div>
+
+  <div data-glide-el="controls">
+    <button class="slider__arrow slider__arrow--prev glide__arrow glide__arrow--prev" data-glide-dir="<">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z"/>
+      </svg>
+    </button>
+
+    <button class="slider__arrow slider__arrow--next glide__arrow glide__arrow--next" data-glide-dir=">">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/></path>
+      </svg>
+    </button>
+</div>
+
+        </div> 
+        </div>
+          </div>
+          </div>
+</div>
+  <style>
+.glide__slide {
+  margin: 0 5px;
+  display: list-item;
+  text-align: center;
+}
+
+.glide__arrow--next {
+  right: 2%;
+}
+.stky {
+    position: sticky;
+    top: 50px;
+}  
+  
+  </style>
+<script>
+ window.addEventListener('load', () => {
+    
+    const glide = new Glide('.glide', {
+       type: "carousel",
+        touchAngle: 45,
+        focusAt: 1,
+         startAt: 1,
+         perView: 1,
+         keyboard: true,
+         gap: 50,
+         autoplay: false,
+         
+      
+    })
+    
+    glide.mount()
+
+})
+</script>

@@ -1,0 +1,158 @@
+<em-footer>
+  <div class="wrapper">
+  <div class="innnerfooter" itemscope itemtype="https://schema.org/Organization">
+      <div itemprop="location" itemscope itemtype="https://schema.org/Place"><div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates"><meta itemprop="latitude" content="40.75" /><meta itemprop="longitude" content="-73.98" /></div></div>
+      <div class="pure-g">
+        <div class="pu-md-3 pu-sm-12">  
+          <meta itemprop="name" content="{{shop.name}}"><meta itemprop="description" content="{{shop.name}}">
+            <div class="footer-box">                       
+                <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0564/3157/5138/files/footer-logo.png">
+                <p class="footer-cnt">Experience the unlimited power of nature & science come together through our clean, honest, sustainable & plant-based products, in formats that are easy to incorporate into your lifestyle.</p>                                       
+                <ul class="no-bullets social" role="list">{%-if settings.social_instagram_link != blank or settings.social_youtube_link != blank-%}{%-if settings.social_instagram_link != blank-%}<li><a class="insta" itemprop="sameAs"  target="_blank" href="{{settings.social_instagram_link}}"><span class="fallback-text"><img class="i-clr" src="{{ 'insta-clr.png'|file_url }}"></span></a></li>{%-endif-%}{%-if settings.social_youtube_link != blank-%}<li><a class="youtube" itemprop="sameAs" target="_blank" href="{{settings.social_youtube_link}}"><span class="fallback-text"><img class="i-clr" src="{{ 'youtube-clr.png'|file_url }}"></span></a></li>{%-endif-%}{%-else-%}<li><a itemprop="sameAs" target="_blank" href="https://facebook.com"><span aria-hidden="true" focusable="false"><i class="icon icon-icon_15"></i>&nbsp;&nbsp;</span><span class="fallback-text">Facebook</span></a></li><li><a class="insta" itemprop="sameAs" target="_blank" href="https://www.instagram.com/nutrition_bynature/"><span class="fallback-text"><img class="i-gry" src="{{ 'insta-gray.png'|file_url }}"><img class="i-clr" src="{{ 'insta-clr.png'|file_url }}"></span></a></li><li><a itemprop="sameAs" target="_blank" href="https://twitter.com"><span aria-hidden="true" focusable="false"><i class="icon icon-icon_18"></i>&nbsp;&nbsp;</span><span class="fallback-text"><img src="{{ 'youtube.png'|file_url }}"</span></a></li>{%-endif-%}</ul>
+            </div>             
+          </div>              
+                                                                        
+          <div class="pu-md-2 pu-sm-12">                       
+            <div class="footer-box">                                            
+                <img src="https://cdn.shopify.com/s/files/1/0259/2564/8450/files/learn.png">
+                 <div class="main-heading-footer">Learn</div>
+                  <ul class="no-bullets footer_links">
+                  {%-for links in linklists.learn.links-%}
+                  <li><a href="{{links.url}}">{{links.title}}</a></li>
+                  {%-endfor-%}
+                  </ul>
+            </div>                                                                               
+          </div>                     
+          <div class="pu-md-4 pu-sm-12">                                                        
+            <div class="footer-box"> 
+                <div class="ftr-cntr">
+                  <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272951787550/shop-icon.png">
+                  <div class="main-heading-footer">Shop</div>
+                </div>
+                  <ul class="no-bullets footer_links footer-1">
+                  {%-for links in linklists.new-menu.links-%}
+                  <li><a href="{{links.url}}">{{links.title}}</a></li>
+                  {%-endfor-%}
+                  </ul>                                                                                 
+            </div>                                           
+          </div>
+          
+          <div class="pu-md-3 pu-sm-12 desktop-view-only">
+            <div class="footer-box footer-right-side">        
+                <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272674967552/footerimg-icon.png">                
+                  <ul class="no-bullets">                                         
+                    <li><span>Free Shipping</span> <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793205960755/truck.png"></li>
+                    <li><span>10000+Happy Customers</span> <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548794095161374/happy_customer.png"></li>
+                    <li><span>Money Back Guarantee</span> <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793780576277/gaurentee.png"></li>
+                  </ul>                        
+            </div>                               
+          </div>                                                                  
+         <div class="pu-md-4 pu-sm-12 mobile-view-only">      
+           <hr/>     
+            <div class="footer-box">               
+                <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272674967552/footerimg-icon.png">                
+                  <ul class="no-bullets">       
+                    <li><img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793205960755/truck.png"><span>Free Shipping</span></li>
+                    <li><img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548794095161374/happy_customer.png"><span>10000+Happy Customers</span></li>
+                    <li><img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793780576277/gaurentee.png"><span>Money Back Guarantee</span></li>
+                  </ul>
+            </div>     
+          </div>   
+        <div class="copywright" itemscope itemtype="https://schema.org/WebSite">
+        <div class="pu-md-12 pu-sm-12">
+        <div class="pu-6"><p class="infotext"><span itemprop="copyrightHolder">ByNature</span> &#169; <span itemprop="copyrightYear">{{ "now" | date: "%Y" }}</span>. All Rights Reserved. | A Supercluster Pi Brand</p></div>
+                    </div> 
+        </div>
+         
+  </div><div class="backtotop"><i class="icon icon-arrow-top"></i></div>
+  </div>
+</em-footer> 
+<style>
+
+.main-heading-footer{color: #fff;font-family: "GTFlexa-ExtendedBold";font-size: 17px;line-height: 44px;}  
+.footer-box ul li{font-family: "GTFlexa-Medium"; font-size: 17px; margin-bottom: 0.5rem;} 
+.footer-box ul li a{color: #808080;}  
+.footer-right-side{text-align:right; position:relative;color: #808080; }
+.footer-right-side ul img {margin-top: 7px;position: absolute;width: 25px;height: 20px;object-fit: contain; right: 1%;}
+.footer-right-side span {margin-right: 15%;} 
+.footer-logo{width: 130px;}
+.footer-cnt{color: #808080;}
+  .footer-1 {
+    columns: 2;
+}
+  .no-bullets.social {
+    display: flex;
+    gap: 12px;
+    padding-top: 12px;
+}
+.i-clr {
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+    -webkit-transform: scale(1);
+}
+.i-clr:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.1);
+}
+</style>
+{%-schema-%}
+  {
+    "name": "Footer",
+	"class":"site-footer",
+	"tag": "footer",
+	"settings": [
+      {
+        "type": "checkbox",
+        "id": "footer_social_enable",
+        "label": "Show social media icons"
+      },
+      
+	  {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": "Show newsletter field"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Display Logo"
+      },
+      {
+        "type": "text",
+        "id": "contact_street",
+        "label": "Address Street",
+        "info": "street"
+      },
+	  {
+        "type": "text",
+        "id": "contact_address",
+        "label": "Address State",
+        "info": "state,country"
+      },
+	  {
+        "type": "text",
+        "id": "contact_pincode",
+        "label": "Address Pincode",
+        "info": "pincode"
+      },
+	  {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone",
+        "info": "1234567890"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email",
+        "info": "email@gmail.com"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_navigaiton",
+        "label": "Footer Navigation"
+      }
+    ]
+  }
+{%-endschema-%}

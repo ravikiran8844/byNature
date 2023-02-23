@@ -1,0 +1,61 @@
+<style>
+  {%-liquid 
+  assign header_font = settings.header_font_new 
+  assign base_font = settings.base_font_new
+  assign base_font_bold = base_font | font_modify: 'weight', 'bolder' -%}{{-header_font | font_face-}}{{-base_font | font_face-}}{{-base_font_bold | font_face-}}
+  :root{
+    --colorPrimary: {{ settings.color_primary }};
+    --colorSecondary:{{ settings.color_secondary }};
+    --colorBtnPrimary:{{ settings.color_primary }};
+    --colorBtnPrimaryHover:{{settings.color_primary | color_darken: 10}};
+    --colorBtnPrimaryActive:{{settings.color_primary  | color_darken: 20}};
+    --colorBtnPrimaryText:#ffffff; 
+    --colorBtnSecondary:var(--colorSecondary);
+    --colorBtnSecondaryHover:{{settings.color_secondary | color_darken: 10}};
+    --colorBtnSecondaryActive:{{settings.color_secondary | color_darken: 20}};
+    --colorBtnSecondaryText:#ffffff;
+    --colorLink:var(--colorPrimary);
+    --colorLinkHover:{{settings.color_primary | color_lighten: 15}};
+    --colorTextBody:{{ settings.color_body_text }};
+    --colorBody:{{ settings.color_body_bg }};
+    --colorBorder:{{ settings.color_borders }};
+    --colorBorderDark:{{ settings.color_borders | color_darken: 10}};
+    --colorNav: #e42229;
+    --colorNavText: #ffffff;
+    --anouncementBar:#e5f6fe;
+    --colorNavDark:{{'#f2f2f2'|color_darken: 15}};
+    --colorNavTextDark:{{'#333333'|color_darken: 15}};
+    --colorFooterBg:{{ settings.color_footer_bg }};  
+    --colorFooterText:{{ settings.color_footer_text }};
+    --color_btn_secondary_text:#ffffff; 
+        /* Logo max width*/
+    --logoMaxWidth:{{ settings.logo_max_width | default: '450' | remove: 'px' }}px;
+        /* Helper colors*/
+    --disabledGrey:#f6f6f6;
+    --disabledBorder:{{'#f6f6f6'|color_darken: 25}};
+    --errorRed:#d02e2e;
+    --errorRedBg:#fff6f6;
+    --successGreen:#56ad6a;
+    --successGreenBg:#ecfef0;
+    --drawerNavWidth: 18.75em;
+    --drawerCartWidth: 400px;
+    --colorDrawers: #ffffff;
+    --colorDrawersDark:{{'#f6f6f6'|color_darken: 5}};
+    --colorDrawerText: #333333;
+    --colorDrawerTextDark:{{'#333333'|color_darken: 15}};
+    --drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
+        /* Sizing variables*/
+    --siteWidth: 1180px;
+    --gutter: 30px;
+    --gridGutter: 30px;
+    --radius: 3px;
+    --zindexNavDropdowns: 5;
+    --zindexDrawer: 10;
+        /*================ Typography ================*/
+    --headerFontStack: {{ header_font.family }}, Helvetica, Arial, sans-serif;
+    --headerFontWeight: 700;
+    --bodyFontStack: {{ header_font.family }}, Helvetica, Arial, sans-serif;
+    --baseFontSize: 14px; /* Henceforth known as 1em*/
+    --socialIconFontStack:"icons";
+  }      
+</style>

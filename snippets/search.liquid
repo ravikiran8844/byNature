@@ -1,0 +1,12 @@
+  <div class="search_wrapper pu-sm-ht pu-md-ht pu-lg-sh pu-xl-sh pu-xxl-sh" itemscope itemtype="https://schema.org/WebSite">
+  <meta itemprop="name" content="Site Search"/>
+  <link itemprop="url" href="{{shop.url}}"/>
+    <form action="/search" method="get" role="search" itemprop="potentialAction" itemscope itemtype="https://schema.org/SearchAction">
+  <meta itemprop="target" content="{{shop.url}}/search?q={q}"/>
+  <div class="input-gp">
+    <input class="input-field-gp" itemprop="query-input" name="q" value="{{ search.terms | escape }}" type="text"  placeholder="Search">
+    <button type="button" name="submit" class="input-action-gp"><span class="visuallyhidden">Search</span><i class="icon icon-search"></i></button>
+  </div>
+</form>
+    <div id="predictive-search"></div>
+</div>

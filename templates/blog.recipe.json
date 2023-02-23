@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "recipe-template": {
+      "type": "recipe_template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "recipe-template"
+  ]
+}

@@ -1,0 +1,152 @@
+<link href="{{-'collection.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<div class="wrapper">
+<em-collection>
+  <div class="collectAllTemp">
+    <div class="pure-g">  
+      <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt"><nav aria-label="Breadcrumb"><ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/collections"><span itemprop="name">Collections<i class="icon icon-arrow-right"></i></span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ collection.url}}"><span itemprop="name">{{ collection.title}}</span></a><meta itemprop="position" content="3"></li></ul></nav></div>
+      <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-rt pu-xl-rt pu-xxl-rt"><h1 class="bpage-title">{{ collection.title }}</h1></div>
+    </div>
+    <div class="collectnavwrapper">
+        <div class="pure-g">  
+          <div class="pu-7 pu-sm-5 pu-md-7 pu-lg-7 pu-xl-7 pu-xxl-7">    
+            {%if section.settings.enable_filter%}
+            <button class="button-default coll-filter"><i class="icon icon-filter"></i> Filter</button>
+            {%-endif-%}
+            {%if section.settings.enable_viewlist%}
+            <button class="gridview" data_list="grid"><i class="icon icon-grid"></i></button>
+            {%endif%}
+          </div>
+          <div class="pu-5 pu-sm-7 pu-md-5 pu-lg-5 pu-xl-5 pu-xxl-5 pu-lg-rt pu-xl-rt pu-xxl-rt">    
+            {%-assign sort_by = collection.sort_by-%}
+            <select name="sort_by">
+              {%-for option in collection.sort_options-%}
+                  <option value="{{ option.value }}"{% if sort_by == option.value %} selected="selected"{% endif %}>{{ option.name }}</option>
+              {%-endfor-%}
+            </select>        
+          </div>
+        </div>
+      </div>
+      {% paginate collection.products by section.settings.products_per_page %}
+      <div class="pure-g" itemscope itemtype="https://schema.org/ItemList">
+        <link itemprop="url" href="{{canonical_url}}" />
+        <meta itemprop="name" content="{{collection.title}}"/>
+        <meta itemprop="numberOfItems" content="{{collection.all_products_count}}"/>
+        <meta itemprop="itemListOrder" content="Unordered"/>
+        <meta itemprop="description" content="{{collection.description |strip_html}}"/>     
+      {%-if collection.products.size > 0-%}        
+        {%-for product in collection.products-%}
+        <div class="pu-sm-6 pu-md-6 pu-lg-3 pu-xl-3 pu-xxl-3" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <div class="collectioninnerwrapper"><meta itemprop="position" content="{{forloop.index}}"/>
+           <a href="{{product.url}}" data="{{product.featured_image.aspect_ratio}}">
+          {%-if product.featured_image != blank-%}
+            <div class="call-wrap" style="position:relative">
+            {%-assign pcr = product.compare_at_price | minus:product.price | times:100 | divided_by:product.compare_at_price -%}
+            {%-if pcr > 0 -%}
+            <div class="off-per">
+            <span>{{pcr}}% OFF</span>
+            </div>
+            {%-endif-%}
+          {%-liquid
+          assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          assign img_alt = product.featured_image.alt | default: shop.name
+          assign image_size = '300x'
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript><p class="collection_prodcut_title">{{product.title | strip_html | truncate: 30}}</p><div class="btn-cntr">
+              {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
+            <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+            <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+            <button type="submit" value="Submit" class="re-prodcut_price"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
+          </form>
+            </div>
+            </div>
+          {%-else-%}
+             {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
+          <div class="noimg">
+          {%-liquid
+          assign image_size = '300x'
+          assign img_url = 'placeholder.png' | asset_img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          assign img_ratio = '0.75'
+          assign img_alt =  shop.name
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: img_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ img_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ 'placeholder.png' | asset_img_url: image_size }}" srcset="{{ 'placeholder.png' | asset_img_url: image_size }} 1x, {{ 'placeholder.png' | asset_img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript></div><p class="collection_prodcut_title">{{'Product'}}</p><div class="btn-cntr"><a class="re-prodcut_price" href="{{product.url }}"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span></a></div>
+        {%- endif -%}
+      </a>
+          </div>   
+        </div>
+        {%-endfor-%}
+        {%-else-%}
+        <div class="no-products-found">
+          <h3>No results</h3> 
+          <div>
+            <button type="button" class="button-default btn_clearall">
+              <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}">RESET FILTERS</a>
+            </button>
+          </div>
+        </div>  
+        {%-endif-%}   
+      </div>
+      {%-render 'default_pagination',paginate:paginate-%}
+      {%-endpaginate-%}
+    </div>
+  {%-render 'collection-filter'-%}
+</em-collection>
+</div>
+<script src="{{-'collection.js'|asset_url-}}" defer></script>
+
+<style>
+  .no-products-found{
+    text-align: center;
+    margin: 20px 0;
+  }
+ 
+</style>
+
+{%-schema-%}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Dispaly per page",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_viewlist",
+      "label": "Enable View List",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filter",
+      "label": "Enable Filter",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_vendor",
+      "label": "Enable Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_rating",
+      "label": "Enable Rating",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quickview",
+      "label": "Enable Quick View",
+      "default": true
+    }
+  ]
+}
+{%-endschema-%}
+<style>
+
+</style>

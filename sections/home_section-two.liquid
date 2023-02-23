@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <div class="pure-g">                     
+    <div class="pu-sm-12">
+      <h3 class="about_ttl">{{section.settings.about_title}}</h3>
+      <p class="about_desc">{{ section.settings.about_descriptioin }} </p>
+      <div class="about_icon">
+        <h3 class="clr text-center">Our Bynature Promise</h3>
+        <p class="by-pro-subttl text-center">Everyday nutrition so that you have energy for getting more out of your life!</p>
+      </div>
+    </div>
+      <div class="pu-sm-12 pu-md-2">
+      </div>
+      <div class="pu-sm-12 pu-md-8">
+        <div class="glide" id="glide11">
+    <div class="glide__track" data-glide-el="track">
+      <div class="glide__slides">
+        {%- for block in section.blocks -%}
+        <div class="glide__slide">
+      <div class="icon-sec text-center">
+        <div class="icon-image">
+        <img src="{{ block.settings.icon_img | img_url:'master'}}" alt="icon">
+        </div>
+        <p class="icon-ttl">{{ block.settings.icon_ttl }}</p>
+      </div>
+      </div>
+        {%- endfor -%}
+    </div>
+    </div>
+  </div>
+      </div>
+      <div class="pu-sm-12 pu-md-2">
+      </div>
+    </div>
+  </div>
+{% schema %}
+    {
+    "name": "Home_about",
+	"class":"home_about",
+    "settings": [
+      {
+      "id":"about_title",
+      "type":"text",
+      "label":"About Title"
+      },
+      {
+      "id":"about_descriptioin",
+      "type":"text",
+      "label":"About Descriptioin"
+      }
+	],
+      "blocks": [
+      {
+        "name":"Icon text",
+        "type":"icon",
+        "settings":[
+          {
+          "type": "image_picker",
+           "id": "icon_img",
+           "label": "Image"
+        },
+          {
+            "type":"text",
+            "id":"icon_ttl",
+            "label":"Icon Text"
+          }
+        ]
+        
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% javascript %}
+  new Glide('#glide11', {
+	type: 'carousel',
+	perView: 4,
+    autoplay:5000,
+	breakpoints: {
+		560: {
+			perView: 2.5
+		},
+      460: {
+			perView: 2.5
+		},
+	}
+}).mount();
+{% endjavascript %}

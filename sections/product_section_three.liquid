@@ -1,0 +1,92 @@
+  <div class="">
+    <div class="pure-g">                    
+          <div class="pu-md-5 pu-sm-12">           
+             <div class="head-para-box mobile-view-only"> 
+                  <div class="main-heading">  
+                    {{ section.settings.titel_two }}
+                   
+                  </div>                                
+                  <div class="para1">  
+                    {{ section.settings.desc_two }}
+                    
+                  </div>           
+              </div>
+              <div class="left-img">   
+                  <img src="{{ section.settings.hsf_image_one | img_url:'master' }}">
+              </div>   
+              <div class="head-para-box desktop-view-only">
+                  <div class="main-heading">
+                    {{ section.settings.titel_two }}
+                  </div>                 
+                  <div class="para">  
+                    {{ section.settings.desc_two }}
+                    
+                  </div>                          
+              </div>                          
+          </div>                        
+          <div class="pu-md-7 pu-sm-12">       
+              <div class="head-para-box"> 
+                  <div class="main-heading">  
+                    {{ section.settings.titel_one }}
+                  </div>
+                  <div class="para">   
+                    {{ section.settings.desc_one }}
+                    
+                  </div>
+                <div class="right-img-sec">                     
+                  <img src="{{ section.settings.hsf_image_two | img_url:'master' }}">
+                </div>                                 
+              </div>                                                                    
+          </div>           
+          <div class="pu-md-4 desktop-view-only">        
+              
+          </div>
+                
+                          
+      </div>        
+  </div>
+{% include 'addtocart-sticky' %}
+
+
+{% schema %}
+  {
+    "name": "Product_Section_three",
+    "class": "product_section_three",
+    "settings": [
+      {
+        "type" : "image_picker",
+        "id": "hsf_image_one",
+        "label":"Image One"
+      },
+      {
+      "type":"text",
+      "id": "titel_one",
+      "label": "Titel One"
+      },
+      {
+       "type":"richtext",
+      "id": "desc_one",
+      "label": "Descriptioin One" 
+      },
+      {
+        "type" : "image_picker",
+        "id": "hsf_image_two",
+        "label":"Image Two"
+      },
+      {
+      "type":"text",
+      "id": "titel_two",
+      "label": "Titel two"
+      },
+      {
+       "type":"richtext",
+      "id": "desc_two",
+      "label": "Descriptioin two" 
+      }
+    ],
+    "presets": [{
+        "name": "Product Section Three",
+        "category": "Product Section"
+    }]
+  }
+{% endschema %}

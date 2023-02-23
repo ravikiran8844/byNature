@@ -1,0 +1,322 @@
+ <!-- Product Information -->
+
+  <div class="column_1_2">
+    <form id="product_form">
+
+      <!-- Title / Description -->
+
+      <div class="product_information_header">
+        <h3>{{ product.title }}</h3>
+              <!-- Price -->
+      <p class="text_blue font_medium product_price" id="product_price">{{ product.selected_or_first_available_variant.price | money }}  <span class="cmp-price"><del>{{ product.selected_or_first_available_variant.compare_at_price | money }}</del></span></p>
+      <p class="serv">{{ product.metafields.descriptors.subtitle }}</p>
+      <!--  {% unless product.type == blank %}
+          <h3 class="font_medium">{{ product.type }}</h3>
+        {% endunless %} -->
+        {% unless product.description == blank %}
+          <div class="product-page-dic">
+          <p>{{ product.description }}</p>
+          </div>
+        {% endunless %}
+      </div>
+
+      <!-- Variants -->
+
+      {% if product.variants.size > 1 %}
+        {% if product.options[0] %}
+
+          <div class="product_variant_container">
+
+            {% if product.options[0] == 'Color' %}
+
+              <div class="trago_color_variants">
+               <!-- <label for="color"><h3 class="font_medium">{{ product.options[0] }}</h3></label>-->
+                {% assign used = '' %}
+                {% for variant in product.variants %}
+                  {% unless used contains variant.option1 %}
+                    <input type="radio" name="color" {% if forloop.first %}checked="checked"{% endif %} value="{{ variant.option1 }}" data-id="{{ variant.id }}" onclick="updateProductInformation()" style="background: {{ variant.metafields.c_f.hex_code }}">
+                    {% capture used %}{{ used }} {{ variant.option1 }}{% endcapture %}
+                  {% endunless %}
+                {% endfor %}
+              </div>
+
+            {% else %}
+              
+              {% assign used = '' %}
+             <!-- <label for="select_one"><h3 class="font_medium">{{ product.options[0] }}</h3></label> -->
+              <div class="trago_select_container">
+                <select id='select_one' onchange="updateProductInformation()">
+                  {% for variant in product.variants %}
+                    {% unless used contains variant.option1 %}
+                      <option value="{{ variant.option1 }}">{{ variant.option1 }}</option>
+                      {% capture used %}{{ used }} {{ variant.option1 }}{% endcapture %}
+                    {% endunless %}
+                  {% endfor %}
+                </select>
+              </div>
+            
+            {% endif %}
+          
+          </div>
+
+        {% endif %}
+
+        {% if product.options[1] %}
+
+          <div class="product_variant_container">
+            {% assign used = '' %}
+           <!-- <label for="select_two"><h3 class="font_medium">{{ product.options[1] }}</h3></label> -->
+            <div class="trago_select_container">
+          {%- for variant in product.variants -%}  
+            {% unless used contains variant.option2 %}
+          <input 
+            type="radio" 
+            name="id" 
+            class="variant-option"
+            value="{{ variant.option2 }}" 
+            id="variant-option-{{ variant.option2 }}" 
+            {% unless variant.option2.available %} disabled{% endunless %}
+            {% if product.selected_variant.option2 == variant.option2 %} checked{% endif %}
+          >
+          <label for="variant-option-{{ variant.option2 }}">{{ variant.option2 }}</label>
+            {% endunless %}
+            {%- endfor -%}
+            </div>
+          </div>
+
+        {% endif %}
+        
+        {% if product.options[2] %}
+          <div class="product_variant_container">
+            {% assign used = product.options[2] %}
+          <!--  <label for="select_three"><h3 class="font_medium">{{ product.options[2] }}</h3></label> -->
+            <div class="trago_select_container">
+              <select id='select_three' onchange="updateProductInformation()">
+                {% for variant in product.variants %}
+                  {% unless used contains variant.option3 %}
+                    <option value="{{ variant.option2 }}">{{ variant.option3}}</option>
+                    {% capture used %}{{ used }} {{ variant.option3 }}{% endcapture %}
+                  {% endunless %}
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        {% endif %}
+      
+      {% endif %}
+
+      <!-- Quantity -->
+
+      <div class="product_variant_container">
+        <label for="quantity"><p class="font_medium">Quantity</p></label>
+        <div class="quantity-container quantity_input_container quantity_controls">
+            <button class="decrease quantity_down" type="button" title="Decrease Quantity"><i class="icon icon-minus"></i></button>
+  <input type="text" min="1" class="quantity-amount" id="quantity" name="quantity" onchange="updateProductInformation()" value="1" />
+
+  <button class="increase quantity_up" type="button" title="Increase Quantity"><i class="icon icon-plus"></i></button>
+</div>
+      </div>    
+      <!-- Add To Cart -->
+      <input type="submit" name="add" id="add_to_cart" data-variant-id="{{ product.variants.first.id }}" class="trago_button blue" value="Add To Cart">
+      <!-- Ajax Message -->
+
+      <p class="ajax_message"></p>
+  <select id="product-select" name="id" style="display:none;">
+    {%-for variant in product.variants-%}
+    <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>{{ variant.title }} - {{ variant.price | money }}</option>
+    {%-endfor-%}
+  </select>
+    </form>
+
+  </div>
+
+</div>
+<style>
+i.icon.icon-minus, .icon.icon-plus {
+    font-size: 16px;
+    -webkit-text-stroke: 1px black;
+}
+.product-page-dic li {
+    list-style-type: none;
+    list-style-position: inside;
+    padding-left: 1em;
+    text-indent: -2.3em;
+}
+    .product-page-dic li:before {
+    content: "";
+    background: url(https://cdn.shopify.com/s/files/1/0564/3157/5138/files/Vector.png);
+    width: 23px;
+    height: 14px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+.product-page-dic ul {
+    margin-left: 1em;
+}
+   .quantity-container.quantity_input_container {
+    display: inline-flex;
+    border: 1px solid;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 14px;
+}
+.trago_button.blue {
+    width: 100%;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'GTFlexa-ExtendedBold';
+}
+input#quantity {
+    width: 50px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    margin: auto;
+}
+.trago_button.blue:hover {
+    background: transparent;
+    border: 2px solid #000000;
+}
+.decrease, .increase {
+    background: none;
+    border: none;
+    color: #000000;
+    margin: 0;
+}
+#product_price {
+font-family: "GTFlexa-ExtendedBold";
+font-size: 1.5em;
+padding-bottom: 10px;
+}
+.product_variant_container #select_one {
+background: transparent;
+height: 3em;
+padding: 0.375em 2em;
+}
+.cmp-price {
+font-size: 16px;
+color: #828282;
+}
+  .serv {
+  font-family: 'GTFlexa-ExtendedBold';
+  padding-bottom: 20px;
+}
+</style>
+<script>
+  
+  // Function to get the value of the checked radio button in the form.
+
+  function getRadioVal(form, name) {
+      var val;
+      var radios = form.elements[name];
+      
+      for (var i=0, len=radios.length; i<len; i++) {
+          if ( radios[i].checked ) {
+              val = radios[i].value; 
+              break;
+          }
+      }
+      return val;
+  }
+
+  // Function runs every time a variant radio button or select dropdown changes.
+
+  function updateProductInformation() {
+
+    // Save the option select values
+
+    {% if product.options[0] %}
+      {% if product.options[0] == 'Color' %}
+        var opt1 = getRadioVal( document.getElementById('product_form'), 'color' );
+      {% else %}
+        var opt1 = document.getElementById('select_one').value;
+      {% endif %}
+    {% endif %}
+    {% if product.options[1] %}
+      var opt2 = document.getElementById('select_two').value;
+    {% endif %}
+    {% if product.options[2] %}
+      var opt3 = document.getElementById('select_three').value;
+    {% endif %}
+
+    // Capture the quantity and save it as a liquid variable
+
+    var quantity = document.getElementById('quantity').value;
+
+    {% capture quantity %}quantity{% endcapture %}
+
+    var id = '';
+
+    // Loop through all of the variants to check if the option values match any of the variant combinations
+
+    {% for v in product.variants %}
+      if(opt1=="{{ v.option1 }}"{% if product.options[1] %} && opt2=="{{ v.option2 }}"{% endif %}{% if product.options[2] %} && opt3=="{{ v.option3 }}"{% endif %}) {
+
+        // Save the ID for the specific variant combination.
+
+        var id = {{ v.id }};
+
+        // Save the price given the quantity the user has selected. Once multiplied then format the price using the js api.
+
+        var fullPrice = {{ quantity }} * {{ v.price }};
+        var formattedPrice = Shopify.formatMoney(fullPrice, "{{ shop.money_format }}" );
+      }
+    {% endfor %}
+
+    // URL Query String
+
+    console.log(window.location.search);
+
+    // If variant has an id then set the cart to the selected variant and change the price field.
+
+    if(id!='') {
+      document.getElementById('add_to_cart').setAttribute('data-variant-id', id);
+      document.getElementById('product_price').innerHTML = formattedPrice;
+    } else {
+      document.getElementById('add_to_cart').setAttribute('data-variant-id', id);
+      document.getElementById('product_price').innerHTML = 'Unavailable';
+    }
+  }
+
+
+
+  var value,
+    quantity = document.getElementsByClassName('quantity-container');
+
+		function createBindings(quantityContainer) {
+      var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
+      var increase = quantityContainer.getElementsByClassName('increase')[0];
+      var decrease = quantityContainer.getElementsByClassName('decrease')[0];
+      increase.addEventListener('click', function () { increaseValue(quantityAmount); });
+      decrease.addEventListener('click', function () { decreaseValue(quantityAmount); });
+    }
+
+    function init() {
+        for (var i = 0; i < quantity.length; i++ ) {
+					createBindings(quantity[i]);
+        }
+    };
+
+    function increaseValue(quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        console.log(quantityAmount, quantityAmount.value);
+
+        value = isNaN(value) ? 0 : value;
+        value++;
+        quantityAmount.value = value;
+    }
+
+    function decreaseValue(quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        value = isNaN(value) ? 0 : value;
+        if (value > 0) value--;
+
+        quantityAmount.value = value;
+    }
+    
+    init();
+</script> 

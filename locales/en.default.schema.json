@@ -1,0 +1,193 @@
+{
+  "settings_schema": {
+    "color": {
+      "name": "Colors",
+      "settings": {
+        "header__1": {
+          "content": "General colors"
+        },
+        "primary": {
+          "label": "General colors",
+          "info": "Used for text links, and primary buttons"
+        },
+        "secondary": {
+          "label": "Secondary",
+          "info": "Used for secondary buttons"
+        },
+        "color_borders": {
+          "label": "Borders"
+        },
+        "header__2": {
+          "content": "Body"
+        },
+        "color_body_bg": {
+          "label": "Background"
+        },
+        "color_body_text": {
+          "label": "Text"
+        },
+        "header__3": {
+          "content": "Footer"
+        },
+        "color_footer_bg": {
+          "label": "Background"
+        },
+        "color_footer_text": {
+          "label": "Text"
+        },
+        "color_footer_social_link": {
+          "label": "Social media icons"
+        }
+      }
+    },
+    "header_annoncement": {
+      "name": "announcement",
+      "settings": {
+        "header__1": {
+          "content": "header announcement"
+        },
+        "header__caption": {
+          "label": "Show Anoncement",
+          "info": "Show Anoncement"
+        }
+      }
+    },
+    "typography": {
+      "name": "Typography",
+      "settings": {
+        "header__1": {
+          "content": "Headings and buttons"
+        },
+        "header__font": {
+          "label": "Font"
+        },
+        "header__font_size": {
+          "label": "Heading base size"
+        },
+        "header__2": {
+          "content": "Body text"
+        },
+        "body__font": {
+          "label": "Font"
+        },
+        "body__font_size": {
+          "label": "Heading base size"
+        }
+      }
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "header__1": {
+          "content": "Logo"
+        },
+        "use_logo": {
+          "label": "Use custom logo"
+        },
+        "custom_logo": {
+          "label": "Custom logo",
+          "info": "450 x 200px .png"
+        },
+        "custom_logo_width": {
+          "label": "Max logo width",
+          "info": "Defined in pixels. Do not add the 'px' unit."
+        },
+        "header__2": {
+          "content": "Favicon"
+        },
+        "favicon_enable": {
+          "label": "Use custom icon"
+        },
+        "favicon_icon": {
+          "label": "Icon",
+          "info": "32 x 32px .png required"
+        }
+      }
+    },
+    "footer": {
+      "name": "Footer",
+      "settings": {
+        "footer_social_enable": {
+          "label": "Show social media icons",
+          "info": "Show Anoncement"
+        },
+        "footer_newsletter_enable": {
+          "label": "Show newsletter field"
+        },
+        "newsletter_form_action": {
+          "label": "MailChimp form action URL",
+          "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+        }
+      }
+    },
+    "footer_reminder": {
+      "name": "footer_reminder",
+      "settings": {
+        "section__caption": {
+          "label": "Footer Reminder",
+          "info": "Footer Reminder"
+        }
+      }
+    },
+    "cart_page": {
+      "name": "Cart page",
+      "settings": {
+        "cart_notes": {
+          "label": "Enable cart notes"
+        },
+        "cart_vendor": {
+          "label": "Show product vendor"
+        },
+        "cart_select": {
+          "label": "Cart type"
+        },
+        "cart_drawer_type_1": {
+          "label": "Drawer"
+        },
+        "cart_drawer_type_2": {
+          "label": "Page"
+        }
+      }
+    },
+    "social_media": {
+      "name": "Social Medias",
+      "settings": {
+        "section__enable_caption": {
+          "label": "Footer Reminder",
+          "info": "Footer Reminder"
+        },
+        "section__facebook": {
+          "label": "Facebook",
+          "info": "Facebook Info"
+        },
+        "section__instagram": {
+          "label": "Instagram",
+          "info": "Instagram Info"
+        },
+        "section__twitter": {
+          "label": "Twitter",
+          "info": "Twitter Info"
+        },
+        "section__youtube": {
+          "label": "Youtube",
+          "info": "Youtube Info"
+        },
+        "section__whatsapp": {
+          "label": "Whatsapp",
+          "info": "Whatsapp Info"
+        }
+      }
+    },
+    "theme_scripts": {
+      "name": "theme_scripts",
+      "settings": {
+        "header__script": {
+          "label": "header before scripts"
+        },
+        "footer__script": {
+          "label": "body after scripts"
+        }
+      }
+    }
+  }
+}

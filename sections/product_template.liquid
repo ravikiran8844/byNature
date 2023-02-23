@@ -1,0 +1,62 @@
+<link href="{{-'glide.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<script src="{{-'glide.js' | asset_url-}}"></script>
+<div class="wrapper">
+<div is="em-product">
+  <div class="pure-g">
+    <div class="pu-12 pu-md-ct pu-lg-ct pu-xl-ct pu-xxl-ct">
+
+    </div>
+  </div>
+  <div class="pure-g">    
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6">
+      {%-render 'product-images',product:product-%}      
+    </div>    
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6">
+      <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      {%-render 'product-info',product:product-%}
+      </form>
+    </div>
+  </div>
+
+</div>
+</div>
+<style>
+.prddesc li{
+list-style: none;
+position: relative;
+}
+.prddesc li::before {
+  background-color: var(--colorPrimary);
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  margin-top: 3px;
+  height: 8px;
+  width: 8px;
+}
+.prddesc .head{
+  font-weight:900;
+color: var(--colorPrimary);
+}
+  .icon-bag4:before,.icon-bag8:before,.icon-bag12:before{
+    font-size:120px;
+  }
+  .bicon-wrapper{
+    border:1px solid var(--colorBorder);
+    border-radius:5px;
+    padding:10px 0;
+    text-align:center; 
+    display: block;
+	cursor: pointer;  
+  }
+  .selector-wrapper{
+   position:absolute;
+   display:none;  
+  }
+</style>
+<script src="{{-'option_selection.js' | shopify_asset_url-}}" type="text/javascript"></script>
+<script>Shopify.product = {{ product | json }};</script>
+<script src="{{-'product.js'|asset_url-}}" type="text/javascript" defer></script>
+{% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, product: product %}

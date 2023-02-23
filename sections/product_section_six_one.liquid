@@ -1,0 +1,88 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-md-7 ">
+      <h3 class="Faq-title">FAQs</h3>
+			<div class="question" property="question">
+				{{ product.metafields.custom.faq_title }}
+			</div>
+			<div class="answercont">
+				<div class="answer" property="answer">
+					<p>{{ product.metafields.custom.faq_content_one }}</p>
+				</div>
+			</div>
+      <div class="question" property="question">
+				{{ product.metafields.custom.faq_title_two }}
+			</div>
+			<div class="answercont">
+				<div class="answer" property="answer">
+					<p>{{ product.metafields.custom.faq_content_two }}</p>
+				</div>
+			</div>
+      <div class="question" property="question">
+				{{ product.metafields.custom.faq_title_three }}
+			</div>
+			<div class="answercont">
+				<div class="answer" property="answer">
+					<p>{{ product.metafields.custom.faq_content_three }}</p>
+				</div>
+			</div>
+      <div class="question" property="question">
+				{{ product.metafields.custom.faq_title_four }}
+			</div>
+			<div class="answercont">
+				<div class="answer" property="answer">
+					<p>{{ product.metafields.custom.faq_content_four }}</p>
+				</div>
+			</div>
+      <div class="question" property="question">
+				{{ product.metafields.custom.faq_title_five }}
+			</div>
+			<div class="answercont">
+				<div class="answer" property="answer">
+					<p>{{ product.metafields.custom.faq_content_five }}</p>
+				</div>
+			</div>
+    </div>
+    <div class="pu-md-5 ">
+         <img src="{{ product.metafields.custom.faq_image | img_url:'large' }}">                              
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product FAQ Section",
+    "class":"product_faq",
+    "settings": [
+          {
+            "id":"faq_image",
+            "type":"image_picker",
+            "label":"Faq Image"
+          }
+        ],
+    "blocks":[
+      {
+        "name":"FQAs Content",
+        "type":"text",
+      "settings": [
+        {
+       "id":"faq_question",
+        "type":"text",
+        "label":"FAQs Question"
+        },
+        {
+       "id":"faq_answer",
+        "type":"richtext",
+        "label":"FAQs Answer"
+        }
+      ]
+        
+      }
+      
+    ],
+   "presets": [{
+        "name": "Product Faq Section",
+        "category": "FAQs Section"
+    }]
+  }
+{% endschema %}

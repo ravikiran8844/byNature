@@ -1,0 +1,66 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <h3 class="promise-title">{{ section.settings.promise_title }}</h3>
+      <p class="promise-sub-title">{{ section.settings.promise_sub_title }}</p>
+    </div>
+  </div>
+  <div class="pure-g">
+    {%- for block in section.blocks -%}
+    <div class="pu-sm-6 pu-md-4 pu-lg-2 pu-xl-2 pu-xxl-2">
+      <div class="icon-sec">
+        <div class="icon-image">
+        <img src="{{ block.settings.icon_img | img_url:'master'}}" alt="icon">
+        </div>
+        <p class="icon-ttl">{{ block.settings.icon_ttl }}</p>
+      </div>
+      </div>
+    {%- endfor -%}
+    </div>
+  </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "The bynature Promise",
+    "class": "bunature_promise",
+    "settings":[
+      {
+        "type":"text",
+        "id":"promise_title",
+        "label":"Title"
+      },
+      {
+        "type":"text",
+        "id":"promise_sub_title",
+        "label":"Sub Title"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Icon text",
+        "type":"icon",
+        "settings":[
+          {
+          "type": "image_picker",
+           "id": "icon_img",
+           "label": "Image"
+        },
+          {
+            "type":"text",
+            "id":"icon_ttl",
+            "label":"Icon Text"
+          }
+        ]
+        
+      }
+    ],
+    "presets": [{
+        "name": "Product Icon Section",
+        "category": "Product Icon Section"
+    }]
+  }
+{% endschema %}
+

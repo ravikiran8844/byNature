@@ -1,0 +1,284 @@
+{
+  "sections": {
+    "product-template": {
+      "type": "product_template",
+      "settings": {
+      }
+    },
+    "product_section_one": {
+      "type": "product_section_one",
+      "blocks": {
+        "57d26cd3-4398-43ac-884a-2c9d60ae2691": {
+          "type": "text",
+          "settings": {
+            "acc-tab-ttl": "Vitamin A",
+            "acc-tab-in-ttl": "Vitamin C + Vitamin E",
+            "acc-image": "shopify:\/\/shop_images\/orange_1.png",
+            "acc-tab-cont-one": "One of the best known ingredients for improving immune health, Vitamin C acts as an antioxidant in the body, and may help reduce symptoms and shorten the duration of the common cold.",
+            "benefits-title": "BENEFITS",
+            "benefits-sub-title-one": "Improves Symptoms of the Common Cold",
+            "benefits-content-one": "<p>Getting enough <strong>vitamin C may help reduce symptoms and shorten<\/strong> the duration of respiratory tract infections, such as the common cold 😷<\/p>"
+          }
+        },
+        "5591bffc-776f-40ad-95bd-42a57d55c524": {
+          "type": "text",
+          "settings": {
+            "acc-tab-ttl": "Hyaluronic Acid",
+            "acc-tab-in-ttl": "",
+            "acc-image": "shopify:\/\/shop_images\/orange_1.png",
+            "acc-tab-cont-one": "",
+            "benefits-title": "",
+            "benefits-sub-title-one": "",
+            "benefits-content-one": ""
+          }
+        },
+        "8db0351a-7ce2-46c0-8e36-bd603f59d257": {
+          "type": "text",
+          "settings": {
+            "acc-tab-ttl": "Vegan Collagen Peptides",
+            "acc-tab-in-ttl": "",
+            "acc-image": "shopify:\/\/shop_images\/orange_1.png",
+            "acc-tab-cont-one": "",
+            "benefits-title": "",
+            "benefits-sub-title-one": "",
+            "benefits-content-one": ""
+          }
+        }
+      },
+      "block_order": [
+        "57d26cd3-4398-43ac-884a-2c9d60ae2691",
+        "5591bffc-776f-40ad-95bd-42a57d55c524",
+        "8db0351a-7ce2-46c0-8e36-bd603f59d257"
+      ],
+      "settings": {
+        "main-title-l1": "WHAT’S",
+        "main-sub-title": "Peep the <br>ingredients",
+        "main-title-l2": "INSIDE?"
+      }
+    },
+    "product_section_two": {
+      "type": "product_section_two",
+      "settings": {
+        "video-image": "shopify:\/\/shop_images\/video-tump.png",
+        "video-image-mob": "shopify:\/\/shop_images\/video-tamp-mob.png",
+        "youtube-link": ""
+      }
+    },
+    "product_section_three": {
+      "type": "product_section_three",
+      "settings": {
+        "hsf_image_one": "shopify:\/\/shop_images\/keep-smile.jpg",
+        "titel_one": "WHY YOU NEED IT",
+        "desc_one": "<p>Supports overall health and cellular energy production, so you can run like a race horse without daily horse pills.<\/p>",
+        "hsf_image_two": "shopify:\/\/shop_images\/whole-picture.jpg",
+        "titel_two": "THE NATURAL WAY",
+        "desc_two": "<p>Carefully chosen ingredients are the foundation of our company, helping people live longer and healthier lives.<\/p>"
+      }
+    },
+    "product_section_four": {
+      "type": "product_section_four",
+      "blocks": {
+        "2acd93b8-2d98-4422-a30f-29b1b94f24fe": {
+          "type": "text",
+          "settings": {
+            "spec": "Complete Vitamins &Minerals Profile",
+            "bynature": "shopify:\/\/shop_images\/yes.png",
+            "other_brand_one": "shopify:\/\/shop_images\/no.png",
+            "other_brand_two": "shopify:\/\/shop_images\/no.png"
+          }
+        },
+        "a6101963-1adf-4808-84d4-767b9e8bf1a4": {
+          "type": "text",
+          "settings": {
+            "spec": "Plant-Based",
+            "bynature": "shopify:\/\/shop_images\/yes.png",
+            "other_brand_one": "shopify:\/\/shop_images\/no.png",
+            "other_brand_two": "shopify:\/\/shop_images\/no.png"
+          }
+        },
+        "640d9599-7b7b-46da-9707-797e0938898d": {
+          "type": "text",
+          "settings": {
+            "spec": "Tastes Great",
+            "bynature": "shopify:\/\/shop_images\/yes.png",
+            "other_brand_one": "shopify:\/\/shop_images\/no.png",
+            "other_brand_two": "shopify:\/\/shop_images\/yes.png"
+          }
+        },
+        "956ea96b-2ab1-4828-ad4a-9c3df7e202df": {
+          "type": "text",
+          "settings": {
+            "spec": "High Bioavailability",
+            "bynature": "shopify:\/\/shop_images\/yes.png",
+            "other_brand_one": "shopify:\/\/shop_images\/no.png",
+            "other_brand_two": "shopify:\/\/shop_images\/no.png"
+          }
+        },
+        "8f4433f6-0366-442f-94b8-3bf0f7a46556": {
+          "type": "text",
+          "settings": {
+            "spec": "Easy to Consume",
+            "bynature": "shopify:\/\/shop_images\/yes.png",
+            "other_brand_one": "shopify:\/\/shop_images\/no.png",
+            "other_brand_two": "shopify:\/\/shop_images\/yes.png"
+          }
+        },
+        "fa0e800d-fae9-4486-8e28-dcb4ece3b90c": {
+          "type": "text",
+          "settings": {
+            "spec": "Easy on the Gut",
+            "bynature": "shopify:\/\/shop_images\/yes.png",
+            "other_brand_one": "shopify:\/\/shop_images\/no.png",
+            "other_brand_two": "shopify:\/\/shop_images\/no.png"
+          }
+        }
+      },
+      "block_order": [
+        "2acd93b8-2d98-4422-a30f-29b1b94f24fe",
+        "a6101963-1adf-4808-84d4-767b9e8bf1a4",
+        "640d9599-7b7b-46da-9707-797e0938898d",
+        "956ea96b-2ab1-4828-ad4a-9c3df7e202df",
+        "8f4433f6-0366-442f-94b8-3bf0f7a46556",
+        "fa0e800d-fae9-4486-8e28-dcb4ece3b90c"
+      ],
+      "settings": {
+        "title_main": "MAKING A SMARTER CHOICE",
+        "table_title_one": "Capsules \/ Pills",
+        "table_title_two": "Other Gummies"
+      }
+    },
+    "product_section_six": {
+      "type": "product_section_six",
+      "blocks": {
+        "171b90fc-cb7b-4bd0-8f77-35b7ddbd1f08": {
+          "type": "text",
+          "settings": {
+            "faq_question": "Are these natural Collagen Gummies easy to chew?",
+            "faq_answer": "<p>By Nature Collagen Builder Gummies are much more than generic pills - these are tailored to individual needs and customized to perform a particular function.<\/p>"
+          }
+        },
+        "15f0c0e7-1f50-4508-8c28-e88b2e6ef555": {
+          "type": "text",
+          "settings": {
+            "faq_question": "What does it taste like?",
+            "faq_answer": "<p>By Nature Collagen Builder Gummies are much more than generic pills - these are tailored to individual needs and customized to perform a particular function.<\/p>"
+          }
+        },
+        "87ca9995-f92e-46df-b39d-bdb6a7c183c8": {
+          "type": "text",
+          "settings": {
+            "faq_question": "How many Collagen Gummies can a person consume in one go?",
+            "faq_answer": "<p>By Nature Collagen Builder Gummies are much more than generic pills - these are tailored to individual needs and customized to perform a particular function.<\/p>"
+          }
+        },
+        "09aec862-19f3-4130-86b9-ef1755c23b29": {
+          "type": "text",
+          "settings": {
+            "faq_question": "Is it safe to take these Gummies every day?",
+            "faq_answer": "<p>By Nature Collagen Builder Gummies are much more than generic pills - these are tailored to individual needs and customized to perform a particular function.<\/p>"
+          }
+        },
+        "0e34b1a2-2121-4ddd-a767-7bfe734e7f34": {
+          "type": "text",
+          "settings": {
+            "faq_question": "Are these Gummies beneficial for health?",
+            "faq_answer": "<p>By Nature Collagen Builder Gummies are much more than generic pills - these are tailored to individual needs and customized to perform a particular function.<\/p>"
+          }
+        },
+        "72d0580c-f39a-4e3b-9a0c-1c1415f45054": {
+          "type": "text",
+          "settings": {
+            "faq_question": "What are natural Collagen Gummies?",
+            "faq_answer": "<p>By Nature Collagen Builder Gummies are much more than generic pills - these are tailored to individual needs and customized to perform a particular function.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "171b90fc-cb7b-4bd0-8f77-35b7ddbd1f08",
+        "15f0c0e7-1f50-4508-8c28-e88b2e6ef555",
+        "87ca9995-f92e-46df-b39d-bdb6a7c183c8",
+        "09aec862-19f3-4130-86b9-ef1755c23b29",
+        "0e34b1a2-2121-4ddd-a767-7bfe734e7f34",
+        "72d0580c-f39a-4e3b-9a0c-1c1415f45054"
+      ],
+      "settings": {
+        "faq_image": "shopify:\/\/shop_images\/keep-smile.jpg"
+      }
+    },
+    "product_section_seven": {
+      "type": "product_section_seven",
+      "blocks": {
+        "fda9ca9f-bf72-4ce9-a40c-b40a12ec424b": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Group.png",
+            "icon_ttl": "Targeted Nutrition"
+          }
+        },
+        "37c01a02-f0ea-4199-a588-37dd90a6a725": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Group_1.png",
+            "icon_ttl": "Stronger, <br>Healthier Hair"
+          }
+        },
+        "80468c0b-8a91-4db7-9916-eb12d541da01": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Vector_2.png",
+            "icon_ttl": "Improved <br>Skin Tone & Texture"
+          }
+        },
+        "6be9c942-4343-4630-9b3d-37e1c63fbc0a": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Group_2.png",
+            "icon_ttl": "Reduced <br>Hair Fall"
+          }
+        },
+        "810e185f-49ed-4a57-83fc-8e122ca8ebb6": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Group_3.png",
+            "icon_ttl": "Fights <br>Wrinkles & Fine Lines"
+          }
+        },
+        "ff4e62d6-16bd-44df-b917-dcaf5841e5f1": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Group_4.png",
+            "icon_ttl": "Stronger <br>Nail Growth"
+          }
+        }
+      },
+      "block_order": [
+        "fda9ca9f-bf72-4ce9-a40c-b40a12ec424b",
+        "37c01a02-f0ea-4199-a588-37dd90a6a725",
+        "80468c0b-8a91-4db7-9916-eb12d541da01",
+        "6be9c942-4343-4630-9b3d-37e1c63fbc0a",
+        "810e185f-49ed-4a57-83fc-8e122ca8ebb6",
+        "ff4e62d6-16bd-44df-b917-dcaf5841e5f1"
+      ],
+      "settings": {
+        "promise_title": "THE BYNATURE PROMISE",
+        "promise_sub_title": "You are at the core of what we do and all our products are just to make you happy!"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": [
+    "product-template",
+    "product_section_one",
+    "product_section_two",
+    "product_section_three",
+    "product_section_four",
+    "product_section_six",
+    "product_section_seven",
+    "product-recommendations"
+  ]
+}

@@ -1,0 +1,143 @@
+<div class="wrapper">
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt">
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ page.url }}"><span itemprop="name">{{page.title}}</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-rt pu-xl-rt pu-xxl-rt">
+        <h1 class="bpage-title"></h1>
+    </div>
+</div>  
+<div class="pure-g">
+  <div class="pu-12 pu-ct">   
+    <h1 class="pu-ct">{{page.title}}</h1>
+    {%-capture image_size-%}{{ 600 | escape }}x{%-endcapture-%}
+    {%-liquid 
+    assign img_url = section.settings.page_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+    capture logo_alt
+    echo section.settings.page_image.alt | default: shop.name
+    endcapture
+    -%}
+    <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:600px;margin:0 auto;">
+      <div style="padding-top:{{ 1 | divided_by: section.settings.page_image.aspect_ratio | times: 100}}%;">
+        <img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ section.settings.page_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;">
+      </div>
+    </div>
+    <noscript><img src="{{ section.settings.page_image | img_url: image_size }}" srcset="{{ section.settings.page_image | img_url: image_size }} 1x, {{ section.settings.page_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" itemprop="logo" style="max-width:auto;"></noscript>  
+  </div>
+</div>
+<div class="pure-g" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="pu-12 pu-ct">
+    {%-for sectblogs in section.blocks-%}
+    {%-assign list = forloop.index | modulo:2 | plus:0 | pluralize:'list1','list2'-%}
+    {%-if list contains 'list1'-%}
+    <div class="pure-g">
+      {%-endif-%}
+      <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6" data_list="{{list}}" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <div class="faq-tab ing-tab">
+          <input id="faq-tab-{{forloop.index}}-ing" type="radio" name="tabs"/>
+          <label class="catg" for="faq-tab-{{forloop.index}}-ing"><span itemprop="name">{{sectblogs.settings.faq_question}}</span></label>
+          <div class="faq-tab-content ing-tab-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{{sectblogs.settings.faq_answer}}</p>
+          </div>
+        </div>
+      </div>
+      {%-if list contains 'list2'-%}
+    </div>
+    {%-endif-%}
+    {%-endfor-%} 
+  </div>
+</div>
+</div>
+<style>
+  .faq-tab {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 25px 0;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    color: #343434;
+    border: 1px solid var(--colorBorder);
+      }
+  .faq-tab label {
+    position: relative;
+    display: block;
+    padding: 0 25px 0 0;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  .faq-tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  .faq-tab-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .45s;
+    overflow-y: visible;
+    margin-left: 0px;
+  }  
+  .faq-tab input:checked ~ .faq-tab-content {
+    max-height: none;
+    color: #959595;
+    padding-top: 10px;
+  }
+  .faq-tab-content input:checked ~ label, .faq-tab-content input:checked + label{
+    max-height: none;
+    color: #e42229;
+  } 
+  .faq-tab label::after {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: block;
+    -webkit-transition: all .45s;
+    -o-transition: all .45s;
+    transition: all .45s;
+  }
+  .faq-tab input[type=radio] + label::after {
+    font-family: "icons";
+    content: "\f102";
+    color:var(--colorNav);
+      -webkit-text-stroke: 1px var(--colorNav);    
+        }
+  .faq-tab input[type=radio]:checked + label::after {
+    font-family: "icons";
+    content: "\f105";
+    color:var(--colorNav);
+      -webkit-text-stroke: 1px var(--colorNav);    
+        }
+</style>
+{%-schema-%}
+  {
+  	"name": "FAQ",
+  	"settings": [{
+  		"type": "image_picker",
+  		"id": "page_image",
+  		"label": "Page Banner"
+  	}],
+  	"blocks": [{
+  		"type": "block_image",
+  		"name": "blog",
+  		"settings": [{
+  			"type": "text",
+  			"id": "faq_question",
+  			"label": "FAQ Question"
+  		},{
+  			"type": "text",
+  			"id": "faq_answer",
+  			"label": "FAQ Answer"
+  		}]
+  	}]
+  }
+{%-endschema-%}

@@ -1,0 +1,103 @@
+<div class="wrapper">
+  <h1>{{ page.title }}</h1>
+  <script type="text/html" id="ItemTemplateCart"> 
+  <div class="cartlitems">
+       <# if(stocks){ #>
+     <# for(var i=0; i < stocks.length; i++) { var stock = stocks[i]; #>
+        <div class="pure-g">
+          <div class="pu-3-8">
+            <img src="<#= stock.image.replace(/(\.[^.]*)$/, '_small$1').replace('http:', '') #>"/>
+    </div>
+          <div class="pu-5-8">
+            <div class="pure-g">
+              <div class="pu-4-5">
+                <p><#= stock.product_title  #></p>
+                <p><#= stock.variant_title  #></p>                       
+    </div>
+              <div class="pu-1-5">
+                <div class="pu-rt"><i class="icon icon-close"></i></div>
+    </div>
+    </div>
+            <div class="pure-g">
+              <div class="pu-1-2">
+                <input type="text" class="cart_input" minlength="1" maxlength="100" value="1"/>
+    </div>
+              <div class="pu-1-2 pu-rt">
+                <#= stock.price  #>
+    </div>          
+    </div>
+    </div>
+    </div> 
+      <# } #>  
+       <# } #>
+    </div>   
+    <div class="pure-g">
+      <div class="pu-1-1">
+        <div class="subtotalrow">
+          <div class="card_row">
+            <div class="sitems">Subtotal</div><div class="sitems sitems_stotal"><#= stotal  #></div>
+          </div>
+          <div class="card_row">
+            <div class="sitems">Shipping</div><div class="sitems sitems_srate">Calculated at next step</div>
+          </div>
+          <div class="card_row">
+            <div class="sitems">Total</div><div class="sitems sitems_total"><#= total  #></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+  <div id="ItemTemplateJs" style="display:none;">
+    <div>
+      <div><#=name#></div><div><#=address.street#></div>
+    </div>
+       <# if(stocks){ #>
+     <# for(var i=0; i < stocks.length; i++) { var stock = stocks[i]; #>
+        <div>
+    		<div><#= stock.company  #></div>
+    		<div><#= stock.name #></div>
+ 		</div> 
+      <# } #>  
+       <# } #>
+  </div>
+  <div class="tmpl"></div>
+  <script>
+    (function(){
+      this.parseTemplate=function(a,d){var b="",c="";try{return a&&(this.strFunc="var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('"+a.replace(/[\r\t\n]/g," ").replace(/'(?=[^#]*#>)/g,"	").split("'").join("\\'").split("	").join("'").replace(/<#=(.+?)#>/g,"',$1,'").split("<#").join("');").split("#>").join("p.push('")+"');}return p.join('');",c=new Function("obj",this.strFunc)),c(d)}catch(e){b=e.message}return"< # ERROR: "+b.htmlEncode()+" # >"};      
+      var ntpm = document.querySelector("#ItemTemplateJs").innerHTML.replaceAll('&lt;', '<').replaceAll('&gt;', '>');     
+      var log = parseTemplate(ntpm,{ name: "rick", address: { street: "32 kaiea", city: "paia"},stocks:[{ company: "Biple", name: "arun"},{ company: "Sharp", name: "sha"}] });    
+      document.querySelector(".tmpl").innerHTML=log; 
+    })();
+  </script>
+
+</div>
+              
+                  <div id="ItemTemplateCart" style="display:none;">
+        <# for(var i=0; i < items.length; i++) { var items = items[i]; #>
+        <div class="pure-g">
+          <div class="pu-3-8">
+            <img src="<#= items.image.replace(/(\.[^.]*)$/, '_small$1').replace('http:', '')  #>" data_alt="https://cdn.shopify.com/s/files/1/0383/9765/products/10260_natural_l_z_large.jpeg"/>
+          </div>
+          <div class="pu-5-8">
+            <div class="pure-g">
+              <div class="pu-4-5">
+                <p><#= items.product_title  #></p>
+                <p><#= items.variant_title  #></p>                       
+              </div>
+              <div class="pu-1-5">
+                <div class="pu-rt"><i class="icon icon-close"></i></div>
+              </div>
+            </div>
+            <div class="pure-g">
+              <div class="pu-1-2">
+                <input type="text" class="cart_input" minlength="1" maxlength="100" value="1"/>
+              </div>
+              <div class="pu-1-2 pu-rt">
+                <#= items.price  #>
+                  </div>          
+              </div>
+            </div>
+          </div>
+          <# } #>  
+              </div>      

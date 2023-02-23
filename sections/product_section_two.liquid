@@ -1,0 +1,75 @@
+<section class="product-video">
+<div class="">
+  <div class="pure-g">
+    <div class="pu-12">
+      <div id="modal-vedio">
+        <picture>
+  <source media="(min-width:650px)" srcset="{{ section.settings.video-image | img_url:'master' }}">
+  <source media="(max-width:649px)" srcset="{{ section.settings.video-image-mob | img_url:'master' }}">
+  <img src="{{ section.settings.video-image | img_url:'master' }}" style="width:100%">
+</picture>
+    <div class="video-btn" id="open">
+      <a href="javascript:void(0)">
+        <!-- <i class="fas fa-play"></i> -->
+        <span></span>
+      </a>
+    </div>
+                      
+    <div class="modal-container" id="modal">
+      <a class="" id="close">
+        <i class="fas fa-times close-btn"></i>
+      </a>
+      <div class="modal">
+        <iframe width="800" height="400" frameborder="0" allowfullscreen="" src="{{ section.sttings.youtube-link }}">
+        </iframe>
+      </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+</section>
+{% schema %}
+  {
+    "name": "Product Video Section",
+    "class":"product_video_section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "video-image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "video-image-mob",
+        "label": "Image Mobile"
+      },
+      {
+        "type":"url",
+        "id":"youtube-link",
+        "label":"Youtube link"
+      }
+    ],
+    "presets": [{
+        "name": "Product Video Section",
+        "category": "Video Section"
+    }]
+  }
+{% endschema %}
+
+
+
+{% javascript %}
+const open = document.getElementById('open');
+const close = document.getElementById('close');
+const modal = document.getElementById('modal');
+
+// Show modal
+open.addEventListener('click', () => modal.classList.add('show-modal'));
+
+// Hide modal
+close.addEventListener('click', () => modal.classList.remove('show-modal'));
+
+// Hide modal on outside click
+window.addEventListener('click', e => e.target == modal ? modal.classList.remove('show-modal') : false);                       
+{% endjavascript %}

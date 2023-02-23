@@ -1,0 +1,40 @@
+<!-- /templates/customers/register.liquid -->
+<em-register>
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt">
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ canonical_url }}"><span itemprop="name">{{ 'Register' | escape }}</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-rt pu-xl-rt pu-xxl-rt">
+        <h1 class="bpage-title">{{ 'Login'| escape }}</h1>
+    </div>
+</div>  
+<div class="pure-g">
+  <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4"></div>
+  <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4 pu-ct">
+  {%-form 'create_customer',return_to:'/account'-%}
+  {{ form.errors | default_errors }}
+  <div class="error_messager"></div>        
+  <label for="first_name" class="hidden">First Name</label>
+  <input type="text" value="" name="customer[first_name]" class="text-ful" size="30" placeholder="First Name"/>
+  <label for="last_name" class="hidden">Last Name</label>
+  <input type="text" value="" name="customer[last_name]" class="text-ful" size="30" placeholder="Last Name"/>
+  <label for="email" class="hidden">Email Address</label>
+  <input type="email" value="" name="customer[email]" class="text-ful" size="30" placeholder="Email"/>
+  <label for="password" class="hidden">Password</label>
+  <input type="password" value="" name="customer[password]" class="text-ful" size="30" placeholder="Password"/>
+  <input type="button" value="Create" class="button-full btn-register"/>
+  {%-endform-%}
+  </div>
+  <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4"></div>
+</div>
+</em-register>
+<script src="{{"account.js"|asset_url}}" type="text/javascript"></script>

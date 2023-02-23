@@ -1,0 +1,222 @@
+{
+  "sections": {
+    "image-banner-new": {
+      "type": "image-banner-new",
+      "blocks": {
+        "22eae731-fb31-4e61-ac8c-041009dd162b": {
+          "type": "slide",
+          "settings": {
+            "image_desk": "shopify:\/\/shop_images\/Slider_1.1_1920x800_b97dc019-53fe-4c76-b2b5-415fdc9446b7.jpg",
+            "image_mob": "shopify:\/\/shop_images\/Mobile_600x800_5a33534a-1fa7-4cfb-b61e-d15a4e60863f.jpg",
+            "link": "\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "22eae731-fb31-4e61-ac8c-041009dd162b"
+      ],
+      "settings": {
+      }
+    },
+    "our_bestseller": {
+      "type": "our_bestseller",
+      "settings": {
+        "title": "Our Bestsellers",
+        "product_list": [
+          "by-nature-agar-agar-powder-vegetarian-gelatin",
+          "by-nature-almond-flour-200-g",
+          "by-nature-apple-cider-vinegar-with-honey",
+          "by-nature-chia-seeds-100-gm",
+          "by-nature-coconut-flour-200gm",
+          "by-nature-collagen-builder-gummies-for-skin-with-hyaluronic-acid-vegetarian-collagen-peptides-organic-sea-buckthorn-30-day-pack",
+          "by-nature-glowing-skin-gummies-with-selenium-spearmint-dandelion-root-30-day-pack",
+          "by-nature-hair-growth-gummies-for-men-with-biotin-folic-acid-bhringaraj-30-day-pack"
+        ]
+      }
+    },
+    "home_section-two": {
+      "type": "home_section-two",
+      "blocks": {
+        "b2029a43-04f9-4686-9072-63a09d0163e7": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Scientifically_Formulated_4b70d9c0-ac79-47f7-90da-20cb05cab19e.png",
+            "icon_ttl": "Scientifically <br> Formulated"
+          }
+        },
+        "f39e9d23-3ba0-42be-8038-4e855e3d89b0": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Plant_Based_836bdb6c-5f77-4022-b9a9-3861f2861572.png",
+            "icon_ttl": "Plant <br> Based"
+          }
+        },
+        "74be62b8-ff95-4ded-a96c-4a0ebae2cc3f": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/No_Artificial_Flavours.png",
+            "icon_ttl": "No Artificial <br> Flavours"
+          }
+        },
+        "bfb924c6-56f9-4e91-8d22-f9f899acaa6e": {
+          "type": "icon",
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/Clean_Nutrition.png",
+            "icon_ttl": "Clean <br> Nutrition"
+          }
+        },
+        "5cc0595e-5b73-4aa5-9b7f-88508eed7784": {
+          "type": "icon",
+          "disabled": true,
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/by-pro-ic-5.png",
+            "icon_ttl": "Fights<br>Wrinkles & Fine Lines"
+          }
+        },
+        "38b807d9-cd77-48e3-9f02-5df1c0d5051f": {
+          "type": "icon",
+          "disabled": true,
+          "settings": {
+            "icon_img": "shopify:\/\/shop_images\/by-pro-ic-6.png",
+            "icon_ttl": "Stronger<br> Nail Growth"
+          }
+        }
+      },
+      "block_order": [
+        "b2029a43-04f9-4686-9072-63a09d0163e7",
+        "f39e9d23-3ba0-42be-8038-4e855e3d89b0",
+        "74be62b8-ff95-4ded-a96c-4a0ebae2cc3f",
+        "bfb924c6-56f9-4e91-8d22-f9f899acaa6e",
+        "5cc0595e-5b73-4aa5-9b7f-88508eed7784",
+        "38b807d9-cd77-48e3-9f02-5df1c0d5051f"
+      ],
+      "settings": {
+        "about_title": "FOR THE BEST🌟<br> VERSION OF YOU",
+        "about_descriptioin": "Healthy Outside, Starts from Inside!"
+      }
+    },
+    "home_section-three": {
+      "type": "home_section_three",
+      "settings": {
+        "ing_img": "shopify:\/\/shop_images\/Banner_v2.jpg",
+        "ing_img_img": "shopify:\/\/shop_images\/Banner_v2.jpg",
+        "link": "shopify:\/\/collections"
+      }
+    },
+    "made_with_care_home": {
+      "type": "made_with_care_home",
+      "blocks": {
+        "baa6cae0-376e-4bd3-b93a-8672db8ae2a6": {
+          "type": "image",
+          "settings": {
+            "sec_img": "shopify:\/\/shop_images\/Energy_For_More.jpg",
+            "img_ttl": "ENERGY FOR MORE",
+            "img_content": "A nutritious start to the day can keep you going longer to be the best version of you.",
+            "background_color": "#000000"
+          }
+        },
+        "ab334b94-3094-4174-95a0-14926a095558": {
+          "type": "image",
+          "settings": {
+            "sec_img": "shopify:\/\/shop_images\/Best_Of_Nature_and_Science.jpg",
+            "img_ttl": "BEST OF NATURE & SCIENCE",
+            "img_content": "Our products are created from responsibly sourced & clinically proven ingredients.",
+            "background_color": "#f4bfbf"
+          }
+        },
+        "91cd7565-089d-468a-aab4-2b5fe9bc7d7f": {
+          "type": "image",
+          "settings": {
+            "sec_img": "shopify:\/\/shop_images\/Lead_Healthier_Lives.jpg",
+            "img_ttl": "LEAD HEALTHIER LIVES",
+            "img_content": "Everyday nutrition can keep lifestyle diseases and issues under control.",
+            "background_color": "#f4bfbf"
+          }
+        }
+      },
+      "block_order": [
+        "baa6cae0-376e-4bd3-b93a-8672db8ae2a6",
+        "ab334b94-3094-4174-95a0-14926a095558",
+        "91cd7565-089d-468a-aab4-2b5fe9bc7d7f"
+      ],
+      "settings": {
+      }
+    },
+    "featured_products": {
+      "type": "featured_products",
+      "settings": {
+        "title": "Featured Products",
+        "sub_title": "",
+        "collection_list": [
+          "super-foods",
+          "supplements",
+          "vitamin-gummies"
+        ]
+      }
+    },
+    "backed_by_science": {
+      "type": "backed_by_science",
+      "blocks": {
+        "1989c0e9-d421-4d1e-88e7-34bbadd93176": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/1_665b2e23-cbec-430b-a722-8b20e1be5a5c.png",
+            "cli_name": "Mrinalini C",
+            "cli_content": "I ordered 3 months pack and really happy with the results, want to continue consumption."
+          }
+        },
+        "0f6daf33-72fc-41f9-aca6-9581f1d82862": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/2_80e0e867-d787-44d0-94a3-a6c8fb8f0994.png",
+            "cli_name": "Ankur G.",
+            "cli_content": "The best salt I have used. No more bloating problem now. and I feel that my food tastes better."
+          }
+        },
+        "d5763054-b26a-4874-a35e-a400b46279d4": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/3_35caa0b6-9c4c-424f-91e2-23bae1d4d45c.png",
+            "cli_name": "Imran K.",
+            "cli_content": "Good oats. The flakes are full. They are not broken and there is no powder. With these by nature rolled oats, oats are now tastier."
+          }
+        },
+        "d8e6d7ba-9f33-4408-84d3-c52439c36a01": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/4_2f366fc4-1d3a-48da-b231-05e0160a7fc9.png",
+            "cli_name": "Krishnakanta S.",
+            "cli_content": "Very nice and healthy product."
+          }
+        },
+        "9a9e1332-06a2-4560-9417-5d8b61b87ed5": {
+          "type": "image",
+          "settings": {
+            "cli_img": "shopify:\/\/shop_images\/Group_2713.png",
+            "cli_name": "Samson D.",
+            "cli_content": "Very pure. These are the best Chia seeds, I had. Great and convenient packaging also."
+          }
+        }
+      },
+      "block_order": [
+        "1989c0e9-d421-4d1e-88e7-34bbadd93176",
+        "0f6daf33-72fc-41f9-aca6-9581f1d82862",
+        "d5763054-b26a-4874-a35e-a400b46279d4",
+        "d8e6d7ba-9f33-4408-84d3-c52439c36a01",
+        "9a9e1332-06a2-4560-9417-5d8b61b87ed5"
+      ],
+      "settings": {
+        "section_title": "Loved by Many!"
+      }
+    }
+  },
+  "order": [
+    "image-banner-new",
+    "our_bestseller",
+    "home_section-two",
+    "home_section-three",
+    "made_with_care_home",
+    "featured_products",
+    "backed_by_science"
+  ]
+}

@@ -1,0 +1,109 @@
+<div
+  class="collection-filter"
+  role="complementary"
+  aria-label="Side panel">
+  <form class="filter-form">
+
+    <div class="pure-g">
+      <div class="pu-6">
+        <h3>Filter</h3>
+      </div>
+      <div class="pu-6 pu-rt">
+        <button class="button-default filter-close">
+          <i class="icon icon-close"></i>
+        </button>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pu-6">
+        <button type="button" class="button-default button-full btn_clearall">
+          <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}">Clear All</a>
+        </button>
+      </div>
+      <div class="pu-6 pu-rt">
+        <button class="filter-submit button-full">Submit</button>
+      </div>
+    </div>
+    {%- assign filter_Values = collection.filters | reverse -%}
+    {%- for filter in filter_Values -%}
+      <hr class="hr_ruler">
+      <ul class="no-bullets">
+        <div class="accordion__item">
+          <div class="accordion__heading">
+            <button class="accordion__trigger">{{ filter.label }}</button>
+          </div>
+          <div class="accordion__copy">
+            {%- if filter.label == "Price" -%}
+              <li>
+                <div class="pure-g" style="margin-top:10px;">
+                  <div class="pu-5">
+                    <input
+                      style="opacity:unset;position: unset;width:100%"
+                      name="{{ filter.min_value.param_name }}"
+                      id="Filter-{{ filter.label }}-{{ forloop.index }}"
+                      {% if filter.min_value.value -%}
+                      value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                      {%- endif %}
+                      type="number"
+                      placeholder="0"
+                      min="0"
+                      max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                      class="prc_validator"></div>
+                  <div class="pu-2">
+                    <div style="padding:5px 0;">To</div>
+                  </div>
+                  <div class="pu-5"><input
+                      style="opacity:unset;position:unset;width:100%"
+                      name="{{ filter.max_value.param_name }}"
+                      id="Filter-{{ filter.label }}-{{ forloop.index }}"
+                      {% if filter.max_value.value -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{%- endif %}
+                      type="number"
+                      placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                      min="0"
+                      max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                      class="prc_validator"></div>
+                </div>
+              </li>
+            {%- elsif filter.label == "Availability" -%}
+              {%- for avilability in filter.values -%}
+                <li>
+                  <label><input
+                      id="Filter-{{ avilability.label }}-{{ forloop.index }}"
+                      class="chkk sort_nfil"
+                      type="radio"
+                      name="{{ avilability.param_name }}"
+                      value="{{ avilability.value | handle }}"
+                      {% if avilability.active -%}checked{%-endif-%} /><span></span>&nbsp;
+                    {%-liquid 
+          if avilability.value contains 1
+          echo "In Stock" 
+          else 
+          echo 'Out Stock' 
+          endif-%}</label>
+                </li>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for brand in filter.values -%}
+                <li>
+                  <label><input
+                      id="Filter-{{ brand.label }}-{{ forloop.index }}"
+                      class="chkk sort_nfil"
+                      type="radio"
+                      name="{{ brand.param_name }}"
+                      value="{{ brand.value }}"
+                      {% if brand.active -%}checked{%- endif-%} />&nbsp;{{ brand.value | capitalize }}&nbsp;&nbsp;({{ brand.count }})</label>
+                </li>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+      </ul>
+    {%- endfor -%}
+    <div class="pure-g">
+      <div class="pu-12 pu-rt">
+        <button class="filter-submit button-full" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+
+</div>

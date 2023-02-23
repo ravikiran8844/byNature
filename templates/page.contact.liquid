@@ -1,0 +1,54 @@
+<em-contact>
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt">
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ page.url }}"><span itemprop="name">{{page.title}}</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-rt pu-xl-rt pu-xxl-rt">
+        <h1 class="bpage-title"></h1>
+    </div>
+</div>  
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4"></div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4">
+      <h1 class="pu-ct">{{page.title}}</h1>
+      {%-form 'contact'-%}
+      {%-if form.posted_successfully?-%} Thank you for your contact {%-endif-%}
+      {{ form.errors | default_errors }}
+      <div class="pure-g">
+        <div class="pu-12 pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6">
+          <label for="ContactFormName" class="hidden">name</label>
+          <input type="text" id="ContactFormName" class="text-ful" name="contact[name]" placeholder="Name">
+        </div>
+        <div class="pu-12 pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6">
+          <label for="ContactFormEmail" class="hidden">email</label>
+          <input type="email" id="ContactFormEmail" class="text-ful" name="contact[email]" placeholder="Email">
+        </div>
+      </div>
+      <div class="pure-g">
+        <div class="pu-12">
+          <label for="ContactFormPhone" class="hidden">phone</label>
+          <input type="tel" id="ContactFormPhone" class="text-ful" name="contact[phone]" placeholder="Phone">
+        </div>
+      </div>
+      <div class="pure-g">
+        <div class="pu-12">
+          <label for="ContactFormMessage" class="hidden">message</label>
+          <textarea rows="10" id="ContactFormMessage" class="text-ful" name="contact[body]" placeholder="Message..."></textarea>
+          <input type="submit" class="btn-full btn-contact" value="send">
+        </div>
+      </div>
+      {%-endform-%}
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4"></div>
+  </div>
+</em-contact>
+<script src="{{"contact.js"|asset_url}}" type="text/javascript"></script>

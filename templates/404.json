@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "404-template": {
+      "type": "404_template",
+      "settings": {
+        "targe_action": "\/"
+      }
+    }
+  },
+  "order": [
+    "404-template"
+  ]
+}

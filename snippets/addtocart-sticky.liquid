@@ -1,0 +1,40 @@
+{% if template contains 'product' %}
+<div id="huratips-addtocart-sticky">
+  <form action="/cart/add" method="post">
+    <select name="id">
+      {% for variant in product.variants %}
+      <option value="{{variant.id}}">{{variant.title}}</option>
+      {% endfor %}
+    </select>
+    <input type="number" name="quantity" value="1" min="1">
+    <button type="submit">Add To Cart</button>
+  </form>
+</div>
+<style>
+  #huratips-addtocart-sticky{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #fff;
+    padding-top: 5px;
+    border-top: 1px solid #e2e2e2;
+  }
+  #huratips-addtocart-sticky select,
+  #huratips-addtocart-sticky input,
+  #huratips-addtocart-sticky button{
+    height:40px;
+    margin:0 5px;
+    vertical-align: middle;
+  }
+  #huratips-addtocart-sticky input{
+    width: 60px;
+    text-align: center;
+  }
+  #huratips-addtocart-sticky button{
+    padding:0 10px;
+  }
+</style>
+{% endif %}

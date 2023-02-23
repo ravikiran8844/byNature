@@ -1,0 +1,102 @@
+{%-assign ingraebg = false-%}
+{%-assign ingcount = 0-%}
+{%-capture mying-%}      
+    <div class="glide" id="glide1">
+
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides no-bullets abt-icon-list">
+      {%-for tag in product.tags-%}
+      {%-for ingtag in section.blocks-%}
+      {%-assign curtag = tag | handleize-%}
+      {%-assign curing = ingtag.settings.img_ttl | handleize | default:"null"-%}
+      {% if curtag contains curing %}
+                {%-assign ingraebg = true-%}
+        {%-assign ingcount = ingcount| plus:1-%}
+        <li class="glide__slide bgc">
+          <div class="ing-img-box">
+          <img src="{{ ingtag.settings.ing_img | img_url }}"> 
+          </div>
+          <p class="ing-title">{{ ingtag.settings.img_ttl }}</p>
+          <p class="ing-cnt">{{ ingtag.settings.img_cnt }}</p>
+        </li>
+      {%- endif -%}  
+      {%- endfor -%}
+      {%- endfor -%}
+        </ul>
+    </div>
+    {%-if ingcount > 3-%}
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow g1prev prev" data-glide-dir="<">←</button>
+      <button class="glide__arrow g1next next" data-glide-dir=">">→</button>
+    </div>
+    {%-endif-%}
+  </div>   
+{%-endcapture-%} 
+{%-if section.blocks.size > 0 and ingraebg == true-%}        
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <h3 class="clr text-center pbt-20">{{ section.settings.ingredient_sec_title }}</h3>
+      {{ mying | replace: '  ', '' | strip_newlines }}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+{% schema %}
+  {
+    "name": "Ingredients",
+    "class":"ingredients",
+    "settings": [
+      {
+        "type":"text",
+        "id":"ingredient_sec_title",
+        "label":"Title",
+        "default":"Ingredients that show results"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Ingredients",
+        "type":"image",
+        "settings":[
+          {             
+          "type": "image_picker",
+           "id": "ing_img",
+           "label": "Ingredients Image"
+        },
+        {
+            "type":"text",
+            "id":"img_cnt",
+            "label":"Ingredients Contet"
+        },
+        {
+            "type":"text",
+            "id":"img_ttl",
+            "label":"Ingredients Name"
+        }          
+          
+        ]
+  }]
+  }
+{% endschema %}
+{% javascript %}
+if(document.querySelector("#glide1")){  
+   new Glide('#glide1', {
+	type: 'slider',  
+	perView: 4,
+    autoplay:false,
+      arrows: {
+          prev: ".g1prev",
+          next: ".g1next"
+        },
+	breakpoints: {
+		560: {
+			perView: 2
+		},
+      460: {
+			perView: 1
+		},
+	}
+}).mount();
+}
+{% endjavascript %}

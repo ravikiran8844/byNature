@@ -1,0 +1,308 @@
+<link href="{{-'collection.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" />
+<div class="wrapper">
+<div is="em-collectionlist" itemscope itemtype="https://schema.org/ItemList">
+  <link itemprop="url" href="{{canonical_url}}" /><meta itemprop="name" content="Collection"/><meta itemprop="numberOfItems" content="100"/><meta itemprop="itemListOrder" content="Unordered"/><meta itemprop="description" content="Collection Description"/><div class="pure-g"><div class="pu-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt"><nav aria-label="Breadcrumb"><ul class="breadcrumb no-bullets hidden" itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a><meta itemprop="position" content="1" /></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/collections"><span itemprop="name">Collections</span></a><meta itemprop="position" content="2" /></li></ul></nav></div></div>
+    <div class="pure-g">
+      <div class="pu-12">
+       <img src="{{ 'list_collection_banner.png' |asset_url }}" />
+      </div>
+    </div>
+  {%-paginate collections by 8-%}
+<div class="pure-g">
+    <div class="desktop-view-only">
+    <ul class="cal-ul">
+  <li>
+    <button class="allact cab_allcollect ctabact" data_handle="allcollect">{{ 'All Products' }}</button>
+  </li>
+    
+{%-for collection in collections-%}
+  <li>
+    <button class="cab_{{collection.handle}} ctabact" data_handle="{{collection.handle}}">{{ collection.title }}</button>
+  </li>
+{%- endfor -%}
+    </ul>
+</div>
+</div>
+<div class="dropdown-container mobile-view-only">
+            <div class="dropdown-toggle click-dropdown">
+              <button class="allact ctabact" data_handle="allcollect">{{ 'All Products' }}</button>
+            </div>
+            <div class="dropdown-menu">
+              <ul>
+              {%-for collection in collections-%}
+                <li>
+                  <button class="{{collection.handle}} ctabact" data_handle="{{collection.handle}}">{{ collection.title }}</button>
+                </li>
+              {%- endfor -%}
+              </ul>
+            </div>
+          </div>   
+  {%-for collection in collections-%}
+  <div class="titlewrapper allcollect ctab_allcollect ctab_{{ collection.handle }}" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <div class="pure-g">
+    {%-if collection.products.size > 0-%}
+      <div class="pu-12">
+            <div class="pure-g">
+              <div class="pu-6 desktop-view-only">
+                <a class="call-fu-image" href="{{collection.url}}"><img src="{{collection.featured_image | img_url:"large" }}"></a>
+              </div>
+              <div class="pu-md-6 pu-sm-12">
+                <h1>{{ collection.title }}</h1>
+                  <div class="pure-g">
+    {%-for product in collection.products limit:2-%}
+      <div class="pu-sm-6 pu-md-6 pu-lg-6 pu-xl-6 pu-xxl-6">
+        <a href="{{product.url}}" data="{{product.featured_image.aspect_ratio}}">
+          {%-if product.featured_image != blank-%}
+            <div class="call-wrap" style="position:relative">
+            {%-assign pcr = product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max -%}
+            {%-if pcr > 0 -%}
+            <div class="off-per">
+            <span>{{pcr}}% OFF</span>
+            </div>
+            {%-endif-%}
+          {%-liquid
+          assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          assign img_alt = product.featured_image.alt | default: shop.name
+          assign image_size = '300x'
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript><p class="collection_prodcut_title">{{product.title | strip_html | truncate: 30}}</p><a class="re-prodcut_price" href="{{product.url}}"><span class="btn-txt">ADD TO CART</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span></a>
+            </div>
+          {%-else-%}
+          <div class="noimg">
+          {%-liquid
+          assign image_size = '300x'
+          assign img_url = 'placeholder.png' | asset_img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          assign img_ratio = '0.75'
+          assign img_alt =  shop.name
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: img_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ img_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ 'placeholder.png' | asset_img_url: image_size }}" srcset="{{ 'placeholder.png' | asset_img_url: image_size }} 1x, {{ 'placeholder.png' | asset_img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript></div><p class="collection_prodcut_title">{{'Product'}}</p><a class="re-prodcut_price" href="{{product.url}}"><span class="btn-txt">ADD TO CART</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span></a>
+        {%- endif -%}
+      </a>
+      </div>
+      {%-endfor-%}
+                  </div>
+              </div>              
+            </div>
+      </div>
+    {%-for product in collection.products offset: 2 limit:8-%}
+      <div class="pu-sm-6 pu-md-6 pu-lg-3 pu-xl-3 pu-xxl-3">
+        <a href="{{product.url}}" data="{{product.featured_image.aspect_ratio}}">
+          {%-if product.featured_image != blank-%}
+          <div class="call-wrap" style="position:relative">
+            {%-assign pcr = product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max -%}
+            {%-if pcr > 0 -%}
+            <div class="off-per">
+            <span>{{pcr}}% OFF</span>
+            </div>
+            {%-endif-%}
+          {%-liquid
+          assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          assign img_alt = product.featured_image.alt | default: shop.name
+          assign image_size = '300x'
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript><p class="collection_prodcut_title">{{product.title | strip_html | truncate: 30}}</p>   <div class="btn-cntr">   <a class="re-prodcut_price" href="{{product.url}}"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span></a></div>
+
+          </div>
+          {%-else-%}
+          <div class="noimg">
+          {%-liquid
+          assign image_size = '300x'
+          assign img_url = 'placeholder.png' | asset_img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+          assign img_ratio = '0.75'
+          assign img_alt =  shop.name
+          -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div style="padding-top:{{ 1 | divided_by: img_ratio | times: 100}}%;"><img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ img_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ 'placeholder.png' | asset_img_url: image_size }}" srcset="{{ 'placeholder.png' | asset_img_url: image_size }} 1x, {{ 'placeholder.png' | asset_img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript></div><p class="collection_prodcut_title">{{'Product'}}</p> <div class="btn-cntr"><a class="re-prodcut_price" href="{{product.url}}"><span class="btn-txt">ADD TO CART</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span></a></div>
+
+        {%-endif-%}
+      </a>
+      </div>
+      {%-endfor-%}
+    {%-else-%}
+    {%-render 'collectsnoimg',lov:4-%}
+    {%-endif-%}   
+    </div>
+  </div>
+  {%-endfor-%}
+  {%-render 'default_pagination',paginate:paginate-%}
+  {%-endpaginate-%}   
+</div>
+</div>
+<script src="{{'list_collection.js'|asset_url }}"></script> 
+<style>
+   .dropdown-container {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+/* Dropdown menu css */
+.dropdown-container {
+  position: relative;
+  max-width: 300px;
+}
+.dropdown-container .dropdown-toggle {
+  color: #000000;
+  background-color: #ffffff;
+  font-size: 17px;
+  padding: 0;
+  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+}
+.dropdown-container .dropdown-toggle label {
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdown-container .dropdown-menu {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+  margin-top: 17px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: none;
+  background-color: #ffffff;
+  z-index: 10;
+}
+.dropdown-container .dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  z-index: 10;
+}
+.dropdown-container .dropdown-menu a {
+  text-decoration: none;
+  display: block;
+  color: #000000;
+  font-size: 15px;
+  padding: 16px 20px;
+  font-weight: 600;
+  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+  transition: all ease-in-out 0.3s;
+}
+.dropdown-menu, .dropdown-toggle {
+  position: relative;
+}
+.dropdown-menu::before, .dropdown-toggle::before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border: 5px solid;
+  border-top-color: rgba(0, 0, 0, 0);
+  border-left-color: rgba(0, 0, 0, 0);
+  margin-top: -2.5px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all ease-in-out 0.2s;
+}
+.dropdown-menu {
+  z-index: 10;
+  position: relative;
+}
+.dropdown-menu::before {
+  z-index: -1;
+  transform: rotate(-135deg);
+  top: -4px;
+  border-color: #ffffff;
+  box-shadow: 1px 1px 4px -2px rgba(0, 0, 0, 0.4);
+}
+.dropdown-open .dropdown-menu.dropdown-active {
+  display: block;
+}
+
+.dropdown-container.dropdown-open .dropdown-toggle:before {
+  transform: rotate(-135deg);
+}
+</style>
+
+ <script>
+
+// Get all the dropdown from document
+document.querySelectorAll('.dropdown-toggle').forEach(dropDownFunc);
+
+// Dropdown Open and Close function
+function dropDownFunc(dropDown) {
+    console.log(dropDown.classList.contains('click-dropdown'));
+
+    if(dropDown.classList.contains('click-dropdown') === true){
+        dropDown.addEventListener('click', function (e) {
+            e.preventDefault();        
+    
+            if (this.nextElementSibling.classList.contains('dropdown-active') === true) {
+                // Close the clicked dropdown
+                this.parentElement.classList.remove('dropdown-open');
+                this.nextElementSibling.classList.remove('dropdown-active');
+    
+            } else {
+                // Close the opend dropdown
+                closeDropdown();
+    
+                // add the open and active class(Opening the DropDown)
+                this.parentElement.classList.add('dropdown-open');
+                this.nextElementSibling.classList.add('dropdown-active');
+            }
+        });
+    }
+
+    if(dropDown.classList.contains('hover-dropdown') === true){
+
+        dropDown.onmouseover  =  dropDown.onmouseout = dropdownHover;
+
+        function dropdownHover(e){
+            if(e.type == 'mouseover'){
+                // Close the opend dropdown
+                closeDropdown();
+
+                // add the open and active class(Opening the DropDown)
+                this.parentElement.classList.add('dropdown-open');
+                this.nextElementSibling.classList.add('dropdown-active');
+                
+            }
+
+            // if(e.type == 'mouseout'){
+            //     // close the dropdown after user leave the list
+            //     e.target.nextElementSibling.onmouseleave = closeDropdown;
+            // }
+        }
+    }
+
+};
+
+
+// Listen to the doc click
+window.addEventListener('click', function (e) {
+
+    // Close the menu if click happen outside menu
+    if (e.target.closest('.dropdown-container') === null) {
+        // Close the opend dropdown
+        closeDropdown();
+    }
+
+});
+
+
+// Close the openend Dropdowns
+function closeDropdown() { 
+    console.log('run');
+    
+    // remove the open and active class from other opened Dropdown (Closing the opend DropDown)
+    document.querySelectorAll('.dropdown-container').forEach(function (container) { 
+        container.classList.remove('dropdown-open')
+    });
+
+    document.querySelectorAll('.dropdown-menu').forEach(function (menu) { 
+        menu.classList.remove('dropdown-active');
+    });
+}
+
+// close the dropdown on mouse out from the dropdown list
+document.querySelectorAll('.dropdown-menu').forEach(function (dropDownList) { 
+    // close the dropdown after user leave the list
+    dropDownList.onmouseleave = closeDropdown;
+});
+
+   
+ </script>             

@@ -1,0 +1,59 @@
+<hr>
+<div class="titlewrapper">
+<div class="pure-g">
+  <div class="pu-6 pu-sm-8 pu-md-8 pu-lt"><h4>{{ section.settings.title }}</h4></div>
+  <div class="pu-6 pu-sm-4 pu-md-4 pu-rt"><a href="/collections">View All</a></div>
+</div>
+</div>
+<div class="pure-g">    
+{%-if section.settings.collection_list != blank-%}
+{%-for product in section.settings.collection_list-%}
+  <div class="pu-md-4 pu-sm-6">
+  <div class="productinnerwrapper">
+  <a href="{{product.url}}">
+    {%-if product.featured_image-%}
+    {%-capture image_size-%}{{ 300 | escape }}x{%-endcapture-%}
+    {%-liquid 
+    assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+    capture logo_alt
+    echo product.featured_image.alt | default: shop.name
+    endcapture
+  -%}
+    <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;">
+      <div class="subgallery" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;">
+        <img itemprop="image" class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;">
+      </div>
+    </div>
+    <noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" style="max-width:auto;"></noscript>
+    {%-else-%}
+      {{ 'image' | placeholder_svg_tag: 'my-custom-class' }}
+    {%-endif-%} 
+    <p class="prodcut_title">{{product.title}}</p>
+    </a>
+    </div>
+  </div>
+  {%-endfor-%}
+{%-else-%}
+ {%-render 'collectsnoimg',lov:4-%}    
+{%-endif-%}      
+</div>
+{%-schema-%}
+{
+  "class":"home_collects",
+	"tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Select Collections",
+      "default":"Featured Collections"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections",
+      "limit": 4
+    }
+  ]
+}
+{%-endschema-%}

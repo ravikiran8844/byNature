@@ -1,0 +1,56 @@
+<!-- /templates/customers/login.liquid -->
+<em-login>
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-lt pu-xl-lt pu-xxl-lt">
+        <nav aria-label="Breadcrumb">
+            <ul class="breadcrumb no-bullets" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{shop.url}}"><span itemprop="name">Home<i class="icon icon-arrow-right"></i></span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ canonical_url }}"><span itemprop="name">{{ 'Login' | escape }}</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-6 pu-xl-6 pu-xxl-6 pu-sm-ct pu-md-ct pu-lg-rt pu-xl-rt pu-xxl-rt">
+        <h1 class="bpage-title">{{ 'Login'| escape }}</h1>
+    </div>
+</div>
+<div class="pure-g">
+    <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4"></div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4 pu-ct">
+      <div class="loginbase">
+        <h2>Login</h2>
+        {%-form 'customer_login'-%}
+        {{ form.errors | default_errors }}
+        <div class="error_messager"></div>
+        <label for="customer_email" class="hidden">Email Address</label>
+        <input type="email" name="customer[email]" class="text-ful" placeholder="Email"/>
+        <label for="customer_password" class="hidden">Password</label>
+        <input type="password" name="customer[password]" class="text-ful" placeholder="Password"/>
+        <div><input type="submit" name="login" class="button-full btn-login" value="Sign In" /></div>
+        {%-endform-%}          
+        <div class=""><button class="button-default recoveropen">Recover Password</button></div>
+      </div>
+      <div class="recoverbase">
+        <h4>Reset your password</h4>
+        <p>We will send you an email to reset your password.</p>
+        {%-form 'recover_customer_password',id:"customer_lrecover"-%}
+        {{ form.errors | default_errors }}
+        <label for="customer_email" class="hidden">Email Address</label>
+        <input type="email" name="email" class="text-ful" placeholder="Email"/>
+        <div><input type="submit" class="button-full btn-recover" value="Submit" /></div>
+        {%-endform-%}
+        <div class=""><button class="button-default recoverclose">Cancel</button></div>
+      </div>
+    </div>
+    <div class="pu-sm-12 pu-md-12 pu-lg-4 pu-xl-4 pu-xxl-4"></div>
+</div>
+</em-login>
+<style>
+  .recoverbase{
+   display:none; 
+  }
+</style>
+<script src="{{"account.js"|asset_url}}" type="text/javascript"></script>

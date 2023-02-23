@@ -1,0 +1,78 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <h3 class="science-ttl clr text-center">{{ section.settings.section_title }}</h3>
+     <div class="glide" id="glide2">
+    <div class="glide__track" data-glide-el="track">
+      <div class="glide__slides">
+        {%- for block in section.blocks -%}
+        <div class="glide__slide">
+         <div class="science-box"> 
+         <img src="{{ block.settings.cli_img | img_url:'master'}}">
+         <p class="cc-name"> {{ block.settings.cli_name }} </p>
+         <p class="cc-cnt"> {{ block.settings.cli_content }} </p>
+         </div>
+        </div>
+        {%- endfor -%}
+      </div>
+  </div> 
+  </div>
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Backed by Science",
+    "class": "backed_by_science",
+    "settings": [
+      {
+        "type":"text",
+        "id":"section_title",
+        "label":"Title",
+        "default":"Backed by Science"
+      }
+    ],
+    "blocks": [
+      {
+        "name":"Backed by Science",
+        "type":"image",
+        "settings":[
+          {
+          "type": "image_picker",
+           "id": "cli_img",
+           "label": "Image"
+        },
+          {
+            "type":"text",
+            "id":"cli_name",
+            "label":"Name",
+            "default":"Tanvi Dalal, MS"
+          },
+          {
+            "type":"text",
+            "id":"cli_content",
+            "label":"Client Content",
+            "default":"Buy the best quality China grass or veg gelatin powder & get it delivered to your doorstep."
+          }
+        ]
+        
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+  new Glide('#glide2', {
+	type: 'carousel',
+	perView: 4,
+    autoplay:5000,
+	breakpoints: {
+		560: {
+			perView: 2.5
+		},
+      460: {
+			perView: 1.5
+		},
+	}
+}).mount();
+</script>
+

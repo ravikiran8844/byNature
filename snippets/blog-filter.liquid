@@ -1,0 +1,16 @@
+<div class="blog-cat">
+   <ul class="advanced-filters">
+     
+ 
+     
+   <li class="advanced-filter12"><a href="{{blog.url}}"> All</a></li>
+     {% for tag in blog.all_tags %}
+     {% if current_tags contains tag %}
+                  <li class="advanced-filter12 active-filter"  data-group="{{ cat_item }}" data-handle="/tagged/{{ tag | handle }}">{{ tag | remove_first: cat_item | remove_first: '_' | link_to_remove_tag: tag }}</li>
+                {% else %}
+     <li class="advanced-filter12"  data-group="{{ blog.handle }}" data-handle="/tagged/{{ tag }}"> {{ tag | link_to_tag: tag }} </li>  
+{% endif %}
+     {% endfor %}
+     </ul>
+
+</div>

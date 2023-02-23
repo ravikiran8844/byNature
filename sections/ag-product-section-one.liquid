@@ -1,0 +1,87 @@
+<div class="pure-g">
+  <div class="pu-md-6 pu-sm-12 center-txt wt-bg">
+    <div class="what-is">
+      <h3>{{ section.settings.what_title }}</h3>
+      <p>{{ section.settings.what_cnt }}</p>
+    </div>
+  </div>
+  <div class="pu-md-6 pu-sm-12">
+    <img class="what-img" src="{{ section.settings.what_img |img_url: 'master' }}">
+  </div>
+  <div class="pu-md-6 pu-sm-12">
+    <img class="what-img" src="{{ section.settings.how_img |img_url: 'master' }}">
+  </div>
+   <div class="pu-md-6 pu-sm-12 center-txt ht-bg">
+    <div class="how-to">
+      <h3>{{ section.settings.how_title }}</h3>
+      <p>{{ section.settings.how_cnt }}</p>
+    </div>
+  </div>
+  
+</div>
+
+
+<style>
+  .center-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .what-is h3, .how-to h3 {
+    text-transform: uppercase;
+    font-size: 60px;
+}
+  .what-is, .how-to {
+    padding: 60px;
+    color: #ffffff;
+}
+  .wt-bg {
+    background: #F24889;
+}
+
+.ht-bg {
+    background: #000000;
+}
+</style>
+{% schema %}
+  {
+    "name": "How to Use Section",
+    "class": "how_to_section",
+    "settings": [
+      {
+        "type":"text",
+        "id":"what_title",
+        "label":"Title"
+      },
+      {
+        "type":"richtext",
+        "id":"what_cnt",
+        "label":"Content"
+      },
+      {
+        "type":"image_picker",
+        "id":"what_img",
+        "label":"What Image"
+      },
+      {
+        "type":"image_picker",
+        "id":"how_img",
+        "label":"How Image"
+      },
+      {
+        "type":"text",
+        "id":"how_title",
+        "label":"How Title"
+      },
+      {
+        "type":"text",
+        "id":"how_cnt",
+        "label":"Content"
+      }
+    ],
+    "presets": [{
+        "name": "Ag Section one",
+        "category": "Section"
+    }]
+  }
+{% endschema %}

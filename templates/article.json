@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "article-template": {
+      "type": "article_template",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "article-template"
+  ]
+}

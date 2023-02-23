@@ -1,0 +1,114 @@
+<div class="wrapper">
+  <h1>{{ page.title }}</h1>
+https://codepen.io/faaezahmd/pen/dJeRex
+</div>
+<div class="wrapper">
+    <section class="accordion__item">
+      <div class="accordion__heading"><button class="accordion__trigger">The Modern Piano Accordion</button></div>
+      <div class="accordion__copy">The typical accordion we see today uses piano-style keys played by the right hand. The left hand has access to a set of buttons that play bass notes and preset chords.
+        This is the style of accordion that became popularized on the <a href="https://en.wikipedia.org/wiki/The_Lawrence_Welk_Show" target="_blank">Lawrence Welk show</a> and is used in many European music traditions. </div>
+    </section>
+    <section class="accordion__item">
+      <div class="accordion__heading"><button class="accordion__trigger">Button Accordions</button></div>
+      <div class="accordion__copy">Older types of accordions used small buttons to play pitches with the right hand. Some of these instruments were diatonic rather than chromatic. Some used a bisonic system that played a different note depending on the direction of the bellows. There is an endless variety of these "squeezebox"-type instruments in many traditions world-wide.</div>
+    </section>
+    <section class="accordion__item">
+      <div class="accordion__heading"><button class="accordion__trigger">Sound Production</button></div>
+      <div class="accordion__copy">Accordions produce sound using air. The player compresses and expands the bellows to force air through pallets that cause little reeds to vibrate. The player presses a button or key to determine which pitch will sound. This is the same sound production method commonly used in the old reed organs popular in churches in the old west.</div>
+    </section>
+    <section class="accordion__item">
+      <div class="accordion__heading"><button class="accordion__trigger">History</button></div>
+      <div class="accordion__copy">It is likely that the accordion was invented in Berlin, Germany in 1822 by Christian Friedrich Ludwig Buschmann. But there are also accordions from this time invented in Russia and other locations. The first patent for an instrument named "Accordion" was in 1829 by Cyrill Demian in Vienna, Austria. The first accordions to use piano keys rather than buttons appeared in Paris and Munich in the 1850s. </div>
+    </section>
+    <section class="accordion__item">
+      <div class="accordion__heading"><button class="accordion__trigger">Popularization</button></div>
+      <div class="accordion__copy">The accordion, both button and piano styles, spread throughout Europe in the 19th century. Piano accordions became popular most quickly because many people already had skills on piano and organ instruments. Accordions are featured prominently in the folk music of Italy as well as in Germanic and Slavic countries. Varieties of the accordion were created in South America where it is featured prominently in the music of Brazil and Argentina. The first half of the 20th century saw the accordion become a staple of Vaudeville music performances. In the 1950s through the 1980s, of course, we heard lots of accordion performances from Myron Floren of the Lawrence Welk show. Wonderful, wonderful.</div>
+    </section>
+</div>
+<style>
+.accordion__trigger {
+  appearance: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+  position: relative;
+  line-height:0.5em;
+}
+.accordion__trigger::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  width: 0;
+  height: 0;
+  font-family: icons;
+  content: "\f102";
+}
+.accordion__trigger[aria-expanded="true"]::after {
+  font-family: icons;
+  content: "\f105";
+}
+.accordion__copy {
+  overflow: hidden;
+  padding: 0 1.5rem 0 1.5rem;
+  max-height: 0;
+  visibility: hidden;
+  transition: visibility 0.5s, padding 0.5s, max-height 0.5s;
+}
+.accordion__copy--open {
+  visibility: visible;
+}
+</style>
+<script>
+  (function () {
+  const headings = document.querySelectorAll(".accordion__heading");
+  const triggers = [];
+  const accordionContents = document.querySelectorAll(".accordion__copy");
+  const multiselect = document.getElementById("multiselect");
+  const copyOpenClass = "accordion__copy--open";
+
+  headings.forEach((h, i) => {
+    let btn = h.querySelector("button");
+    triggers.push(btn);
+    let target = h.nextElementSibling;
+    btn.onclick = () => {
+      let expanded = btn.getAttribute("aria-expanded") === "true";
+      if (expanded) {
+        closeItem(target, btn);
+      } else {
+        openItem(target, btn);
+      }
+    };
+  });
+  function closeAllExpandedItems() {
+    const expandedTriggers = triggers.filter(
+      (t) => t.getAttribute("aria-expanded") === "true"
+    );
+    const expandedCopy = Array.from(accordionContents).filter((c) =>
+      c.classList.value.includes(copyOpenClass)
+    );
+    expandedTriggers.forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", false);
+    });
+    expandedCopy.forEach((copy) => {
+      copy.classList.remove(copyOpenClass);
+      copy.style.maxHeight = 0;
+      copy.style.padding = "0 1.5rem 0 1.5rem";
+    });
+  }
+  function closeItem(target, btn) {
+      btn.setAttribute("aria-expanded", false);
+      target.classList.remove(copyOpenClass);
+      target.style.maxHeight = 0;
+      target.style.padding = "0 1.5rem 0 1.5rem";
+  }
+  function openItem(target, btn) {
+    btn.setAttribute("aria-expanded", true);
+    target.classList.add(copyOpenClass);
+    target.style.maxHeight = "100%";
+    target.style.padding = "1rem 1.5rem 2rem 1.5rem";
+  }
+  setTimeout(() => triggers[0].click(), 750);
+})();
+</script>

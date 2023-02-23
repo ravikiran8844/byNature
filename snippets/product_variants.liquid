@@ -1,0 +1,49 @@
+  {%-unless product.has_only_default_variant-%}
+    <div class="pure-g">
+  {%-for option in product.options_with_values-%}
+      <div class="pu-4">
+  {%-assign foindex = forloop.index-%}
+   {%-if option.name == 'Size' or option.name == 'Flavour'-%}
+  <fieldset id="aaProductSelect-option-{{ forloop.index0 }}" name="{{ option.name | handleize }}" style="padding:0;">
+        <div class="optnames"><legend>{{option.name | escape}}</legend></div>
+      <select class="sel_option1">
+      {%- for value in option.values -%}
+      {%- assign variant_label_state = true -%}
+      {%- if product.options.size == 1 -%}
+      {%- unless product.variants[forloop.index0].available -%}
+      {%- assign variant_label_state = false -%}
+      {%- endunless -%}
+      {%- endif -%}
+        <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{%endif%}>{{ value | escape }}</option>
+      {%- endfor -%}
+      </select>             
+  </fieldset>     
+   {%- else -%}
+  <fieldset id="ProductSelect-option-{{ forloop.index0 }}" name="{{ option.name | handleize }}" style="padding:0;">
+    <div class="pure-g">
+      <div class="pu-12">
+        <div class="optnames"><legend>{{option.name | escape}}</legend></div>
+     </div>
+    </div>
+    <div class="pure-g">    
+      {%- for value in option.values -%}
+      {%- assign variant_label_state = true -%}
+      {%- if product.options.size == 1 -%}
+      {%- unless product.variants[forloop.index0].available -%}
+      {%- assign variant_label_state = false -%}
+      {%- endunless -%}
+      {%- endif -%}
+      <div class="pu-6 opt ml_{{value | escape | handleize}} cl_{{ foindex | escape }}">
+        <div class="radiobutton">
+          <input type="radio" {% if option.selected_value == value %} checked="checked"{% endif %} class="option_{{foindex}}" {% unless variant_label_state %} disabled="disabled"{% endunless %} value="{{ value | escape }}" data-index="option{{ forloop.index }}" name="{{ option.name | handleize }}" id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+          <label class="mloptselector" for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">{{ value | escape }}</label>
+        </div>
+      </div>
+      {%- endfor -%}    
+    </div>
+  </fieldset>
+   {%-endif-%}  
+    </div>     
+  {%-endfor-%}
+    </div>     
+  {%-endunless-%}   

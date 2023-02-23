@@ -1,0 +1,132 @@
+<div class="wrapper">
+<div class="pure-g">  
+  <div class="pu-1-1 pu-sm-ct pu-md-ct pu-lg-ct pu-xl-ct pu-xxl-ct">
+    <p class="roasttitle">YOU HAVE SELECTED 0/4</p>
+  </div>
+  </div>
+  <div class="pure-g">  
+  {%-for sect in section.blocks -%}
+  <div class="pu-1-4">
+    <label class="radio-img">
+      <input type="radio" name="properties[productroast]" value="{{sect.settings.product_roast_subtitle}}" />
+      <div class="roastinnerBlock">
+        <div>
+          {%-capture image_size-%}{{ 400 | escape }}x{%-endcapture-%}
+          {%-liquid 
+              assign img_url = sect.settings.product_roast_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+              capture logo_alt
+              echo sect.settings.product_roast_image.alt | default: shop.name
+              endcapture
+		    -%}
+            <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;">
+              <div style="padding-top:{{ 1 | divided_by: sect.settings.product_roast_image.aspect_ratio | times: 100}}%;">
+                <img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ sect.settings.product_roast_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;">
+              </div>
+            </div>
+            <noscript><img src="{{ sect.settings.product_roast_image | img_url: image_size }}" srcset="{{ sect.settings.product_roast_image | img_url: image_size }} 1x, {{ product.featured_media.preview_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" itemprop="logo" style="max-width:auto;"></noscript>
+        </div>
+        <div class="product_title">{{sect.settings.product_roast_title}}</div>
+        <p><span class="des">{{sect.settings.product_roast_subtitle}}</span></p>
+
+        <div class="number">
+          <span class="minus"><i class="icon icon-plus"></i></span>
+          <input type="text" value="1"/>
+          <span class="plus"><i class="icon icon-minus"></i></span>              
+        </div>      
+      </div>
+    </label>
+  </div>
+  {%-endfor-%}
+</div>
+</div>
+<style>
+  .radio-img > input {
+    display: none;
+  }
+  .radio-img > .image {
+    cursor: pointer;
+    border: 2px solid black;
+  }
+  .radio-img > input:checked + .roastinnerBlock {
+    border: 2px solid var(--colorPrimary);
+      }  
+  .number{
+    padding-top: 10px; 
+  }
+  .minus .icon:before, .plus .icon:before{
+    width:25px;
+    height:25px;
+    background:#f2f2f2;
+    border-radius:4px;
+    border:1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.4em;
+    border-radius:25px;
+  }
+  .number input{
+    height:24px;
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    border:unset;
+    border-radius:4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+    background:unset;
+  }
+  .number button{
+    height: 25px;
+    line-height: 1em;
+    padding: 0 10px;
+  }
+  .collectAllTemp{
+    padding-bottom:60px; 
+  }
+  .product_title{
+    padding-top:20px;
+    font-weight:700;
+    color:var(--colorTextBody);
+      }
+  .des{
+   font-size:12px;
+   font-weight:500; 
+  }
+  .roastinnerBlock{
+    padding:15px;
+    margin-right:20px;
+    margin-bottom:20px;
+    background:#ffffff;
+  }
+.roasttitle{
+  color:var(--colorPrimary);
+    font-size:1.4em;
+    padding:40px 0;
+}
+</style>
+{%-schema-%}
+{
+"class":"product_roast",
+"tag": "section",
+"max_blocks": 8,
+"blocks": [{
+"name":"product_roast",
+"type":"productroast",
+"settings":[{
+"type":"image_picker",
+"label":"Product Roast Image",
+"id":"product_roast_image"
+},{
+"type":"text",
+"label":"Product Addon Title",
+"id":"product_roast_title"
+},{
+"type":"text",
+"label":"Product Addon subTitle",
+"id":"product_roast_subtitle"
+}]
+}]
+}
+{%-endschema-%}

@@ -1,0 +1,27 @@
+  {%- if paginate.pages > 1 -%}
+    <nav role="navigation" role="navigation" aria-label="Pagination">
+      <ol class="default_pagination pu-ct" role="list">
+        {%- if paginate.previous-%}
+          <li class="previous"><a href="{{ paginate.previous.url }}"><i class="icon icon-arrow-left" aria-hidden="true"></i><span class="visuallyhidden" aria-label="Previous Page">Previous page</span></a></li>
+        {%- else -%}
+          <li class="disabled"><span class="visuallyhidden" aria-label="Previous Page"><i class="icon icon-arrow-left" aria-hidden="true"></i> Previous page</span></li>
+        {%- endif -%}
+        {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+            <li><a href="{{ part.url }}"><span class="visuallyhidden" aria-label="Page {{ part.title }}">page</span> {{ part.title }}</a></li>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <li class="active" aria-current="page"><span class="visuallyhidden" aria-label="Page {{ part.title }}">page</span> {{ part.title }}</li>
+            {%- else -%}
+              <li><span class="visuallyhidden" aria-label="Page {{ part.title }}">page</span> {{ part.title }}</li>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if paginate.next -%}
+          <li class="next"><a href="{{ paginate.next.url }}"><i class="icon icon-arrow-right" aria-hidden="true"></i><span class="visuallyhidden" aria-label="Next Page">Next page</span></a></li>
+        {%- else -%}
+          <li class="disabled"><span class="visuallyhidden" aria-label="Next Page"><i class="icon icon-arrow-right" aria-hidden="true"></i> Next page</span></li>
+        {%- endif -%}
+      </ol>
+    </nav>
+  {%- endif -%}

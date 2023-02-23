@@ -1,0 +1,103 @@
+<div class="wrapper">
+  <div class="pure-g">
+    <div class="pu-12">
+      <h3 class="clr text-center">{{ section.settings.title }}</h3>
+    </div>
+   
+  </div>
+
+<div class="pure-g">  
+  <div class="glide" id="glide_bestslr">
+    <div class="glide__track" data-glide-el="track">
+      
+      <div class="glide__slides">
+  {%-if section.settings.product_list != blank-%}
+  {%-for product in section.settings.product_list-%}
+  <div class="glide__slide">
+     <div class="productinnerwrapper">
+    <div class="ht-80">
+    <a href="{{product.url}}" >
+    {%-if product.featured_image-%}
+    {%-capture image_size-%}{{ 300 | escape }}x{%-endcapture-%}
+    {%-liquid 
+    assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
+    capture logo_alt
+    echo product.featured_image.alt | default: shop.name
+    endcapture
+  -%}
+    <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div class="subgallery" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;"><img itemprop="image" class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;"></div></div>
+    <noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" style="max-width:auto;"></noscript>
+    {%-else-%}
+      {{ 'image' | placeholder_svg_tag: 'my-custom-class' }}
+    {%-endif-%} 
+      </a>
+    </div>
+      <div class="ht-10 text-center">
+      <a  href="{{product.url}}">
+         <h4 class="re-prodcut_title">{{product.title | truncate: 30}}</h4>      
+      </a>
+    </div>
+      <div class="ht-10 text-center">
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+        <button type="submit" value="Submit" class="re-prodcut_price"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
+      </form>
+      </div>
+    </div>
+   
+  </div>
+  {%-endfor-%}
+{%-else-%}
+ {%-render 'collectsnoimg',lov:8-%}    
+{%-endif-%}      
+</div>
+       <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow g1prev prev" data-glide-dir="<">←</button>
+      <button class="glide__arrow g1next next" data-glide-dir=">">→</button>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+   new Glide('#glide_bestslr', {
+	type: 'carousel',
+	perView: 4,
+     autoplay: 5000,
+      arrows: {
+          prev: ".g1prev",
+          next: ".g1next"
+        },
+	breakpoints: {
+		560: {
+			perView: 2,
+          autoplay: 5000
+		},
+      460: {
+			perView: 1,
+          autoplay: 5000
+		},
+	}
+}).mount();
+</script>
+{%-schema-%}
+{
+  "name": "Best Seller products",
+  "class":"bestseller_products",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Select Products",
+		"default":"Our Bestsellers"
+      },
+      {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Collections",
+        "limit": 8
+      }
+    ]
+}
+{%-endschema-%}

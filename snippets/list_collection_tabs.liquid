@@ -1,0 +1,10 @@
+<div class="pure-g">
+  <div class="pu-2 pu-sm-8 pu-md-8 pu-lg-2 pu-xl-2 pu-xxl-2 pu-lt">
+    <button class="allact ctabact" data_handle="allcollect">{{ 'All Products' }}</button>
+  </div>
+{%-for collection in collections-%}
+  <div class="pu-2 pu-sm-8 pu-md-8 pu-lg-2 pu-xl-2 pu-xxl-2 pu-lt">
+    <button class="{{collection.handle}} ctabact" data_handle="{{collection.handle}}">{{ collection.title }}</button>
+  </div>
+{%-endfor-%}
+</div>

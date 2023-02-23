@@ -1,0 +1,39 @@
+<!-- /templates/customers/activate_account.liquid -->
+<em-activateaccount>
+  <div class="wrapper">
+    <div class="pure-g">
+      <div class="pu-1-3"></div>
+      <div class="pu-1-3 pu-ct">
+        <div class="loginbase">
+          <h2>Create Account</h2>
+          <p>Password must be 8 string length</p>
+          {%-form 'activate_customer_password',id:"actaccount"-%}
+          {{ form.errors | default_errors }}
+          <div class="error_messager"></div>
+          <div class="password">
+            <label for="password" class="hidden">Password</label>
+            <input type="password" class="text-ful" name="customer[password]" placeholder="Password"/>
+          </div>
+          <div class="password_confirm">
+            <label for="password_confirmation" class="hidden">Password Confirmation</label>
+            <input type="password" class="text-ful" name="customer[password_confirmation]" placeholder="Password Confirmation"/>
+          </div>
+          <div class="action_bottom">
+            <div><input type="button" class="button-full btn-actacc" value="Activate Account"/>
+            <input type="submit" class="button-full declineinvite" name="decline" value="Decline Invitation" /></div>
+          </div>
+          {%-endform-%}
+        </div>
+      </div>
+      <div class="pu-1-3"></div>
+    </div>
+  </div>
+</em-activateaccount>
+<style>
+  .declineinvite{
+    background: unset !important;
+    border: 1px solid var(--colorPrimary) !important;
+    color: var(--colorPrimary) !important; 
+  }
+</style>
+<script src="{{"account.js"|asset_url}}" type="text/javascript"></script>

@@ -1,0 +1,174 @@
+{
+  "current": {
+    "color_primary": "#262626",
+    "color_body_bg": "#f5f5f5",
+    "color_body_text": "#231f20",
+    "color_footer_bg": "#231f20",
+    "color_footer_text": "#f5f5f5",
+    "color_footer_social_link": "#9d1c30",
+    "header_font_new": "roboto_n4",
+    "base_font_new": "roboto_n4",
+    "announcement": "Free shipping available on all orders!",
+    "favicon_enable": true,
+    "favicon": "shopify:\/\/shop_images\/Vector_10.png",
+    "ajax_cart_method": "page",
+    "social_instagram_link": "https:\/\/www.instagram.com\/nutrition_bynature\/",
+    "social_twitter_link": "https:\/\/twitter.com\/",
+    "social_youtube_link": "https:\/\/www.youtube.com\/@bynature3140",
+    "social_whatsapp_link": "https:\/\/www.youtube.com\/",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Group_2551.png",
+    "checkout_input_background_color_mode": "transparent",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "site_navigation": "new-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_social_enable": true,
+          "footer_newsletter_enable": true,
+          "contact_street": "1\/2, New Street,",
+          "contact_address": "Tamil Nadu, India",
+          "contact_pincode": "620013",
+          "contact_phone": "1234567890",
+          "contact_email": "email@gmail.com",
+          "footer_navigaiton": "footer"
+        }
+      },
+      "drawer": {
+        "type": "drawer",
+        "settings": {
+          "site_drawer": true
+        }
+      },
+      "product_template": {
+        "type": "product_template",
+        "settings": {
+        }
+      },
+      "product_section_one_one": {
+        "type": "product_section_one_one",
+        "settings": {
+          "main-title-l1": "",
+          "main-sub-title": "",
+          "main-title-l2": ""
+        }
+      },
+      "product_section_two": {
+        "type": "product_section_two",
+        "settings": {
+          "youtube-link": ""
+        }
+      },
+      "product_section_three": {
+        "type": "product_section_three",
+        "settings": {
+          "titel_one": "",
+          "desc_one": "",
+          "titel_two": "",
+          "desc_two": ""
+        }
+      },
+      "product_section_six_one": {
+        "type": "product_section_six_one",
+        "settings": {
+        }
+      },
+      "product_section_seven": {
+        "type": "product_section_seven",
+        "blocks": {
+          "ad8d6456-e8a0-4fa0-8107-bf560ba64336": {
+            "type": "icon",
+            "settings": {
+              "icon_img": "shopify:\/\/shop_images\/Group.png",
+              "icon_ttl": "Targeted Nutrition"
+            }
+          },
+          "ca45012c-e85a-4852-8d23-b5cc6985baf4": {
+            "type": "icon",
+            "settings": {
+              "icon_img": "shopify:\/\/shop_images\/Group_1.png",
+              "icon_ttl": "Stronger, <br>Healthier Hair"
+            }
+          },
+          "091870a2-3941-43f4-9538-c5b3dcc61d9a": {
+            "type": "icon",
+            "settings": {
+              "icon_img": "shopify:\/\/shop_images\/Vector_2.png",
+              "icon_ttl": "Improved <br>Skin Tone & Texture"
+            }
+          },
+          "7ce17759-7ec2-466d-ba93-8e995cd2ad8b": {
+            "type": "icon",
+            "settings": {
+              "icon_img": "shopify:\/\/shop_images\/Group_2.png",
+              "icon_ttl": "Reduced <br>Hair Fall"
+            }
+          },
+          "fd3b38cc-0b93-486f-98c0-541ea6e7f54b": {
+            "type": "icon",
+            "settings": {
+              "icon_img": "shopify:\/\/shop_images\/Group_3.png",
+              "icon_ttl": "Fights Wrinkles &<br> Fine Lines"
+            }
+          },
+          "68a965b9-f8fb-484b-af18-0960a3ddba02": {
+            "type": "icon",
+            "settings": {
+              "icon_img": "shopify:\/\/shop_images\/Group_4.png",
+              "icon_ttl": "Stronger <br>Nail Growth"
+            }
+          }
+        },
+        "block_order": [
+          "ad8d6456-e8a0-4fa0-8107-bf560ba64336",
+          "ca45012c-e85a-4852-8d23-b5cc6985baf4",
+          "091870a2-3941-43f4-9538-c5b3dcc61d9a",
+          "7ce17759-7ec2-466d-ba93-8e995cd2ad8b",
+          "fd3b38cc-0b93-486f-98c0-541ea6e7f54b",
+          "68a965b9-f8fb-484b-af18-0960a3ddba02"
+        ],
+        "settings": {
+          "promise_title": "THE BYNATURE PROMISE",
+          "promise_sub_title": "You are at the core of what we do and all our products are just to make you happy!"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "products_to_show": 3
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "16304872806d79912c": {
+        "type": "shopify:\/\/apps\/icart-cart-drawer-cart-upsell\/blocks\/icart-block\/e651bbc2-5760-47d8-a513-2aa6ee3a9aa7",
+        "disabled": true,
+        "settings": {
+        }
+      },
+      "10910696115237310528": {
+        "type": "shopify:\/\/apps\/sticky-cart-slide-cart-drawer\/blocks\/slide-cart-app-embed\/06f96c51-92d4-4ccf-8798-f65ef7359208",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+    }
+  }
+}

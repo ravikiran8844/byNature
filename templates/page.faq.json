@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "page_faq": {
+      "type": "page_faq",
+      "blocks": {
+        "e81ea0bc-7691-4869-83b3-399ce367ff0b": {
+          "type": "block_image",
+          "settings": {
+            "faq_question": "When will I receive my order?",
+            "faq_answer": "We ship orders every weekday from Monday through Friday.  If you order before 9am on one of those days, we'll ship your order out the same day.  Otherwise, your order will ship on the first upcoming dispatch day"
+          }
+        },
+        "15355c94-2a3e-4f6f-b7a2-a3ce4abb8e65": {
+          "type": "block_image",
+          "settings": {
+            "faq_question": "How does freshness relate to coffee quality?",
+            "faq_answer": "Many of the flavor and aroma compounds that make coffee delicious are fragile and begin to break down within weeks of roasting.  Most commerical coffee available has been roasted weeks if not months ago in bulk roasting facilities before going through a chain of intermediaries before reaching the customer.  By the time you open the bag, the beans are stale.  We do things differently.  We roast our coffee Monday through Friday and ship it out the next day, so that it can be enjoyed at its freshest."
+          }
+        },
+        "a6435c83-2f4c-46e4-bc1e-99dcfc18e36c": {
+          "type": "block_image",
+          "settings": {
+            "faq_question": "What is the highest quality of coffee you use?",
+            "faq_answer": "We use Arabica specialty grade beans, which are the highest-quality coffee beans in the world. These coffee beans must exhibit distinctive attributes in one or more of the following areas: Aroma, Flavor, Acidity, or Body. Robusta coffee beans are more commonly grown in India but the best Robusta beans are inferior in quality to the best Arabica beans."
+          }
+        },
+        "daca2f32-e474-429d-8d5c-48f271dfd7d6": {
+          "type": "block_image",
+          "settings": {
+            "faq_question": "What does ‘Blue Tokai’ mean?",
+            "faq_answer": "‘Tokai’ is the ancient Malabari word for the tail of a peacock. The name represents the importance of the Malabar region where, rumour has it, the British spotted a peacock for the first time. This was also where the British set up coffee estates. The Malabar region is now renowned for growing some of the best coffee in the country, which includes India’s unique Monsooned Malabar coffee."
+          }
+        },
+        "1334a82d-1400-4fd1-882c-cc776d175a6d": {
+          "type": "block_image",
+          "settings": {
+            "faq_question": "Is Indian coffee of a lower standard than coffee sold elsewhere?",
+            "faq_answer": "The Indian farms we source our coffee from grow specialty coffee, which is the highest quality of coffee globally. However, India’s tradition of tea culture and the more recent introduction of instant coffee (which uses cheaper, low grade coffee beans) has left the country’s premium coffee offerings somewhat undiscovered. Ironically, although select Indian coffee farms are starting to gain recognition abroad, they are still not well known in the country. We feel that the tide is changing and hope we can contribute to it!"
+          }
+        },
+        "47bebe64-32d0-496f-8855-8f1d9a3ffc8b": {
+          "type": "block_image",
+          "settings": {
+            "faq_question": "What’s the best way of storing coffee?",
+            "faq_answer": "Oxygen and moisture are coffee’s biggest enemies. Keeping coffee in the fridge is not recommended especially since condensation in the fridge pulls oils to the surface of the coffee, which breaks down the coffee. Also coffee is highly absorbent and will absorb the smells of other food items in the fridge. Ideally, it’s recommended that you buy coffee every 2 weeks and store it in an airtight container."
+          }
+        }
+      },
+      "block_order": [
+        "e81ea0bc-7691-4869-83b3-399ce367ff0b",
+        "15355c94-2a3e-4f6f-b7a2-a3ce4abb8e65",
+        "a6435c83-2f4c-46e4-bc1e-99dcfc18e36c",
+        "daca2f32-e474-429d-8d5c-48f271dfd7d6",
+        "1334a82d-1400-4fd1-882c-cc776d175a6d",
+        "47bebe64-32d0-496f-8855-8f1d9a3ffc8b"
+      ],
+      "settings": {
+        "page_image": "shopify:\/\/shop_images\/faq.png"
+      }
+    }
+  },
+  "order": [
+    "page_faq"
+  ]
+}
