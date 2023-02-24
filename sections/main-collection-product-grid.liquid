@@ -55,7 +55,13 @@
             <form method="post" action="/cart/add">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
             <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
-            <button type="submit" value="Submit" class="re-prodcut_price"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
+            <button type="submit" value="Submit" class="re-prodcut_price"     {% if product.selected_or_first_available_variant.available == false %}
+            disabled
+            {% endif %}><span class="btn-txt"> {%- if product.selected_or_first_available_variant.available -%}
+              BUY NOW
+            {%- else -%}
+              SOLD OUT
+            {%- endif -%}</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
           </form>
             </div>
             </div>
@@ -97,7 +103,10 @@
     text-align: center;
     margin: 20px 0;
   }
- 
+  button:disabled{
+    cursor: not-allowed;
+    opacity: .4;
+  }
 </style>
 
 {%-schema-%}

@@ -1,6 +1,19 @@
 <!doctype html>
 <html class="no-js" lang="{{ shop.locale }}">
-  <head><title>{{ page_title }}</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content="{{ page_description | escape }}"><link rel="canonical" href="{{ canonical_url }}"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel="preconnect" href="https://monorail-edge.shopifysvc.com/"><meta name="theme-color" content="{{settings.color_primary}}"/>
+  <head>
+    <title>{{ page_title }}{% if current_tags %}
+        – tagged "{{ current_tags | join: ', ' }}"{% endif %}
+      {% if current_page != 1 %}
+        – Page {{ current_page }}{% endif %}
+      {% unless page_title contains shop.name %}
+        – {{ shop.name }}{% endunless %}
+    </title>
+    <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }} {% if template contains 'collection' %}{% if current_page > 1 %}Page no. {{ current_page }}{% endif %}{% endif %}" />
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel="preconnect" href="https://monorail-edge.shopifysvc.com/"><meta name="theme-color" content="{{settings.color_primary}}" />
     {%-liquid
     render 'social-media'
     capture content_for_style 
@@ -8,36 +21,53 @@
     endcapture
     capture content_for_header  
     echo content_for_header | replace: '  ', '' | strip_newlines 
-    endcapture -%}{{-content_for_style-}}{{-content_for_header-}}<link href="{{-'theme.css'|asset_url-}}" rel="stylesheet" type="text/css" media="all" /> 
-  {% render 'judgeme_core' %}
+    endcapture -%}{{- content_for_style -}}{{- content_for_header -}}<link
+      href="{{-'theme.css'|asset_url-}}"
+      rel="stylesheet"
+      type="text/css"
+      media="all" />
+    {% render 'judgeme_core' %}
 
-	{{ shop.metafields.loox["global_html_head"] }}
- <!-- Global site tag (gtag.js) -->
+    {{ shop.metafields.loox["global_html_head"] }}
+    <!-- Global site tag (gtag.js) -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-461250838"></script>
-<script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-461250838"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-   gtag('config', 'AW-461250838');
-</script>
-</head>
-  <body id="{{ page_title | handle }}" class="js-drawer {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">    
-    <div class="announcement" role="region" aria-label="Announcement">{{ settings.announcement }}</div>
-    {%-section 'header'-%}
-   <main role="main">{% capture ICART_FULL_PAGE_LAYOUT %}{{ content_for_layout }}{% endcapture %}{% include 'icart-variables', ICART_FULL_PAGE_LAYOUT: ICART_FULL_PAGE_LAYOUT %}</main>
+      gtag('config', 'AW-461250838');
+    </script>
+  </head>
+  <body id="{{ page_title | handle }}" class="js-drawer {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+    <div
+      class="announcement"
+      role="region"
+      aria-label="Announcement">{{ settings.announcement }}</div>
+    {%- section 'header' -%}
+    <main role="main">
+      {% capture ICART_FULL_PAGE_LAYOUT %}
+        {{ content_for_layout }}{% endcapture %}
+      {% include 'icart-variables', ICART_FULL_PAGE_LAYOUT: ICART_FULL_PAGE_LAYOUT %}</main>
     {%-liquid
        section 'footer'
        section 'drawer'-%}
     <div class="popup-overlay"></div>
-    <script>Shopify.moneyformat = {{shop.money_format | json}};</script>
+    <script>
+      Shopify.moneyformat = {{shop.money_format | json}};
+    </script>
     <script src="{{-'lazysizes.js' | asset_url-}}" async></script>
-    <script src="{{-'theme.js'|asset_url-}}" type="text/javascript" defer></script>
-    
-   {% include 'smile-initializer' %}
+    <script
+      src="{{-'theme.js'|asset_url-}}"
+      type="text/javascript"
+      defer></script>
+
+    {% include 'smile-initializer' %}
 
 
-	{{ shop.metafields.loox["global_html_body"] }}
-</body>
+    {{ shop.metafields.loox["global_html_body"] }}
+  </body>
 </html>

@@ -72,7 +72,7 @@
           <li class="pu-sm-ht pu-md-ht">{%-render 'search'-%}</li>
           <li><div class="pu-lg-ht pu-xl-ht pu-xxl-ht"><a href="/search"><span class="visuallyhidden">Search</span><i class="icon icon-search"></i></a></div></li>
           <li class="user-btn"><a href="{%-if customer-%}/account{%-else-%}/account/login{%-endif-%}"><span class="visuallyhidden">Login</span><i class="icon icon-user"></i></a></li>
-          <li class="cart-btn"><span class="cart_items_count">{{cart.item_count}}</span><a href="/cart"><span class="visuallyhidden">Cart</span><i class="icon icon-cart"></i></a></li>
+          <li class="cart-btn"><span id="cartCount" class="cart_items_count">{{cart.item_count}}</span><a href="/cart"><span class="visuallyhidden">Cart</span><i class="icon icon-cart"></i></a></li>
         </ul>
       </div>
     </div>
@@ -113,3 +113,12 @@ margin-top: 10px;
 }]
   }
 {%-endschema-%}
+
+
+<script>
+  Shopify.onItemAdded = function(cart) {
+	jQuery.getJSON('/cart.js', function(cart) {
+  		$('#cartCount').html(cart.item_count);
+	});
+};
+</script>

@@ -1,81 +1,125 @@
 <div class="wrapper">
-<product-recommendations class="product-recommendations page-width section-{{ section.id }}-padding isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
-<div class="pure-g">
-{%-if recommendations.performed and recommendations.products_count > 0-%}
-<div class="pu-12">
-<h3 class="prod-rec-ttl clr">You may also like</h3>
-</div>
-</div>
-  <div class="pure-g">
-{%-for product in recommendations.products-%}
-<div class="pu-md-3 pu-sm-6">
-    <div class="productinnerwrapper">
-    <a href="{{product.url}}">
-    {%-if product.featured_image-%}
-    {%-liquid 
+  <product-recommendations class="product-recommendations page-width section-{{ section.id }}-padding isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
+    <div class="pure-g">
+      {%- if recommendations.performed and recommendations.products_count > 0 -%}
+        <div class="pu-12">
+          <h3 class="prod-rec-ttl clr">You may also like</h3>
+        </div>
+      </div>
+      <div class="pure-g">
+        {%- for product in recommendations.products -%}
+          <div class="pu-md-3 pu-sm-6">
+            <div class="productinnerwrapper">
+              <a href="{{product.url}}">
+                {%- if product.featured_image -%}
+                  {%-liquid 
     assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
     assign image_size = '300x'
     assign logo_alt = product.featured_image.alt | default: shop.name
   -%}
-    <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;"><div class="subgallery" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;"><img itemprop="image" class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ logo_alt | escape }}" style="width:100%;"></div></div>
-    <noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" style="max-width:auto;"></noscript>
-    {%-else-%}
-      {{ 'image' | placeholder_svg_tag: 'my-custom-class' }}
-    {%-endif-%}   
-      <div class="text-center">
-    <h4 class="re-prodcut_title">{{product.title | strip_html | truncate: 30}}</h4>
-    </a>
-      <form method="post" action="/cart/add">
-        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-        <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
-        <button type="submit" value="Submit" class="re-prodcut_price"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
-      </form>
-      </div>
-      </div>
-  </div>
-        {%-endfor-%}
-  </div>
-    {%-endif-%}
+                  <div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;">
+                    <div class="subgallery" style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;"><img
+                        itemprop="image"
+                        class="lazyload js"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ logo_alt | escape }}"
+                        style="width:100%;"></div>
+                  </div>
+                  <noscript><img
+                      src="{{ product.featured_image | img_url: image_size }}"
+                      srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x"
+                      alt="{{ logo_alt | escape }}"
+                      style="max-width:auto;"></noscript>
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'my-custom-class' }}
+                {%- endif -%}
+                <div class="text-center">
+                  <h4 class="re-prodcut_title">{{ product.title | strip_html | truncate: 30 }}</h4>
+                </a>
+                <form method="post" action="/cart/add">
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ product.variants.first.id }}" />
+                  <input
+                    min="1"
+                    type="hidden"
+                    id="quantity"
+                    name="quantity"
+                    value="1" />
+                  <button
+                    type="submit"
+                    value="Submit"
+                    class="re-prodcut_price"
+                    {% if product.selected_or_first_available_variant.available == false %}
+                    disabled
+                    {% endif %}>
+                    <span class="btn-txt">
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        BUY NOW
+                      {%- else -%}
+                        SOLD OUT
+                      {%- endif -%}
+                    </span>
+                    <span class="btn-price">{{ product.price | money }}</span>
+                    <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
         </div>
+      {%- endif -%}
+    </div>
   </product-recommendations>
-  </div>
+</div>
 <script>
   class ProductRecommendations extends HTMLElement {
     constructor() {
       super();
       const handleIntersection = (entries, observer) => {
-        if (!entries[0].isIntersecting) return;
+        if (!entries[0].isIntersecting) 
+          return;
+        
+
+
         observer.unobserve(this);
-        fetch(this.dataset.url)
-          .then(response => response.text())
-          .then(text => {
-            const html = document.createElement('div');
-            html.innerHTML = text;
-            const recommendations = html.querySelector('product-recommendations');
-            if (recommendations && recommendations.innerHTML.trim().length) {
-              this.innerHTML = recommendations.innerHTML;
-            }
-            if (html.querySelector('.grid__item')) {this.classList.add('product-recommendations--loaded')}
-          })
-          .catch(e => {console.error(e)});
+        fetch(this.dataset.url).then(response => response.text()).then(text => {
+          const html = document.createElement('div');
+          html.innerHTML = text;
+          const recommendations = html.querySelector('product-recommendations');
+          if (recommendations && recommendations.innerHTML.trim().length) {
+            this.innerHTML = recommendations.innerHTML;
+          }
+          if (html.querySelector('.grid__item')) {
+            this.classList.add('product-recommendations--loaded')
+          }
+        }).catch(e => {
+          console.error(e)
+        });
       }
       new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
     }
   }
   customElements.define('product-recommendations', ProductRecommendations);
 </script>
-{%-schema-%}
+{%- schema -%}
   {
     "name": "Product Recommendation",
     "class": "product_recommendation_main",
-    "settings": [{
-      "type": "range",
-      "id": "products_to_show",
-      "min": 2,
-      "max": 4,
-      "step": 1,
-      "default": 4,
-      "label": "Product Per Row"
-    }]
+    "settings": [
+      {
+        "type": "range",
+        "id": "products_to_show",
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "default": 4,
+        "label": "Product Per Row"
+      }
+    ]
   }
 {%-endschema-%}
