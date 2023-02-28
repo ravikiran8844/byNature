@@ -83,10 +83,10 @@
             {%- if collection.products.size > 0 -%}
               <div class="pu-12">
                 <div class="pure-g">
-                  <div class="pu-6 desktop-view-only">
+                  <div class="pu-6 large-devices-only">
                     <a class="call-fu-image" href="{{collection.url}}"><img src="{{collection.featured_image | img_url:"large" }}"></a>
                   </div>
-                  <div class="pu-md-6 pu-sm-12">
+                  <div class="pu-sm-12 pu-lg-6">
                     <h2>{{ collection.title }}</h2>
                     <div class="pure-g">
                       {%- for product in collection.products limit: 2 -%}
@@ -126,8 +126,7 @@
                                       type="hidden"
                                       name="id"
                                       value="{{ product.variants.first.id }}" />
-                                    <label for="quantity">Qty:
-                                    </label>
+
                                     <input
                                       min="1"
                                       type="hidden"
@@ -148,7 +147,7 @@
                                         {%- endif -%}
                                       </span>
                                       <span class="btn-price">{{ product.price | money }}</span>
-                                      <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span>
+                                      <span class="btn-img"><img alt="button image" src="{{ 'btn-icon.svg' | asset_url }}"></span>
                                     </button>
                                   </form>
                                 </div>
@@ -184,8 +183,7 @@
                               type="hidden"
                               name="id"
                               value="{{ product.variants.first.id }}" />
-                              <label for="quantity">Qty:
-                              </label>
+
                               <input
                               min="1"
                               type="hidden"
@@ -201,7 +199,7 @@
                               SOLD OUT
                               {%- endif -%}</span>
                               <span class="btn-price">{{ product.price | money }}</span>
-                              <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span>
+                              <span class="btn-img"><img  alt="button image" src="{{ 'btn-icon.svg' | asset_url }}"></span>
                               </button>
                               </form>
                               </div>
@@ -251,8 +249,7 @@
                               type="hidden"
                               name="id"
                               value="{{ product.variants.first.id }}" />
-                            <label for="quantity">Qty:
-                            </label>
+
                             <input
                               min="1"
                               type="hidden"
@@ -273,7 +270,7 @@
                                 {%- endif -%}
                               </span>
                               <span class="btn-price">{{ product.price | money }}</span>
-                              <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span>
+                              <span class="btn-img"><img alt="button image" src="{{ 'btn-icon.svg' | asset_url }}"></span>
                             </button>
                           </form>
                         </div>
@@ -309,8 +306,7 @@
                             type="hidden"
                             name="id"
                             value="{{ product.variants.first.id }}" />
-                          <label for="quantity">Qty:
-                          </label>
+
                           <input
                             min="1"
                             type="hidden"
@@ -331,7 +327,7 @@
                               {%- endif -%}
                             </span>
                             <span class="btn-price">{{ product.price | money }}</span>
-                            <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></span>
+                            <span class="btn-img"><img alt="button image" src="{{ 'btn-icon.svg' | asset_url }}"></span>
                           </button>
                         </form>
                       </div>

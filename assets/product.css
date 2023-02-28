@@ -324,8 +324,8 @@ hr{border-top: 0.063em solid #000000;}
     top: 12px;
 }
  .re-prodcut_price {
-    padding: 6px;
-    font-size: 12px;
+    padding: 10px;
+    font-size: 8px;
 } 
   .btn-txt{
     padding: 4px;
@@ -356,7 +356,7 @@ hr{border-top: 0.063em solid #000000;}
 /***** Mediya Query ****/
 @media (min-width: 768px) and (max-width: 1000px) {
   .re-prodcut_price {
-    padding: 6px;
+    padding: 10px;
 }
 .btn-txt {
     padding: 4px;
@@ -660,7 +660,7 @@ hr{border-top: 0.063em solid #000000;}
     background: transparent;
     color: #000000;
     font-weight: initial;
-    font-size: initial;
+    font-size: 12px;
 }
 @media only screen and (max-width: 767px) {
 .made-care-box {
@@ -682,7 +682,7 @@ hr{border-top: 0.063em solid #000000;}
     width: 110px;
 }
   .re-prodcut_title {
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 10px;
     font-family: 'GTFlexa-Medium';
     margin-bottom: 0px;
@@ -691,7 +691,7 @@ hr{border-top: 0.063em solid #000000;}
     top: 12px;
 }
  .re-prodcut_price {
-    padding: 6px;
+    padding: 10px;
     font-size: 12px;
 } 
   .glide__arrow.g1prev.prev {

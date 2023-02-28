@@ -1,67 +1,62 @@
 {% assign bg_color = section.settings.background_color | color_to_rgb %}
 <div class="wrapper">
-<div class="pure-g">
-  <div class="pu-12">
-    <h3 class="made-care clr">Crafted with Care for You</h3>
-  </div>
-  <div class="glide" id="glide_care">
-    <div class="glide__track" data-glide-el="track">
-      <div class="glide__slides">
-        {%- for block in section.blocks -%}
-        <div class="glide__slide">
-    <div class="made-care-box">
-      <div class="img-box c1" style="background: {{ bg_color }};">
-        <div class="main-img">
-          <img src="{{ block.settings.sec_img|img_url:'master' }}">
-        </div>
-        <div class="cnt-box">
-          <div class="img-box-ttl">{{ block.settings.img_ttl }}</div>
-          <p>{{ block.settings.img_content }}</p>
+  <div class="pure-g">
+    <div class="pu-12">
+      <h3 class="made-care clr">Crafted with Care for You</h3>
+    </div>
+    <div class="glide" id="glide_care">
+      <div class="glide__track" data-glide-el="track">
+        <div class="glide__slides">
+          {%- for block in section.blocks -%}
+            <div class="glide__slide">
+              <div class="made-care-box">
+                <div class="img-box c1" style="background: {{ bg_color }};">
+                  <div class="main-img">
+                    <img alt="image" src="{{ block.settings.sec_img|img_url:'master' }}">
+                  </div>
+                  <div class="cnt-box">
+                    <div class="img-box-ttl">{{ block.settings.img_ttl }}</div>
+                    <p>{{ block.settings.img_content }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
         </div>
       </div>
     </div>
   </div>
-        {%- endfor -%}
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 {% schema %}
   {
     "name": "Made with Care",
-    "class":"made_with_care",
-    "settings": [
-      
-    ],
+    "class": "made_with_care",
+    "settings": [],
     "blocks": [
       {
-        "name":"Made Care",
-        "type":"image",
-        "settings":[
-          {             
-          "type": "image_picker",
-           "id": "sec_img",
-           "label": "Image"
-        },
+        "name": "Made Care",
+        "type": "image",
+        "settings": [
           {
-            "type":"text",
-            "id":"img_ttl",
-            "label":"Image Text"
-          },
-          {
-            "type":"text",
-            "id":"img_content",
-            "label":"Image Content"
-          },
-          {
-        "type": "color",
-        "id": "background_color",
-        "label": "Background Color",
-        "default": "#F4BFBF"
-      }
+            "type": "image_picker",
+            "id": "sec_img",
+            "label": "Image"
+          }, {
+            "type": "text",
+            "id": "img_ttl",
+            "label": "Image Text"
+          }, {
+            "type": "text",
+            "id": "img_content",
+            "label": "Image Content"
+          }, {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color",
+            "default": "#F4BFBF"
+          }
         ]
-        
+
       }
     ]
   }
@@ -69,17 +64,17 @@
 
 <script>
   new Glide('#glide_care', {
-	type: 'carousel',
-	perView: 3,
-	breakpoints: {
-		560: {
-			perView: 2.3,
-          autoplay: 5000
-		},
+    type: 'carousel',
+    perView: 3,
+    breakpoints: {
+      560: {
+        perView: 2.3,
+        autoplay: 5000
+      },
       460: {
-			perView: 1.3,
-          autoplay: 5000
-		},
-	}
-}).mount();
+        perView: 1.3,
+        autoplay: 5000
+      }
+    }
+  }).mount();
 </script>

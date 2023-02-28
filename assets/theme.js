@@ -49,18 +49,18 @@ class DrawerTemp extends HTMLElement {
   constructor(){
     super();
     this.jsdrawer = document.querySelector('.js-drawer'),
-    this.navToggle = document.querySelector('.nav-btn'),    
-    this.cartToggle = document.querySelector('.cart-btn'),  
-    this.navDrawer = document.querySelector('.nav-drawer'),
-    this.cartDrawer = this.querySelector('.cart-drawer'),
+    this.navToggle = document.querySelector('.nav-btn'),   
+    this.navDrawer = document.querySelector('.nav-drawer'), 
+    // this.cartToggle = document.querySelector('.cart-btn'),  
+    // this.cartDrawer = this.querySelector('.cart-drawer'),
     this.navToggle.addEventListener('click', this.debounce((event) => {this.onNavDrawer(event)}, 50).bind(this)),    
-    this.cartToggle.addEventListener('click', this.debounce((event) => {this.onCartDrawer(event)}, 0).bind(this)),    
+    // this.cartToggle.addEventListener('click', this.debounce((event) => {this.onCartDrawer(event)}, 0).bind(this)),    
     document.querySelector('[href="/cart"]').addEventListener('click', function(event) {event.preventDefault()});
     //this.querySelector('.close-btn').addEventListener('click', this.debounce((event) => {this.onCartDrawer(event)}, 50).bind(this)),
     //document.querySelector('.close-btn').addEventListener('click',function(e){e.preventDefault();console.log(e);}),
     //document.querySelectorAll('.close-btn').forEach((button) => button.addEventListener('click',function(e){e.preventDefault();console.log(e);})),
-    document.querySelectorAll('.close-btn').forEach((button) => button.addEventListener('click',this.onCartDrawer.bind(this))),      
-    document.addEventListener('click',this.debounce((event) => {this.onCartRemover(event)}, 50).bind(this), false),
+    // document.querySelectorAll('.close-btn').forEach((button) => button.addEventListener('click',this.onCartDrawer.bind(this))),      
+    // document.addEventListener('click',this.debounce((event) => {this.onCartRemover(event)}, 50).bind(this), false),
   	document.querySelector('.nav-close').addEventListener('click', this.debounce((event) => {this.onNavDrawer(event)}, 50).bind(this))
   }
   onCartRemover(e){

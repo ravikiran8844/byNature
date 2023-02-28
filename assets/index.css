@@ -462,7 +462,7 @@ hr{border-top: 0.063em solid #000000;}
     background: transparent;
     color: #000000;
     font-weight: initial;
-    font-size: initial;
+    font-size: 12px;
 }
 .btn-price {
     padding: 8px;
@@ -662,15 +662,15 @@ hr{border-top: 0.063em solid #000000;}
     font-size: 30px;
 }
   .re-prodcut_price {
-    padding: 6px;
+    padding: 14px;
 }
 .btn-txt {
     padding: 4px;
-    font-size: 12px;
+    font-size: 10px;
 }  
 .btn-price {
     padding: 4px;
-    font-size: 12px;
+    font-size: 10px;
 } 
 .re-prodcut_title {
     font-size: 16px;
@@ -754,8 +754,8 @@ span.btn-img {
     top: 12px;
 }
  .re-prodcut_price {
-    padding: 6px;
-    font-size: 12px;
+    padding: 14px;
+    font-size: 10px;
 } 
   .btn-txt{
     padding: 4px;
@@ -781,7 +781,7 @@ span.btn-img {
     width: 100%;
 }
   .re-prodcut_title {
-    font-size: 12px;
+    font-size: 13px;
     font-family: 'GTFlexa-Medium';
     margin-bottom: 0;
 }
@@ -795,7 +795,7 @@ span.btn-img {
     margin-top: 25px;
 }
   .re-prodcut_price {
-    padding: 6px;
+    padding: 10px;
     font-size: 10px;
 }
   .smartphone {
@@ -821,7 +821,8 @@ span.btn-img {
     top: 0px;
 }
   .re-prodcut_title {
-    font-size: 12px;
+    font-size: 14px;
+    height: 30px;
 }
   .main-heading {
     font-size: 26px;

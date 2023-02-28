@@ -85,7 +85,7 @@
                     {%- endif -%}
                   </span>
                   <span class="btn-price">{{ product.price | money }}</span>
-                  <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}">
+                  <span class="btn-img"><img alt="button image" src="{{ 'btn-icon.svg' | asset_url }}">
                   </button>
                 </form>
               </div>
@@ -132,7 +132,7 @@
   <form method="post" action="/cart/add">
   <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
   <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
-  <button type="submit" value="Submit" class="re-prodcut_price"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}"></button>
+  <button type="submit" value="Submit" class="re-prodcut_price"><span class="btn-txt">BUY NOW</span><span class="btn-price">{{product.price|money}}</span> <span class="btn-img"><img  alt="button image" src="{{ 'btn-icon.svg' | asset_url }}"></button>
   </form>
   </div>
   </div> 

@@ -6,15 +6,37 @@
         <div class="pu-md-3 pu-sm-12">  
           <meta itemprop="name" content="{{shop.name}}"><meta itemprop="description" content="{{shop.name}}">
             <div class="footer-box">                       
-                <img class="footer-logo" src="https://cdn.shopify.com/s/files/1/0564/3157/5138/files/footer-logo.png">
+                <img  alt="logo" class="footer-logo" src="https://cdn.shopify.com/s/files/1/0564/3157/5138/files/footer-logo.png">
                 <p class="footer-cnt">Experience the unlimited power of nature & science come together through our clean, honest, sustainable & plant-based products, in formats that are easy to incorporate into your lifestyle.</p>                                       
-                <ul class="no-bullets social" role="list">{%-if settings.social_instagram_link != blank or settings.social_youtube_link != blank-%}{%-if settings.social_instagram_link != blank-%}<li><a class="insta" itemprop="sameAs"  target="_blank" href="{{settings.social_instagram_link}}"><span class="fallback-text"><img class="i-clr" src="{{ 'insta-clr.png'|file_url }}"></span></a></li>{%-endif-%}{%-if settings.social_youtube_link != blank-%}<li><a class="youtube" itemprop="sameAs" target="_blank" href="{{settings.social_youtube_link}}"><span class="fallback-text"><img class="i-clr" src="{{ 'youtube-clr.png'|file_url }}"></span></a></li>{%-endif-%}{%-else-%}<li><a itemprop="sameAs" target="_blank" href="https://facebook.com"><span aria-hidden="true" focusable="false"><i class="icon icon-icon_15"></i>&nbsp;&nbsp;</span><span class="fallback-text">Facebook</span></a></li><li><a class="insta" itemprop="sameAs" target="_blank" href="https://www.instagram.com/nutrition_bynature/"><span class="fallback-text"><img class="i-gry" src="{{ 'insta-gray.png'|file_url }}"><img class="i-clr" src="{{ 'insta-clr.png'|file_url }}"></span></a></li><li><a itemprop="sameAs" target="_blank" href="https://twitter.com"><span aria-hidden="true" focusable="false"><i class="icon icon-icon_18"></i>&nbsp;&nbsp;</span><span class="fallback-text"><img src="{{ 'youtube.png'|file_url }}"</span></a></li>{%-endif-%}</ul>
+                <ul class="no-bullets social" role="list">
+                  {%-if settings.social_instagram_link != blank or settings.social_youtube_link != blank-%}
+                {%-if settings.social_instagram_link != blank-%}
+              <li><a class="insta" itemprop="sameAs"  target="_blank" href="{{settings.social_instagram_link}}">
+                <span class="fallback-text"><img  alt="logo"  class="i-clr" src="{{ 'insta-clr.png'|file_url }}"></span>
+                </a></li>{%-endif-%}
+            {%-if settings.social_youtube_link != blank-%}
+          <li><a class="youtube" itemprop="sameAs" target="_blank" href="{{settings.social_youtube_link}}">
+            <span class="fallback-text"><img   alt="logo" class="i-clr" src="{{ 'youtube-clr.png'|file_url }}"></span></a>
+          </li>
+        {%-endif-%}
+        
+        {%-if settings.social_facebook_link != blank-%}
+        <li><a class="facebook" itemprop="sameAs" target="_blank" href="{{settings.social_facebook_link}}">
+          <span class="fallback-text"><img alt="logo" class="i-clr" src="{{ 'facebook-clr.png'|file_url }}"></span></a>
+        </li>
+{%-endif-%}
+{%-if settings.social_twitter_link != blank-%}
+<li><a class="twitter" itemprop="sameAs" target="_blank" href="{{settings.social_twitter_link}}">
+  <span class="fallback-text"><img alt="logo" class="i-clr" src="{{ 'twitter-clr.png'|file_url }}"></span></a>
+</li>
+{%-endif-%}
+{%-endif-%}</ul>
             </div>             
           </div>              
                                                                         
           <div class="pu-md-2 pu-sm-12">                       
             <div class="footer-box">                                            
-                <img src="https://cdn.shopify.com/s/files/1/0259/2564/8450/files/learn.png">
+                <img alt="logo" src="https://cdn.shopify.com/s/files/1/0259/2564/8450/files/learn.png">
                  <div class="main-heading-footer">Learn</div>
                   <ul class="no-bullets footer_links">
                   {%-for links in linklists.learn.links-%}
@@ -26,7 +48,7 @@
           <div class="pu-md-4 pu-sm-12">                                                        
             <div class="footer-box"> 
                 <div class="ftr-cntr">
-                  <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272951787550/shop-icon.png">
+                  <img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272951787550/shop-icon.png">
                   <div class="main-heading-footer">Shop</div>
                 </div>
                   <ul class="no-bullets footer_links footer-1">
@@ -39,22 +61,22 @@
           
           <div class="pu-md-3 pu-sm-12 desktop-view-only">
             <div class="footer-box footer-right-side">        
-                <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272674967552/footerimg-icon.png">                
+                <img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272674967552/footerimg-icon.png">                
                   <ul class="no-bullets">                                         
-                    <li><span>Free Shipping</span> <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793205960755/truck.png"></li>
-                    <li><span>10000+Happy Customers</span> <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548794095161374/happy_customer.png"></li>
-                    <li><span>Money Back Guarantee</span> <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793780576277/gaurentee.png"></li>
+                    <li><span>Free Shipping</span> <img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793205960755/truck.png"></li>
+                    <li><span>10000+Happy Customers</span> <img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011548794095161374/happy_customer.png"></li>
+                    <li><span>Money Back Guarantee</span> <img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793780576277/gaurentee.png"></li>
                   </ul>                        
             </div>                               
           </div>                                                                  
          <div class="pu-md-4 pu-sm-12 mobile-view-only">      
            <hr/>     
             <div class="footer-box">               
-                <img src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272674967552/footerimg-icon.png">                
+                <img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011526272674967552/footerimg-icon.png">                
                   <ul class="no-bullets">       
-                    <li><img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793205960755/truck.png"><span>Free Shipping</span></li>
-                    <li><img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548794095161374/happy_customer.png"><span>10000+Happy Customers</span></li>
-                    <li><img src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793780576277/gaurentee.png"><span>Money Back Guarantee</span></li>
+                    <li><img alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793205960755/truck.png"><span>Free Shipping</span></li>
+                    <li><img  alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011548794095161374/happy_customer.png"><span>10000+Happy Customers</span></li>
+                    <li><img  alt="logo" src="https://cdn.discordapp.com/attachments/927845546914377778/1011548793780576277/gaurentee.png"><span>Money Back Guarantee</span></li>
                   </ul>
             </div>     
           </div>   

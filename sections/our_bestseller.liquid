@@ -56,7 +56,7 @@
           {%- endif -%}
         </span>
         <span class="btn-price">{{ product.price | money }}</span>
-        <span class="btn-img"><img src="{{ 'btn-icon.svg' | asset_url }}">
+        <span class="btn-img"><img  alt="button icon" src="{{ 'btn-icon.svg' | asset_url }}">
         </button>
         </form>
       </div>
@@ -86,7 +86,7 @@
           next: ".g1next"
         },
 	breakpoints: {
-		560: {
+		800: {
 			perView: 2,
           autoplay: 5000
 		},

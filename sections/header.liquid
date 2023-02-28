@@ -3,7 +3,7 @@
   <div class="wrapper">
     <div class="pure-g">
       <div class="pu-sm-2 pu-sm-sh pu-md-2 pu-md-sh pu-lg-ht pu-xl-ht pu-xxl-ht"><div class="nav-btn"><span class="visuallyhidden">Menu</span></span><i class="icon icon-menu"></i></div></div>
-      <div class="pu-md-8 pu-lg-2 pu-sm-8" itemscope itemtype="https://schema.org/Organization">
+      <div class="pu-sm-7 pu-md-8 pu-lg-2" itemscope itemtype="https://schema.org/Organization">
         {%-capture image_size-%}{{ 200 | escape }}x{%-endcapture-%}
         {%-liquid 
           assign img_url = section.settings.site_logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.'
@@ -40,7 +40,7 @@
          <!-- <noscript><img src="{{ section.settings.site_logo | img_url: image_size }}" srcset="{{ section.settings.site_logo | img_url: image_size }} 1x, {{ section.settings.site_logo | img_url: image_size, scale: 2 }} 2x" alt="{{ logo_alt | escape }}" itemprop="logo" style="max-width:120px;"></noscript>-->
         </a>        
       </div>
-      <div class="pu-sm-2 pu-md-2 pu-lg-10 pu-xl-10 pu-xxl-10 pu-sm-rt pu-md-rt pu-lg-rt pu-xl-rt pu-xxl-rt">
+      <div class="pu-sm-3 pu-md-2 pu-lg-10 pu-xl-10 pu-xxl-10 pu-sm-rt pu-md-rt pu-lg-rt pu-xl-rt pu-xxl-rt">
           <nav class="nav-drawer nav-drawer-left" style="display: inline-block;">
             <div class="mobile-view-only">
           </div>
@@ -69,22 +69,56 @@
           <div class="nav-close"><span><i class="icon icon-close"></i></span></div>
         </nav>
         <ul class="no-bullets inline-list info_nav_list nav-icons" style="display: inline-block;">
-          <li class="pu-sm-ht pu-md-ht">{%-render 'search'-%}</li>
-          <li><div class="pu-lg-ht pu-xl-ht pu-xxl-ht"><a href="/search"><span class="visuallyhidden">Search</span><i class="icon icon-search"></i></a></div></li>
+         
+          <li>
+            <div class="top-search-icon"><span class="visuallyhidden">Search</span><i id="myBtn" class="icon icon-search"></i></div>
+            </li>
+
           <li class="user-btn"><a href="{%-if customer-%}/account{%-else-%}/account/login{%-endif-%}"><span class="visuallyhidden">Login</span><i class="icon icon-user"></i></a></li>
+
           <li class="cart-btn"><span id="cartCount" class="cart_items_count">{{cart.item_count}}</span><a href="/cart"><span class="visuallyhidden">Cart</span><i class="icon icon-cart"></i></a></li>
         </ul>
       </div>
+    </div>
+    <div id="mySerachResults" class="searchBox-wrapper" style="display: none;">
+      {% render 'main-search' %}
     </div>
   </div>
 </em-header>
 
 
+
 <style>
+  .top-search-icon{
+    margin-top: 28px;
+    margin-right: 28px;
+
+  }
+  .icon-search{
+    cursor: pointer;
+  }
+  .searchBox-wrapper{
+    width: 100%;
+  }
+  .search-active{
+    display: block !important;
+  }
   .nav-icons{
 margin-top: 10px;
   }
 </style>
+<script>
+  let myBtn = document.getElementById("myBtn");
+  let mySerachResults=document.getElementById("mySerachResults");
+  myBtn.onclick = function() {
+    mySerachResults.classList.toggle("search-active");
+    console.log("btn clicked")
+  };
+  let closeSearch = document.getElementById("closeSearch");
+  closeSearch.onclick=()=>{
+    mySerachResults.classList.toggle("search-active");
+  }
+</script>
 
 <script type="text/javascript">
         $(window).on('scroll',function(){
@@ -115,10 +149,3 @@ margin-top: 10px;
 {%-endschema-%}
 
 
-<script>
-  Shopify.onItemAdded = function(cart) {
-	jQuery.getJSON('/cart.js', function(cart) {
-  		$('#cartCount').html(cart.item_count);
-	});
-};
-</script>

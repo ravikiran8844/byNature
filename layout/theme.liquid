@@ -2,11 +2,11 @@
 <html class="no-js" lang="{{ shop.locale }}">
   <head>
     <title>{{ page_title }}{% if current_tags %}
-        – tagged "{{ current_tags | join: ', ' }}"{% endif %}
+        &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}
       {% if current_page != 1 %}
-        – Page {{ current_page }}{% endif %}
+        &ndash; Page {{ current_page }}{% endif %}
       {% unless page_title contains shop.name %}
-        – {{ shop.name }}{% endunless %}
+        &ndash; {{ shop.name }}{% endunless %}
     </title>
     <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     {% if page_description %}
@@ -41,6 +41,7 @@
 
       gtag('config', 'AW-461250838');
     </script>
+
   </head>
   <body id="{{ page_title | handle }}" class="js-drawer {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
     <div
@@ -49,9 +50,8 @@
       aria-label="Announcement">{{ settings.announcement }}</div>
     {%- section 'header' -%}
     <main role="main">
-      {% capture ICART_FULL_PAGE_LAYOUT %}
-        {{ content_for_layout }}{% endcapture %}
-      {% include 'icart-variables', ICART_FULL_PAGE_LAYOUT: ICART_FULL_PAGE_LAYOUT %}</main>
+      {{ content_for_layout }}
+    </main>
     {%-liquid
        section 'footer'
        section 'drawer'-%}
@@ -60,6 +60,7 @@
       Shopify.moneyformat = {{shop.money_format | json}};
     </script>
     <script src="{{-'lazysizes.js' | asset_url-}}" async></script>
+
     <script
       src="{{-'theme.js'|asset_url-}}"
       type="text/javascript"

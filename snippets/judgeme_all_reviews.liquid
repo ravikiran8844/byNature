@@ -7,9 +7,10 @@
     {% for count in (0..65535) %}
       {% assign metafield_key = prefix | append: count %}
       {% assign current_metafield = shop.metafields.judgeme[metafield_key] %}
-      {% unless current_metafield %} {% break %} {% endunless %}
+      {% unless current_metafield %}
+        {% break %}
+      {% endunless %}
       {{ current_metafield }}
     {% endfor %}
   </div>
 </article>
-

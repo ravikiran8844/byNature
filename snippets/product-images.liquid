@@ -26,9 +26,7 @@ assign image_size = '250x'
     <ul class="slider__slides glide__slides">
       {%-for image in product.images-%}
         <li class="slider__frame glide__slide text-center">
-        <a href="{{ image.src | img_url: 'master' }}">
             <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
-          </a>
         </li>
       {%-endfor-%}
         

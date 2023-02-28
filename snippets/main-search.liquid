@@ -1,0 +1,48 @@
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+
+<predictive-search>
+  <form
+    action="{{ routes.search_url }}"
+    method="get"
+    role="search">
+    <label for="Search">Search</label>
+    <input
+      class="searchBar"
+      id="Search"
+      type="search"
+      name="q"
+      value="{{ search.terms | escape }}"
+      role="combobox"
+      aria-expanded="false"
+      aria-owns="predictive-search-results"
+      aria-controls="predictive-search-results"
+      aria-haspopup="listbox"
+      aria-autocomplete="list">
+    <input
+      name="options[prefix]"
+      type="hidden"
+      value="last">
+
+    <div id="predictive-search" tabindex="-1"></div>
+  </form>
+  <div>
+    <button class="closeSearch" id="closeSearch">Close</button>
+  </div>
+</predictive-search>
+
+
+<style>
+  .closeSearch {
+    position: relative;
+    bottom: 0;
+    left: 0;
+  }
+  .closeSearch:hover {
+    background-color: #fff;
+  }
+  .searchBar {
+    width: 100%;
+    background-color: transparent !important;
+    position: relative;
+  }
+</style>
