@@ -60,7 +60,9 @@
 }
 
 .question.active + .answercont {
+  
 }
+
 section.product_sec_one {
     padding-top: 160px;
 }
@@ -520,9 +522,10 @@ hr{border-top: 0.063em solid #000000;}
     display: flex;
     justify-content: center;
 }
-   .prod-rec-ttl {
+.prod-rec-ttl {
       text-align: center;
       }
+
   .re-prodcut_title {
     font-size: 18px;
     margin-top: 10px;
@@ -686,6 +689,7 @@ hr{border-top: 0.063em solid #000000;}
     margin-top: 10px;
     font-family: 'GTFlexa-Medium';
     margin-bottom: 0px;
+    height: 40px;
 }
   .re-prodcut_price {
     top: 12px;
@@ -740,6 +744,7 @@ hr{border-top: 0.063em solid #000000;}
 } 
   .re-prodcut_title {
     font-size: 16px;
+    height: 40px;
 }
 .btn-img {
     display: none;

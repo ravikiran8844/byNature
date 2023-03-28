@@ -662,7 +662,7 @@ hr{border-top: 0.063em solid #000000;}
     font-size: 30px;
 }
   .re-prodcut_price {
-    padding: 14px;
+    padding: 10px;
 }
 .btn-txt {
     padding: 4px;
@@ -781,7 +781,7 @@ span.btn-img {
     width: 100%;
 }
   .re-prodcut_title {
-    font-size: 13px;
+    font-size: 14px;
     font-family: 'GTFlexa-Medium';
     margin-bottom: 0;
 }
@@ -795,7 +795,7 @@ span.btn-img {
     margin-top: 25px;
 }
   .re-prodcut_price {
-    padding: 10px;
+    padding: 6px;
     font-size: 10px;
 }
   .smartphone {
@@ -821,8 +821,8 @@ span.btn-img {
     top: 0px;
 }
   .re-prodcut_title {
-    font-size: 14px;
-    height: 30px;
+    font-size: 12px;
+    margin-bottom: 10px;
 }
   .main-heading {
     font-size: 26px;

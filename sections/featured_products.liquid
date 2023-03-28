@@ -19,7 +19,7 @@
     <div id="collectproducts" class="pure-g">
       {%- for product in collections['all'].products limit: 8 -%}
 
-        <div class="pu-md-3 pu-sm-6 pu-lg-3">
+        <div class="pu-sm-6 pu-md-3 pu-lg-3">
           <div class="productinnerwrapper">
             <div class="ht-80">
               <a href="{{product.url}}">
@@ -55,7 +55,7 @@
             </div>
             <div class="ht-10 text-center">
               <a href="{{product.url}}">
-                <h4 class="re-prodcut_title">{{ product.title | truncate: 30 }}</h4>
+                <h4 class="re-prodcut_title">{{ product.title | truncate: 25 }}</h4>
               </a>
             </div>
             <div class="ht-10 text-center">
@@ -125,7 +125,7 @@
   </div>
   <div class="ht-10">
   <a  href="{{product.url}}">
-  <h4 class="re-prodcut_title">{{product.title | strip_html | truncate: 30}}</h4>      
+  <h4 class="re-prodcut_title">{{product.title | strip_html | truncate: 25}}</h4>      
   </a>
   </div>
   <div class="ht-10 text-center">

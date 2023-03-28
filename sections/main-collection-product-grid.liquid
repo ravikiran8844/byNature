@@ -53,7 +53,7 @@
           -%}<div class="lazyload__image-wrapper no-js header-logo__image" style="max-width:100%;">
             <div style="padding-top:{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%;">
               <img class="lazyload js" data-src="{{ img_url }}" data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]" data-aspectratio="{{ product.featured_image.aspect_ratio }}" data-sizes="auto" alt="{{ img_alt | escape }}" style="width:100%;"></div></div><noscript><img src="{{ product.featured_image | img_url: image_size }}" srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x" alt="{{ img_alt | escape }}" style="max-width:auto;"></noscript>
-              <p class="collection_prodcut_title">{{product.title | strip_html | truncate: 30}}</p><div class="btn-cntr">
+              <p class="collection_prodcut_title">{{product.title | strip_html | truncate: 25}}</p><div class="btn-cntr">
               <div class="review-widget">
                 {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: product %}
               </div>

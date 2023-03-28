@@ -37,7 +37,7 @@
                   {{ 'image' | placeholder_svg_tag: 'my-custom-class' }}
                 {%- endif -%}
                 <div class="text-center">
-                  <h4 class="re-prodcut_title">{{ product.title | strip_html | truncate: 30 }}</h4>
+                  <h4 class="re-prodcut_title">{{ product.title | strip_html | truncate: 25 }}</h4>
                 </a>
                 <form method="post" action="/cart/add">
                   <input

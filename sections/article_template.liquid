@@ -9,7 +9,7 @@
   <div class="blog-cont">
   <div itemprop="author"><meta itemprop="url" content="{{shop.url}}{{article.url}}" /><meta itemprop="name" content="{{ article.author | camelcase }}" /></div>
   <h1 class="text-center article_title" itemprop="headline">{{ article.title }}</h1>
-  <p class="text-center art_author" itemprop="dateCreated pubdate datePublished"> <time datetime="{{ article.created_at | date: "%B %d, %Y" }}">by Bynature - {{ article.created_at | date: "%B %d, %Y" }}</time></p>
+  <p class="text-center art_author" itemprop="dateCreated datePublished"> <time datetime="{{ article.created_at | date: "%B %d, %Y" }}">by Bynature - {{ article.created_at | date: "%B %d, %Y" }}</time></p>
   <div><img itemprop="image" class="blog-inner-img" src="{{ article.image.src | img_url: '1299x410' }}"></div>  
   <div itemprop="articleBody" class="art_content">{{ article.content}}</div>
      <hr>

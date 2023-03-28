@@ -41,6 +41,7 @@
     </div>
     {%- paginate collections by 8 -%}
       <div class="pure-g">
+        <h1 class="h3">Collections</h1>
         <div class="desktop-view-only">
           <ul class="cal-ul">
             <li>
@@ -119,7 +120,7 @@
                                     srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x"
                                     alt="{{ img_alt | escape }}"
                                     style="max-width:auto;"></noscript>
-                                <p class="collection_prodcut_title">{{ product.title | strip_html | truncate: 30 }}</p>
+                                <p class="collection_prodcut_title">{{ product.title | strip_html | truncate: 25 }}</p>
                                 <div class="btn-cntr">
                                   <form method="post" action="/cart/add">
                                     <input
@@ -242,7 +243,7 @@
                             srcset="{{ product.featured_image | img_url: image_size }} 1x, {{ product.featured_image | img_url: image_size, scale: 2 }} 2x"
                             alt="{{ img_alt | escape }}"
                             style="max-width:auto;"></noscript>
-                        <p class="collection_prodcut_title">{{ product.title | strip_html | truncate: 30 }}</p>
+                        <p class="collection_prodcut_title">{{ product.title | strip_html | truncate: 25 }}</p>
                         <div class="btn-cntr">
                           <form method="post" action="/cart/add">
                             <input
@@ -444,6 +445,7 @@
   }
   .dropdown-open .dropdown-menu.dropdown-active {
     display: block;
+    z-index: 100;
   }
 
   .dropdown-container.dropdown-open .dropdown-toggle:before {

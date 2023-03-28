@@ -32,23 +32,19 @@
               </a>
               <div class="content">
                 <div class="pure-g">
-                  {%- for tag in product.tags -%}
-                    {%- for bentag in section.blocks -%}
-                      {%- assign curtag = tag | handleize -%}
-                      {%- assign curing = bentag.settings.ben_ttl | handleize -%}
-                      {% if curtag contains curing %}
-                        <div class="pu-md-6 pu-sm-12">
-                          <div class="benf-box">
-                            <div class="benf-icon">
-                              <img src="{{ bentag.settings.ben_img | image_url }}">
-                            </div>
-                            <div class="benf-cnt">
-                              {{ bentag.settings.ben_ttl }}
-                            </div>
-                          </div>
+                  {%- for benefit in product.metafields.custom.benefits.value -%}
+                    {%- assign curtag = benefit | handleize -%}
+                    {% assign curtag_img = curtag | append: '.png' %}
+                    <div class="pu-md-6 pu-sm-12">
+                      <div class="benf-box">
+                        <div class="benf-icon">
+                          <img src="{{ curtag_img | file_url }}">
                         </div>
-                      {%- endif -%}
-                    {%- endfor -%}
+                        <div class="benf-cnt">
+                          {{ benefit }}
+                        </div>
+                      </div>
+                    </div>
                   {%- endfor -%}
                 </div>
               </div>
