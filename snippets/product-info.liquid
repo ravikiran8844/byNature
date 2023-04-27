@@ -14,7 +14,7 @@
     {% endunless %} -->
     {% unless product.description == blank %}
       <div class="product-page-dic">
-        <p>{{ product.description }}</p>
+        <p>{% render 'product-description-tabs', product: product %}</p>
       </div>
     {% endunless %}
   </div>

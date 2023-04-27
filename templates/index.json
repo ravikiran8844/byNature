@@ -3,6 +3,14 @@
     "image-banner-new": {
       "type": "image-banner-new",
       "blocks": {
+        "25c42a1d-fb7a-4f2f-a0fc-cc4be1fa0778": {
+          "type": "slide",
+          "settings": {
+            "image_desk": "shopify:\/\/shop_images\/Website_1.jpg",
+            "image_mob": "shopify:\/\/shop_images\/mobile_size_1.jpg",
+            "link": "https:\/\/bynature.in\/collections\/breakfast"
+          }
+        },
         "22eae731-fb31-4e61-ac8c-041009dd162b": {
           "type": "slide",
           "settings": {
@@ -13,6 +21,7 @@
         }
       },
       "block_order": [
+        "25c42a1d-fb7a-4f2f-a0fc-cc4be1fa0778",
         "22eae731-fb31-4e61-ac8c-041009dd162b"
       ],
       "settings": {

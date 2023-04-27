@@ -76,7 +76,8 @@
 
           <li class="user-btn"><a href="{%-if customer-%}/account{%-else-%}/account/login{%-endif-%}"><span class="visuallyhidden">Login</span><i class="icon icon-user"></i></a></li>
 
-          <li class="cart-btn"><span id="cartCount" class="cart_items_count">{{cart.item_count}}</span><a href="/cart"><span class="visuallyhidden">Cart</span><i class="icon icon-cart"></i></a></li>
+          <li class="cart-btn"><span data-ajax-cart-bind-state="cart.item_count" class="cart_items_count">{{cart.item_count}}</span><a href=""
+          data-ajax-cart-toggle-class-button="js-my-cart-open"><span class="visuallyhidden">Cart</span><i class="icon icon-cart"></i></a></li>
         </ul>
       </div>
     </div>

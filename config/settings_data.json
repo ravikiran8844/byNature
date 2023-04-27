@@ -141,24 +141,18 @@
         "settings": {
           "products_to_show": 3
         }
+      },
+      "icart": {
+        "type": "icart",
+        "settings": {
+          "pro1": "almond-flour-and-palm-jaggery-combo"
+        }
       }
     },
     "content_for_index": [
 
     ],
     "blocks": {
-      "16304872806d79912c": {
-        "type": "shopify:\/\/apps\/icart-cart-drawer-cart-upsell\/blocks\/icart-block\/e651bbc2-5760-47d8-a513-2aa6ee3a9aa7",
-        "disabled": true,
-        "settings": {
-        }
-      },
-      "10910696115237310528": {
-        "type": "shopify:\/\/apps\/sticky-cart-slide-cart-drawer\/blocks\/slide-cart-app-embed\/06f96c51-92d4-4ccf-8798-f65ef7359208",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "14060646107696862457": {
         "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,

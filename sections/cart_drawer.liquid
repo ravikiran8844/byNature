@@ -1,0 +1,186 @@
+<div class="cd__wrapper">
+  
+  <form
+    action="{{ routes.cart_url }}"
+    method="post"
+    class="my-cart">
+    <!-- data-ajax-cart-section makes the element's HTML update
+    when the cart gets changed -->
+    <div data-ajax-cart-section>
+      <div class="cd__header">
+        <h2 class="cd__heading">YOUR CART (<span data-ajax-cart-bind-state="cart.item_count"> {{ cart.item_count }}
+            </span>)</h2> 
+        <button class="cd-close__btn" data-ajax-cart-toggle-class-button="js-my-cart-open | remove">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 329.26933 329" width="16px" height="12px"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"></path></svg>
+      </button>
+      </div>
+
+
+      <!-- data-ajax-cart-section-scroll keeps the scroll position unchanged
+      when the element's HTML is changed -->
+      <div class="my-cart__items" data-ajax-cart-section-scroll>
+        {% for item in cart.items %}
+          {% assign item_index = forloop.index %}
+          <hr/>
+<div class="my-cart__item">
+
+<div>
+    <img src="{{item.image | img_url: 'medium'}}" height="100" width="100">
+</div>          
+        <div>
+            <a class="cd__item-title" href="{{ item.url }}">{{ item.title }}</a>
+
+            {% for property in item.properties %}
+              <div>
+                {{ property.first }}:
+                {% if property.first == 'Engraving' %}
+                  <!-- data-ajax-cart-property-input ajaxifies the line item property input -->
+                  <input
+                    type="text"
+                    value="{{ property.last }}"
+                    data-ajax-cart-property-input="{{ item_index }}[{{ property.first }}]" />
+                {% else %}
+                  {{ property.last }}
+                {% endif %}
+              </div>
+            {% endfor %}
+  
+            <div>Price: {{ item.final_price | money }}</div>
+            <div class="cd__quantity-wrapper">
+                <!-- data-ajax-cart-request-button ajaxifies the "Minus one" button -->
+                <a class="cd__qty-minus" data-ajax-cart-request-button href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}">
+                  -
+                </a>
+    
+                <!-- data-ajax-cart-quantity-input ajaxifies the line item quantity input -->
+                <input class="cd__input"
+                data-ajax-cart-quantity-input="{{ item_index }}"
+                  name="updates[]"
+                  value="{{ item.quantity }}"
+                  type="text" />
+    
+                <!-- data-ajax-cart-request-button ajaxifies the "Plus one" button -->
+                <a class="cd__qty-plus" data-ajax-cart-request-button href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}">
+                  +
+                </a>
+              </div>
+                        <!-- Container for errors -->
+          <div data-ajax-cart-messages="{{ item.key }}"></div>
+
+          <div>Total:
+            <strong>{{ item.final_line_price | money }}</strong>
+          </div>
+        </div>
+        </div>
+
+
+        {% endfor %}
+      </div>
+<hr/>
+      <!-- data-ajax-cart-property-input ajaxifies the cart note textarea -->
+      <textarea
+        data-ajax-cart-property-input
+        name="note"
+        placeholder="Cart note">
+        {{ cart.note }}
+      </textarea>
+
+      <!-- data-ajax-cart-static-element keeps the container unchanged
+      when the cart and the surrounding HTML get updated -->
+      <div data-ajax-cart-static-element class="my-cart__app-container"></div>
+
+      <button type="submit" name="checkout">
+        Checkout — {{ cart.total_price | money_with_currency }}
+      </button>
+    </div>
+  </form>
+</div>
+
+
+<style>
+  .cd__wrapper {
+    display: block;
+    position: fixed;
+    width: 450px;
+    right: 0;
+    background-color: #fff;
+    padding: 1%;
+    height: 100vh;
+    top: 0;
+    z-index: 9999;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    -webkit-box-shadow: -4px 0 9px -3px rgb(0 0 0 / 26%);
+    -moz-box-shadow: -4px 0 9px -3px rgb(0 0 0 / 26%);
+    box-shadow: -4px 0 9px -3px #00000042;
+    overflow: auto;
+  }
+  .cd-close__btn{
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    top: 12px;
+  }
+  .cd__header{
+    
+  }
+  .my-cart__item{
+    display: flex;
+  }
+  .cd__item-title{
+    color: #000000;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    text-decoration: none;
+    text-transform: none;
+  }
+  .cd__input{
+    background: transparent;
+    width: 50px;
+    text-align: center;
+    border: none;
+  }
+  .cd__quantity-wrapper{
+    display: inline-block;
+    width: auto;
+    height: 40px;
+    vertical-align: middle;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border: 1px solid #ccc !important;
+    padding: 0 20px;
+    max-width: 5px 0;
+  }
+  .cd__quantity-wrapper input{
+    background: transparent;
+    height: 100%;
+
+  }
+.cd__heading{
+    border: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    line-height: 30px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    color: #000000 !important;
+}
+  .cd__qty-minus{
+    padding-right: 10px;
+    font-size: 20px;
+  }
+  .cd__qty-plus{
+    padding-left: 10px;
+    font-size: 20px;
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "My Cart"
+  }
+{% endschema %}

@@ -26,10 +26,12 @@
       rel="stylesheet"
       type="text/css"
       media="all" />
-    {% render 'judgeme_core' %}
+
+    {{ 'liquid-ajax-cart-v1.11.0.js' | asset_url | script_tag }}
 
     {{ shop.metafields.loox["global_html_head"] }}
     <!-- Global site tag (gtag.js) -->
+
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-461250838"></script>
     <script>
@@ -41,9 +43,33 @@
 
       gtag('config', 'AW-461250838');
     </script>
+    <style>
+      .my-floating-cart {
+        display: none;
+      }
 
+      /* Show the floating cart if the 'js-my-cart-open' CSS class exists */
+      .js-my-cart-open .my-floating-cart {
+        display: block;
+      }
+    </style>
   </head>
   <body id="{{ page_title | handle }}" class="js-drawer {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+
+    <script type="application/json" data-ajax-cart-initial-state>
+      {{ cart | json }}
+    </script>
+
+    <script type="module">
+      import '{{ "liquid-ajax-cart-v1.11.0.js" | asset_url }}';
+    </script>
+    <script type="application/json" data-ajax-cart-configuration>
+      {
+      "addToCartCssClass": "js-my-cart-open"
+                               }
+    </script>
+
+
     <div
       class="announcement"
       role="region"
@@ -70,5 +96,13 @@
 
 
     {{ shop.metafields.loox["global_html_body"] }}
+    {% render 'qr-tracking' %}
+    {% render 'qr-snippet' %}
+
+    <div class="my-floating-cart">
+      {% section 'icart' %}
+    </div>
+
+
   </body>
 </html>

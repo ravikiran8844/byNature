@@ -1,0 +1,352 @@
+{{ 'icart.css' | asset_url | stylesheet_tag }}
+
+
+<div class="hs-popup-cart-sp-load hs-cart-drawer-0 hs-desktop-content-cart hs-active">
+  <div class="hs-site-cart-popup-layout" style="box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.5);">
+    <!-- HS HEADER LAYOUT -->
+    <div class="hs-header-layout">
+      <div class="hs-close-popup-cart">
+        <div class="hs-header-close-empty">
+
+          <h2>Your Cart
+            <span class="hs-count-products-cart">
+              (<span data-ajax-cart-bind-state="cart.item_count">
+                {{ cart.item_count }}
+              </span>)</span>
+          </h2>
+          <span
+            style="cursor:pointer;"
+            class="hs-close hs-event-static"
+            data-ajax-cart-toggle-class-button="js-my-cart-open | remove">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 329.26933 329"
+              width="16px"
+              height="12px"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"></path>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- HS BODY LAYOUT -->
+  <div class="hs-body-layout" data-ajax-cart-section>
+
+    <div class="hs-layout-content">
+      {% if cart.item_count ==0 %}
+      <div style="text-align: center;width: 100%;padding:50px 0;font-weight: bold;font-size: larger;">
+         <div>Your Cart is Empty</div>
+      </div>
+{% else %}
+  
+
+      <div class="hs-sticky-cart">
+        {% for item in cart.items %}
+          {% assign item_index = forloop.index %}
+          <div class="hs-item-cart-content hs-product-31987614875714">
+            <div class="hs-item-content-variants">
+              <div class="hs-item-cart-image">
+                <a class="hs-item-cart-image-content" href="{{ item.url }}"><img
+                    class="hs-cart-image"
+                    loading="lazy"
+                    src="{{item.image | img_url: 'medium'}}"
+                    width="100"
+                    height="90"
+                    alt="{{item.title}}"></a>
+              </div>
+              <div class="hs-item-cart-description">
+                <div class="hs-item-top">
+                  <div class="hs-item-top-left">
+                    <div class="hs-content-product-and-variant-title">
+                      <a href="{{ item.url }}" class="hs-product-title">
+                        {{ item.title }}</a>
+
+
+                    </div>
+                  </div>
+                  <div class="hs-item-close">
+                    <span
+                      style="cursor:pointer;"
+                      class="hs-remove-item hs-event-static"
+                      data-id="31987614875714"
+                      data-key="31987614875714:b2aad61b97357a0a45509a2d7a22af76"
+                      data-line="1">
+                     <a href="{{ routes.cart_change_url}}?id={{ item.key }}&quantity=0" data-ajax-cart-request-button>
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 329.26933 329"
+                      width="16px"
+                      height="12px"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"></path>
+                  </svg>
+                     </a>
+                  </span>
+                </div>
+              </div>
+              <div class="hs-content-quantity-price">
+                <div class="hs-item-cart-content-quantity">
+                  <div class="hs-item-cart-qty hs-item-31987614875714">
+                    <div
+                      class="hs-cart-plus-minus"
+                      data-quantity="1"
+                      data-id="31987614875714"
+                      data-key="31987614875714:b2aad61b97357a0a45509a2d7a22af76"
+                      data-line="1">
+                      <div class="hs-dec hs-qtybutton hs-event-static">
+                        <a
+                          style="padding: 10px;"
+                          data-ajax-cart-request-button
+                          href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | minus: 1 }}">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="10px"
+                            height="10px"
+                            viewBox="0 -192 469.33333 469">
+                            <path d="m437.332031.167969h-405.332031c-17.664062 0-32 14.335937-32 32v21.332031c0 17.664062 14.335938 32 32 32h405.332031c17.664063 0 32-14.335938 32-32v-21.332031c0-17.664063-14.335937-32-32-32zm0 0">
+                          </path>
+                        </svg>
+                      </a>
+                    </div>
+                    <input
+                      data-ajax-cart-quantity-input="{{ item_index }}"
+                      name="updates[]"
+                      value="{{ item.quantity }}"
+                      type="text"
+                      class="hs-event-static">
+                    <label for="31987614875714" class="hs-cart-input-lbl">1</label>
+                    <div class="hs-inc hs-qtybutton hs-event-static">
+                      <a
+                        style="padding: 10px;"
+                        data-ajax-cart-request-button
+                        href="{{ routes.cart_change_url }}?line={{ item_index }}&quantity={{ item.quantity | plus: 1 }}">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="10px"
+                          height="10px"
+                          version="1.1"
+                          x="0px"
+                          y="0px"
+                          viewBox="0 0 492 492"
+                          style="enable-background:new 0 0 492 492;"
+                          xml:space="preserve">
+                          <g>
+                            <g>
+                              <path d="M465.064,207.566l0.028,0H284.436V27.25c0-14.84-12.016-27.248-26.856-27.248h-23.116    c-14.836,0-26.904,12.408-26.904,27.248v180.316H26.908c-14.832,0-26.908,12-26.908,26.844v23.248    c0,14.832,12.072,26.78,26.908,26.78h180.656v180.968c0,14.832,12.064,26.592,26.904,26.592h23.116    c14.84,0,26.856-11.764,26.856-26.592V284.438h180.624c14.84,0,26.936-11.952,26.936-26.78V234.41    C492,219.566,479.904,207.566,465.064,207.566z">
+                            </path>
+                          </g>
+                        </g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                        <g></g>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hs-cart-content-price">
+              <input
+                type="hidden"
+                value="49900"
+                class="">
+              <span class="hs-compare-at-price">
+                <span class="money">{{ item.original_price | money }}</span>
+              </span>
+              <span class="hs-price-total hs-variant-31987614875714-price-total hs-desktop">
+                <span class="money">{{ item.final_price | money }}</span>
+              </span>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+            </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+
+{% comment %} <div class="hs-add-discount">
+<div class="hs-success-code-discount"></div>
+<label class="hs-discount-heading"></label>
+<div class="hs-content-discount-add">
+<input type="text" class="hs-discount-code hs-event-static" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="eg. Discount Code" value="" name="hsdiscount" autocomplete="off">
+<button title="Apply" type="button" class="hs-apply-discount hs-event-static">
+<span class="hs-text--apply--discount">Apply</span>
+<span class="hs--loading"><div class="hs-spinner"></div></span>
+</button>
+</div>
+<div class="hs-error-code-discount"></div>
+<div class="hs-tag-code-discount"></div>
+</div> {% endcomment %}
+{% assign upsellProduct = section.settings.pro1 %}
+
+  <div class="hs-container-swp  hs-automatic-recommend">
+  {% if upsellProduct != blank %}
+
+    <div class="hs-frequently-bought">
+      <span>Frequently Bought Together</span>
+    </div>
+
+
+    <div data-ajax-cart-static-element class="hs-swipper-containter-cart hs-mode-dynamic" style="color: black;">
+      <div class="hs-swiper-container swiper-container-automatic swiper-initialized swiper-horizontal swiper-pointer-events swiper-autoheight">
+        <div class="hs-swiper-wrapper" style="height: 167px;">
+          <div id="pro1" class="hs-swiper-slide" style="width: 390px; margin-right: 30px;">
+            <div class="hs-content-product-slide-cart">
+              <div class="hs-product-content-image-swipper ">
+                <a href="{{upsellProduct.url}}" class="hs-product-link-image">
+                  <img
+                    loading="lazy"
+                    src="{{upsellProduct.featured_image | img_url: 'medium'}}"
+                    alt="{{upsellProduct.title}}"
+                    width="100"
+                    height="90"></a>
+              </div>
+              <div>
+
+                <div class="hs-popup">
+                  <div class="hs-title-swiper">
+                    {{ upsellProduct.title }}
+                  </div>
+                  <div class="hs-content-all-upsell">
+                    <div class="hs-content-price-swiper">
+                      <div class="hs-compare-price-sw">
+                        <span class="money">{{ upsellProduct.compared_at_price | money }}</span>
+                      </div>
+                      <div class="hs-price-sw">
+                        <span class="money">{{ upsellProduct.price | money }}</span>
+                      </div>
+                    </div>
+
+                    <div class="hs-upsell-add  hs-swiper-no-swiping">
+
+                      {% form 'product', upsellProduct %}
+                        <div style="display: none;">
+                          <select name="id">
+                            {% for variant in upsellProduct.variants %}
+                              <option value="{{ variant.id }}" {% if variant == upsellProduct.selected_or_first_available_variant %}selected="selected"{% endif %}>
+                                {{ variant.title }} - {{ variant.price | money }}
+                              </option>
+                            {% endfor %}
+                          </select>
+                          <input
+                            type="text"
+                            name="quantity"
+                            min="1"
+                            value="1">
+                        </div>
+                        <button onclick="document.getElementById('pro1').style='display:none';" type="submit" class="hs-upsell-add-to-cart btn hs-event-static">
+                          <span class="hs-add--to--cart">ADD</span>
+                        </button>
+                      {% endform %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  {% endif %}
+</div>
+</div>
+</div>
+ <!-- HS FOOTER LAYOUT -->
+ {% if cart.item_count > 0 %}
+ <div class="hs-footer-layout">
+
+   <div class="hs-drawer-checkout">
+     <div class="hs-drawer-content-checkout">
+       <div class="hs-content-total-cart">
+
+         <div class="hs-sub-total-cart-padding" style="padding-bottom: 10px;">
+           <div class="hs-sub-total-cart">
+             <div class="hs-text-subtotal">
+               Subtotal
+             </div>
+             <div class="hs-mount-sub-total">
+               <span class="hs_subtotal_compare_at_price"></span>
+               <span class="hs_subtotal_discount_automatic"></span>
+               <span class="hs_subtotal_amount ">
+                 <span class="money" data-ajax-cart-section>{{ cart.total_price | money_with_currency }}</span>
+               </span>
+               <span class="hs_subtotal_amount_discount"></span>
+             </div>
+           </div>
+         </div>
+
+       </div>
+       <form
+         action="{{ routes.cart_url }}"
+         method="post"
+         class="my-cart">
+         <div class="hs-finalize-purchase">
+
+
+
+           <div class="hs-content-buttons">
+             <div class="hs-content-checkout-button hs-button-100-w">
+               <button
+                 type="submit"
+                 name="checkout"
+                 class="hs-checkout-purchase checkout-x-buy-now-btn hs-button-100-w btn hs-event-static">
+                 <span class="hs-add--to--cart">Checkout</span>
+                 <span class="hs--loading">
+                   <div class="hs-spinner"></div>
+                 </span>
+               </button>
+             </div>
+           </div>
+           <span
+             class="hs-continue-shopping hs-event-static"
+             style="cursor:pointer;"
+             data-ajax-cart-toggle-class-button="js-my-cart-open | remove">Continue Shopping</span>
+
+         </div>
+       </form>
+     </div>
+   </div>
+   <div class="hs-product-option"></div>
+ </div>
+{% endif %}
+</div>
+</div>
+
+<style>
+  .hs-site-cart-popup-layout div {
+    box-sizing: border-box!important;
+    max-width: calc(100% + 0px);
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Cart Drawer",
+    "class": "section",
+    "settings": [
+      {
+        "type": "product",
+        "id": "pro1",
+        "label": "Product"
+      }
+
+    ]
+  }
+{% endschema %}
